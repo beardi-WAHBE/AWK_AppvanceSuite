@@ -5,7 +5,7 @@
 //include("{ds}/ReusableFunctions/AccessorFunctions.js");
 //include("{ds}/ReusableFunctions/TestLinkHelperFunctions.js");
 
-include("{ds}/TestElements/ContentElements/_ContentElement.js");
+include("{ds}/CustomScripts/TestElements/ContentElements/_ContentElement.js");
 
 // Test Change 2
 
