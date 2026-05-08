@@ -45,7 +45,7 @@ class Link_ContentElement extends _ContentElement {
     RunTests() {
         super.RefreshWebElement();
         click(byXPath(this.myXPath));
-        log("Page Title: " getTitle())
+        log("Page Title: " + getTitle())
     }
 
     
