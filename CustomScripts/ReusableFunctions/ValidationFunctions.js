@@ -22,7 +22,7 @@ function Check_PageLoaded() {
     }
 
     // Check HTTP response
-    let pageResponse = _get("/").response;
+    let pageResponse = _get("/").status;
     log("Page Response: " + pageResponse);
     if(pageResponse != 200) return false;
 
