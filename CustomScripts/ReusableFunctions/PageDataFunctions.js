@@ -128,9 +128,9 @@ function UnitTest_GetPageData(in_url) {
     `);
 }
 
-UnitTest_GetPageData("https://qa.wapathways.org/");
-UnitTest_GetPageData("https://uat.wahpf.org/HBEWeb/Annon_DisplayHomePage.action?request_locale=en&id=TnqlsfmaF73rqnNO2D3qCSMxUGidjZpQ");
-UnitTest_GetPageData("https://dev.wahpf.org/us/en/tools-and-resources/how-to/language-support.html");
-UnitTest_GetPageData("https://dev.wahpf.org/us/es/home-page.html");
-UnitTest_GetPageData("https://www.wahbexchange.org/home-page/");
-UnitTest_GetPageData("https://www.google.com");
+//UnitTest_GetPageData("https://qa.wapathways.org/");
+//UnitTest_GetPageData("https://uat.wahpf.org/HBEWeb/Annon_DisplayHomePage.action?request_locale=en&id=TnqlsfmaF73rqnNO2D3qCSMxUGidjZpQ");
+//UnitTest_GetPageData("https://dev.wahpf.org/us/en/tools-and-resources/how-to/language-support.html");
+//UnitTest_GetPageData("https://dev.wahpf.org/us/es/home-page.html");
+//UnitTest_GetPageData("https://www.wahbexchange.org/home-page/");
+//UnitTest_GetPageData("https://www.google.com");
