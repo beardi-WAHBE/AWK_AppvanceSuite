@@ -132,15 +132,20 @@ function IsOnHomepage(in_url) {
 
 }
 
-function AssertPageLoaded() {
+function Check_PageLoaded() {
+    // Check HTTP response
     let pageResponse = _get("/");
-    assertEqual(pageResponse, 200);
+    if(pageResponse != 200) return false;
 
-    assertFalse(Object.values(errorCodes).some((code) => getTitle().includes(code)));
+    // Check page title
+    if(!Object.values(errorCodes).some((code) => getTitle().includes(code))) return false;
 
+    // Check page heading
     let headingText = getText(byTagName("h1"));
-    assertFalse(Object.values(errorCodes).some((code) => headingText.includes(code)));
-    assertFalse(Object.values(errorHeadings).some((subStr) => headingText.includes(subStr)));
+    if(!Object.values(errorCodes).some((code) => headingText.includes(code))) return false;
+    if(Object.values(errorHeadings).some((subStr) => headingText.includes(subStr))) return false;
+
+    return true;
 }
 
 // Unit Tests
