@@ -18,6 +18,7 @@ const deniedSymbols = ["|", "[", "]", "\\"];
 class Link_ContentElement extends _ContentElement {
 
     constructor(in_webElement, in_parentXPath) {
+        log("Construct Link");
         super(in_webElement, in_parentXPath);
 
         /*
