@@ -16,7 +16,7 @@ function ElementIsNotHidden(in_element) {
 
 function GenerateXPathProp(in_att, in_val) {
     if (in_val === undefined) return "";
-    else return (in_val.contains(`"`)) ? `contains(${in_att}, '${in_val}') ` : `contains(${in_att}, "${in_val}") `;
+    return (in_val.contains(`"`)) ? `contains(${in_att}, '${in_val}') ` : `contains(${in_att}, "${in_val}") `;
 }
 
 function XPathIsUnique(in_XPath) {
@@ -45,6 +45,7 @@ function FindElementsByXPath(in_xpath, in_ignoreHidden = false) {
 }
 
 function GenerateUniqueXPath(in_webElement, in_parentXPath) {
+    log(`Run GenerateUniqueXPath(${in_webElement}, ${in_parentXPath})`)
     let xpath = in_parentXPath;
     
     const arr_XPathProps = [
