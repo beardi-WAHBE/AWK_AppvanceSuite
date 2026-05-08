@@ -39,5 +39,11 @@ class Link_ContentElement extends _ContentElement {
         }
     }
 
+    RunTests() {
+        RefreshWebElement();
+        click(this.webElement);
+        log("Clicked on: " + this.myXPath)
+    }
+
     
 }
