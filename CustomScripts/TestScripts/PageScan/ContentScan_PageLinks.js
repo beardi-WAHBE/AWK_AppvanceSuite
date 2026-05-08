@@ -12,7 +12,7 @@ function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
     let pageLinks = [];
     
     elements.forEach((elem) => {
-        elementAccessors.push(new Link_ContentElement(elem, p_parentXPath));
+        pageLinks.push(new Link_ContentElement(elem, p_parentXPath));
     });
 
     return pageLinks;
