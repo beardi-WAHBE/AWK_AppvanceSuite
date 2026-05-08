@@ -31,7 +31,7 @@ function Check_PageLoaded() {
 
     // Check page heading
     let headingText = getText(byTagName("h1"));
-    if(!Object.values(errorCodes).some((code) => headingText.includes(code))) return false;
+    if(Object.values(errorCodes).some((code) => headingText.includes(code))) return false;
     if(Object.values(errorHeadings).some((subStr) => headingText.includes(subStr))) return false;
 
     return true;
