@@ -20,6 +20,7 @@ class Link_ContentElement extends _ContentElement {
     constructor(in_webElement, in_parentXPath) {
         super(in_webElement, in_parentXPath);
 
+        /*
         this.flags = {
             appLink: (this.href.contains("/HBEWeb/")),
             opensNewTab: false,
@@ -37,6 +38,7 @@ class Link_ContentElement extends _ContentElement {
             shouldNotBeUnderlined: (inHeader || inFooter || inNavElement || isButton || containsImage),
             shouldNotHaveExternalIcon: (inHeader || inFooter || isButton || containsImage || !hasText),
         }
+        */
     }
 
     RunTests() {
