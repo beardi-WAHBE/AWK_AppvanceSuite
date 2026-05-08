@@ -28,7 +28,7 @@ function Check_PageLoaded() {
 
     // Check page title
     let pageTitle = getTitle();
-    if(!Object.values(errorCodes).some((code) => pageTitle.includes(code))) return false;
+    if(Object.values(errorCodes).some((code) => pageTitle.includes(code))) return false;
 
     // Check page heading
     let headingText = getText(byTagName("h1"));
