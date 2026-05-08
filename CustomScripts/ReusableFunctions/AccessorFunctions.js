@@ -15,7 +15,7 @@ function ElementIsNotHidden(in_element) {
 }
 
 function GenerateXPathProp(in_att, in_val) {
-    if (in_val == "undefined") return "";
+    if (in_val === undefined) return "";
     else return (in_val.contains(`"`)) ? `contains(${in_att}, '${in_val}') ` : `contains(${in_att}, "${in_val}") `;
 }
 
