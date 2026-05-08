@@ -132,21 +132,6 @@ function IsOnHomepage(in_url) {
 
 }
 
-function Check_PageLoaded() {
-    // Check HTTP response
-    let pageResponse = _get("/");
-    if(pageResponse != 200) return false;
-
-    // Check page title
-    if(!Object.values(errorCodes).some((code) => getTitle().includes(code))) return false;
-
-    // Check page heading
-    let headingText = getText(byTagName("h1"));
-    if(!Object.values(errorCodes).some((code) => headingText.includes(code))) return false;
-    if(Object.values(errorHeadings).some((subStr) => headingText.includes(subStr))) return false;
-
-    return true;
-}
 
 // Unit Tests
 function UnitTest_GetPageData(in_url) {
