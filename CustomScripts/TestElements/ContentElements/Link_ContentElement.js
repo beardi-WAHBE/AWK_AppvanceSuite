@@ -44,7 +44,7 @@ class Link_ContentElement extends _ContentElement {
         super.RefreshWebElement();
         click(byXPath(this.myXPath));
         let logStr = "Page Title: " + getTitle();
-        if (this.flags[appLink]) logStr += " (App Link)"
+        if (this.flags["appLink"]) logStr += " (App Link)"
         log("Page Title: " + getTitle())
     }
 
