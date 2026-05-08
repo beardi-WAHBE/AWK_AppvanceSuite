@@ -4,7 +4,7 @@
 */
 
 include("{ds}/../../ReusableFunctions/AccessorFunctions.js");
-include("{ds}/../../CustomScripts/TestElements/ContentElements/Link_ContentElement.js");
+include("{ds}/../../TestElements/ContentElements/Link_ContentElement.js");
 
 function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
     const elements = FindElementsByXPath(p_parentXPath + "//a", p_ignoreHidden);
