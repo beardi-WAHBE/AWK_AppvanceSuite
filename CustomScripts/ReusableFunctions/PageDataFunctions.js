@@ -41,6 +41,21 @@ const mainContentXPaths = {
     HBE: "//main[@id = 'msite-main']",
     PWS: "//div[@id = 'main-content']",
 }
+const errorCodes = {
+    badRequest: "400",
+    unauthorized: "401",
+    forbidden: "403",
+    notFound: "404",
+    internalServerError: "500",
+    badGateway: "502",
+}
+const errorHeadings = {
+    hpfENG: "Oops!",
+    hpfES: "¡Ups!",
+    hbe: "Oops!",
+    notFound: "Not Found",
+    noResourceFound: "No resource found",
+}
 
 // Link Helper Functions
 
@@ -117,6 +132,14 @@ function IsOnHomepage(in_url) {
 
 }
 
+function AssertPageLoaded() {
+    assertEqual(_get("/"), 200)
+    assertFalse(errorCodes.some((code) => getTitle().includes(code)))
+    let headingText = getText(byTagName("h1"));
+    assertFalse(errorCodes.some((code) => headingText.includes(code)))
+    assertFalse(errorHeadings.some((subStr) => headingText.includes(subStr)))
+}
+
 // Unit Tests
 function UnitTest_GetPageData(in_url) {
     //navigateTo(in_url);
@@ -127,6 +150,7 @@ function UnitTest_GetPageData(in_url) {
          - On Homepage: ${IsOnHomepage(in_url)}
     `);
 }
+
 
 //UnitTest_GetPageData("https://qa.wapathways.org/");
 //UnitTest_GetPageData("https://uat.wahpf.org/HBEWeb/Annon_DisplayHomePage.action?request_locale=en&id=TnqlsfmaF73rqnNO2D3qCSMxUGidjZpQ");
