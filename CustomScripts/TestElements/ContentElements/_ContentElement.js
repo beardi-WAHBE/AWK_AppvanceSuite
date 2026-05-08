@@ -6,9 +6,6 @@
 include("{ds}/../_TestElement.js");
 
 class _ContentElement extends _TestElement {
-    parentXPath;
-    myXPath;
-    href;
 
     constructor(in_webElement, in_parentXPath) {
         log("Construct Content Element");
