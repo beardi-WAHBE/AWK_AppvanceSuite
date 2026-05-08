@@ -42,3 +42,5 @@ function UnitTest_ClickOnAllLinks(in_page, in_parentXPath, in_ignoreHidden = tru
         navigateTo(in_page);
     });
 }
+
+ScanPageLinks("https://qa.wahpf.org/us/en/home-page.html")
