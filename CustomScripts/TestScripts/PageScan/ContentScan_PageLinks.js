@@ -21,7 +21,9 @@ function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
 
 function ScanPageLinks(p_originPage) {
     navigateTo(p_originPage);
-    assertTrue(Check_PageLoaded())
+    assertTrue(Check_PageLoaded());
+
+    setAssertType("FailAtEnd");
     let parentXPath = GetMainContentXPath(p_originPage);
     let pageLinks = GetPageLinks(parentXPath);
 
