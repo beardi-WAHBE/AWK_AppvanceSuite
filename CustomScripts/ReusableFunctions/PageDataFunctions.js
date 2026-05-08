@@ -84,6 +84,15 @@ function GetEnv(in_url) {
     return returnEnv;
 }
 
+function GetMainContentXPath(p_url) {
+    let returnXPath = "";
+    let site = GetSite(p_url);
+    if(Object.keys(mainContentXPaths).contains(site)) {
+        returnXPath = mainContentXPaths[site];
+    }
+    return returnXPath;
+}
+
 function IsOnHomepage(in_url) {
     const env = GetEnv(in_url);
     const site = GetSite(in_url);
