@@ -7,6 +7,7 @@ class _TestElement {
     parentXPath;
     myXPath;
     href;
+    webElement;
 
     constructor(in_webElement, in_parentXPath) {
         this.parentXPath = in_parentXPath;
