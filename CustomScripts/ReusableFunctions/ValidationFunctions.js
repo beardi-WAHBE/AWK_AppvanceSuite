@@ -20,8 +20,9 @@ function Check_PageLoaded() {
         notFound: "Not Found",
         noResourceFound: "No resource found",
     }
+
     // Check HTTP response
-    let pageResponse = _get("/");
+    let pageResponse = _get("/").response;
     if(pageResponse != 200) return false;
 
     // Check page title
