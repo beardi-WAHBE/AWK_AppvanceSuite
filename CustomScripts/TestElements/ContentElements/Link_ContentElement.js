@@ -21,14 +21,13 @@ class Link_ContentElement extends _ContentElement {
         log("Construct Link");
         super(in_webElement, in_parentXPath);
 
-        /*
         this.flags = {
             appLink: (this.href.contains("/HBEWeb/")),
             opensNewTab: false,
             hasNewTabIcon: false,
             externalLink: false,
-            viewableFile: false,
-            downloadableFile: false,
+            viewableFile: (viewableFileTypes.some((ext) => this.href.includes(ext))),
+            downloadableFile: (downloadableFileTypes.some((ext) => this.href.includes(ext))),
             inHeader: false,
             inFooter: false,
             inNavElement: false,
@@ -39,12 +38,13 @@ class Link_ContentElement extends _ContentElement {
             shouldNotBeUnderlined: (inHeader || inFooter || inNavElement || isButton || containsImage),
             shouldNotHaveExternalIcon: (inHeader || inFooter || isButton || containsImage || !hasText),
         }
-        */
     }
 
     RunTests() {
         super.RefreshWebElement();
         click(byXPath(this.myXPath));
+        let logStr = "Page Title: " + getTitle();
+        if (this.flags[appLink]) logStr += " (App Link)"
         log("Page Title: " + getTitle())
     }
 
