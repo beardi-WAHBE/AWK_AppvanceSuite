@@ -134,7 +134,7 @@ function IsOnHomepage(in_url) {
 
 function AssertPageLoaded() {
     let pageResponse = _get("/");
-    //assertEqual(pageResponse, 200);
+    assertEqual(pageResponse, 200);
 
     assertFalse(Object.values(errorCodes).some((code) => getTitle().includes(code)));
 
