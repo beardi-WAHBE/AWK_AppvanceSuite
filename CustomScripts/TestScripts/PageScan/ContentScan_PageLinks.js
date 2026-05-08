@@ -18,7 +18,7 @@ function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
 }
 
 function ScanPageLinks(p_originPage) {
-    navigateTo(p_page);
+    navigateTo(p_originPage);
     let parentXPath = GetMainContentXPath(p_page);
     let pageLinks = GetPageLinks(parentXPath);
 
