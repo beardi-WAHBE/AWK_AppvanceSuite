@@ -23,6 +23,7 @@ function Check_PageLoaded() {
 
     // Check HTTP response
     let pageResponse = _get("/").response;
+    log("Page Response: " + pageResponse);
     if(pageResponse != 200) return false;
 
     // Check page title
