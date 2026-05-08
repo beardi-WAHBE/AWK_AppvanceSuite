@@ -10,7 +10,7 @@ class _TestElement {
         this.parentXPath = in_parentXPath;
         this.myXPath = GenerateUniqueXPath(in_webElement, in_parentXPath);
         this.href = getAttribute(in_webElement, "href");
-        this.webElement = RefreshWebElement();
+        this.webElement = _byXPath(this.myXPath);
     }
 
     RefreshWebElement() {
