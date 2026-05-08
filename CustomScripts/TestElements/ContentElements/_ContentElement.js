@@ -11,6 +11,7 @@ class _ContentElement extends _TestElement {
     href;
 
     constructor(in_webElement, in_parentXPath) {
+        log("Construct Content Element");
         super(in_webElement, in_parentXPath);
     }
     
