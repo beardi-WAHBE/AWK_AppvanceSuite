@@ -87,7 +87,7 @@ function GetEnv(in_url) {
 function GetMainContentXPath(p_url) {
     let returnXPath = "";
     let site = GetSite(p_url);
-    if(Object.keys(mainContentXPaths).contains(site)) {
+    if(site in mainContentXPaths) {
         returnXPath = mainContentXPaths[site];
     }
     return returnXPath;
