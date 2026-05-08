@@ -43,7 +43,7 @@ class Link_ContentElement extends _ContentElement {
 
     RunTests() {
         super.RefreshWebElement();
-        click(this.webElement);
+        click(byXPath(this.myXPath));
         log("Clicked on: " + this.myXPath)
     }
 
