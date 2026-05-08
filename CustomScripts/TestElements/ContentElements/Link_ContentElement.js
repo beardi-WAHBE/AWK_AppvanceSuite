@@ -46,8 +46,8 @@ class Link_ContentElement extends _ContentElement {
         let logStr = "Page Title: " + getTitle();
         if (this.flags.appLink) logStr += " (App Link)";
         log(logStr);
-        assertNotNull(logStr);
-        assertEqual(_get("/").status, 200);
+        
+        assertTrue(Check_PageLoaded());
     }
 
     
