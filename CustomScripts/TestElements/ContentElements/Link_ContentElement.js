@@ -35,8 +35,8 @@ class Link_ContentElement extends _ContentElement {
             containsImage: false,
             hasText: false,
 
-            shouldNotBeUnderlined: (inHeader || inFooter || inNavElement || isButton || containsImage),
-            shouldNotHaveExternalIcon: (inHeader || inFooter || isButton || containsImage || !hasText),
+            //shouldNotBeUnderlined: (inHeader || inFooter || inNavElement || isButton || containsImage),
+            //shouldNotHaveExternalIcon: (inHeader || inFooter || isButton || containsImage || !hasText),
         }
     }
 
