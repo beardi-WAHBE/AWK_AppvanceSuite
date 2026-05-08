@@ -136,11 +136,11 @@ function AssertPageLoaded() {
     let pageResponse = _get("/");
     //assertEqual(pageResponse, 200);
 
-    assertFalse(errorCodes.values().some((code) => getTitle().includes(code)));
+    assertFalse(Object.values(errorCodes).some((code) => getTitle().includes(code)));
 
     let headingText = getText(byTagName("h1"));
-    assertFalse(errorCodes.values().some((code) => headingText.includes(code)));
-    assertFalse(errorHeadings.values().some((subStr) => headingText.includes(subStr)));
+    assertFalse(Object.values(errorCodes).some((code) => headingText.includes(code)));
+    assertFalse(Object.values(errorHeadings).some((subStr) => headingText.includes(subStr)));
 }
 
 // Unit Tests
