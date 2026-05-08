@@ -118,7 +118,7 @@ function UnitTest_ClickOnAllLinks(in_page, in_parentXPath, in_ignoreHidden = tru
 
 //UnitTest_FindElementsByXPath("https://uat.wahpf.org/us/en/home-page.html", "//a", "//*[@id = 'navbar' or contains(@class, 'page__main-nav') or contains(@class, 'page__primary-nav')]", true);
 //UnitTest_XpathIsUnique("https://uat.wahpf.org/us/en/home-page.html", `//A[contains(@href, "#") and contains(., "My Account") ]`, true)
-UnitTest_ClickOnAllLinks("https://qa.wahpf.org/us/en/home-page.html", "//div[@id = 'main-content']");
+//UnitTest_ClickOnAllLinks("https://qa.wahpf.org/us/en/home-page.html", "//div[@id = 'main-content']");
 
 
 
