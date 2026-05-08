@@ -36,6 +36,11 @@ const envs = {
     PRD: "https://www",
     QA:  "https://qa",
 }
+const mainContentXPaths = {
+    HPF: "//div[@id = 'main-content']",
+    HBE: "//main[@id = 'msite-main']",
+    PWS: "//div[@id = 'main-content']",
+}
 
 // Link Helper Functions
 
