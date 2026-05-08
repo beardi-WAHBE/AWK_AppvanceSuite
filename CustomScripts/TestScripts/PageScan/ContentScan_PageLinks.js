@@ -19,12 +19,12 @@ function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
 
 function ScanPageLinks(p_originPage) {
     navigateTo(p_originPage);
-    let parentXPath = GetMainContentXPath(p_page);
+    let parentXPath = GetMainContentXPath(p_originPage);
     let pageLinks = GetPageLinks(parentXPath);
 
     pageLinks.forEach((link) => {
         link.RunTests();
-        navigateTo(in_page);
+        navigateTo(p_originPage);
     });
 }
 
