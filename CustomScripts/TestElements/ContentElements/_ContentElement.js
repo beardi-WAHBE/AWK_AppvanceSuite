@@ -3,7 +3,7 @@
  * This script requires AIQ Web Designer
 */
 
-include("{ds}/TestElements/_TestElement.js");
+include("{ds}/CustomScripts/TestElements/_TestElement.js");
 
 class _ContentElement extends _TestElement {
     parentXPath;
