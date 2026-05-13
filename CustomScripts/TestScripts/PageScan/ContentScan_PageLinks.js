@@ -3,10 +3,10 @@
  * This script requires AIQ Web Designer
 */
 
-//include("{ds}/../../ReusableFunctions/AccessorFunctions.js");
-//include("{ds}/../../ReusableFunctions/PageDataFunctions.js");
-//include("{ds}/../../ReusableFunctions/ValidationFunctions.js");
-//include("{ds}/../../TestElements/ContentElements/Link_ContentElement.js");
+include("{ds}/../../ReusableFunctions/AccessorFunctions.js");
+include("{ds}/../../ReusableFunctions/PageDataFunctions.js");
+include("{ds}/../../ReusableFunctions/ValidationFunctions.js");
+include("{ds}/../../TestElements/ContentElements/Link_ContentElement.js");
 
 function GetPageLinks(p_parentXPath, p_ignoreHidden = true) {
     const elements = FindElementsByXPath(p_parentXPath + "//a", p_ignoreHidden);
