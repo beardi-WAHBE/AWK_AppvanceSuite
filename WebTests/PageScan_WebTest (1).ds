@@ -17,7 +17,7 @@
         <accessor type='filePath' value='"{ds}/../CustomScripts/TestScripts/PageScan/ContentScan_PageLinks.js"' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='js' value='ScanPageLinks("https://qa.wahpf.org/us/en/home-page.html")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a2d334f4-7834-4874-a2c2-48d00cb684e7' uiType='base'>
+    <step action='js' value='ScanPageLinks("https://qa.wahpf.org/us/es/home-page.html")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a2d334f4-7834-4874-a2c2-48d00cb684e7' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
   </testcase>
