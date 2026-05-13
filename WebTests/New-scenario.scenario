@@ -128,6 +128,9 @@
     </options>
     <options type="jira">
       <opt name="useJira" value="false"/>
+      <opt name="jiraIssueTypes" value="[object Object]"/>
+      <opt name="jiraFailure" value="[object Object]"/>
+      <opt name="jiraSuccess" value="[object Object]"/>
     </options>
     <options type="lr">
       <opt name="saveCompleteLrOutputLog" value="false"/>
