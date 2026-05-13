@@ -48,5 +48,5 @@ function UnitTest_ClickOnAllLinks(in_page, in_parentXPath, in_ignoreHidden = tru
     });
 }
 
-//ScanPageLinks("https://qa.wahpf.org/us/en/home-page.html")
+ScanPageLinks("https://qa.wahpf.org/us/en/home-page.html")
 //ScanPageLinks("https://qa.wahpf.org/us/es/herramientas-y-recursos/herramientas/listas-de-comprobacion.html")
