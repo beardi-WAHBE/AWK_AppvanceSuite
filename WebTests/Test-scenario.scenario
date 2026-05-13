@@ -150,12 +150,12 @@
     <controller name="Iteration1">
       <round iterations="1" totalusers="1"/>
     </controller>
-    <testcase name="Testcase1" importance="normal">
+    <testcase name="Scan English Homepage" importance="normal">
       <test>
-        <run name="PageScanTest" langtype="ds3" resource="AWK_AppvanceSuite/WebTests/PageScan_WebTest.ds" method="ds" testclass="Chrome"/>
+        <run name="EnglishHomepage" langtype="ds3" resource="AWK_AppvanceSuite/WebTests/PageScan_WebTest.ds" method="ds" testclass="Chrome"/>
       </test>
     </testcase>
-    <testcase name="Testcase2" importance="normal">
+    <testcase name="Scan Spanish Homepage" importance="normal">
       <test>
         <run name="SpanishHomepage" langtype="ds3" resource="AWK_AppvanceSuite/WebTests/PageScan_WebTest (1).ds" method="ds" testclass="Chrome"/>
       </test>
@@ -166,8 +166,8 @@
   <monitoring enablednodes="true" enabledtarget="false"/>
   <execution type="functionaltest" subtype="bulk">
     <iteration name="Iteration1" controller="Iteration1">
-      <testcase name="Testcase1" users="1" totalexecutions="1" commented="true"/>
-      <testcase name="Testcase2" users="1" totalexecutions="1"/>
+      <testcase name="Scan English Homepage" users="1" totalexecutions="1"/>
+      <testcase name="Scan Spanish Homepage" users="1" totalexecutions="1"/>
     </iteration>
   </execution>
   <logs/>
