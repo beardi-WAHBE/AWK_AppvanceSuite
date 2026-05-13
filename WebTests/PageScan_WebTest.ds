@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testcase  name= '' description='' author='' version=''>
-<dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale=''/>
-<fallback useFallback='true'/>
-<shadowDOM useShadowDOM='true'/>
-<step action='' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='' value='' selected='true'/>
-</dialect>
-</step>
-</testcase>
+  <testcase name='' description='script generated from Web Designer' author='sso.beardi@wahbexchange.org' version='webDesigner'>
+    <dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <fallback useFallback='true'></fallback>
+    <shadowDOM useShadowDOM='true'></shadowDOM>
+    <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='c3e05699-b413-46d1-a26a-d87055ac8e5a' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='filePath' value='"{ds}/../CustomScripts/TestScripts/PageScan/ContentScan_PageLinks.js"' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='js' value='ScanPageLinks("https://qa.wahpf.org/us/en/home-page.html")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a2d334f4-7834-4874-a2c2-48d00cb684e7' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+  </testcase>
