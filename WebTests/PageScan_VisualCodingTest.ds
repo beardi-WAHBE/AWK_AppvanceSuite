@@ -39,7 +39,7 @@
         <accessor type='unknown' value='iteration &lt; PageLinks.length' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='js' value='PageLinks[iteration].RunTests()' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='b923d56e-c90d-4c7a-9fba-b3715b24b1dd' uiType='base'>
+    <step action='js' value='Link_RunTests(PageLinks[iteration])' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='b923d56e-c90d-4c7a-9fba-b3715b24b1dd' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
     <step action='navigateTo' value='PageUnderTest' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='5fa4c61f-bf59-46c4-9ec3-e5aeaeea59a9' uiType='base'>
