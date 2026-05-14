@@ -13,6 +13,11 @@
         <accessor type='unknown' value='PageUnderTest' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
+    <step action='store' value='eval("GetMainContentXPath(PageUnderTest)")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3447de46-149a-40f0-a6d2-a2d8cc125c85' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='ContentContainer' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
     <step action='navigateTo' value='PageUnderTest' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='69b52145-0967-42c9-b54c-bcb52c5cd28d' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
