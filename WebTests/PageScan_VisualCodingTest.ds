@@ -1,11 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testcase  name= '' description='' author='' version=''>
-<dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale=''/>
-<fallback useFallback='true'/>
-<shadowDOM useShadowDOM='true'/>
-<step action='' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='' value='' selected='true'/>
-</dialect>
-</step>
-</testcase>
+  <testcase name='' description='script generated from Web Designer' author='sso.beardi@wahbexchange.org' version='webDesigner'>
+    <dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <fallback useFallback='true'></fallback>
+    <shadowDOM useShadowDOM='true'></shadowDOM>
+    <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='21a63f63-0558-48cd-9743-9b1a15c7dd58' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='filePath' value='"{ds}/../CustomScripts/TestScripts/PageScan/ContentScan_PageLinks.js"' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='store' value='"https://qa.wahpf.org/us/en/home-page.html"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='b89934e9-55fe-4b27-bd3d-586d4fe3b524' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='PageUnderTest' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='navigateTo' value='PageUnderTest' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='69b52145-0967-42c9-b54c-bcb52c5cd28d' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='evalAndReturn' value='GetPageLinks(PageUnderTest)' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1e845ea9-2465-4aca-862a-442b1537ce0c' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='PageLinks' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='log' value='"Page Links Length: "+PageLinks.length' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='5ef80fd8-c7fb-466d-aaef-0ea63093f76e' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='store' value='0' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='498b9301-9652-40a5-923b-ba3b55fd224c' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='iteration' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='while' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='18df1ad5-927e-460c-8af0-03107e2db0ea' uiType='conditional'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='iteration &lt; PageLinks.length' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='log' value='iteration' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='b0c19369-3d7d-45d1-8b03-46195fcabaf1' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='endWhile' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3af261a8-b1ef-49d5-aafd-4cca11677372' uiType='end' sibling='18df1ad5-927e-460c-8af0-03107e2db0ea'>
+      <dialect type='sahi'></dialect>
+    </step>
+  </testcase>
