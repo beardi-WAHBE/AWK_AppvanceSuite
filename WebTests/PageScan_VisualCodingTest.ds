@@ -21,7 +21,7 @@
     <step action='navigateTo' value='PageUnderTest' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='69b52145-0967-42c9-b54c-bcb52c5cd28d' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
-    <step action='store' value='eval("GetPageLinks(PageUnderTest)")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1e845ea9-2465-4aca-862a-442b1537ce0c' uiType='base'>
+    <step action='store' value='eval("GetPageLinks(ContentContainer)")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1e845ea9-2465-4aca-862a-442b1537ce0c' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='PageLinks' selected='true' fallback='true'></accessor>
       </dialect>
