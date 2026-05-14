@@ -16,7 +16,13 @@ const downloadableFileTypes = [".docx", ".xlsx", ".pptx", ".ics"];
 const deniedSymbols = ["|", "[", "]", "\\"];
 
 function Link_RunTests(p_link) {
-    p_link.RunTests();
+        p_link.webElement = _byXPath(p_link.myXPath);
+        click(byXPath(p_link.myXPath));
+        let logStr = "Page Title: " + getTitle();
+        if (p_link.flags.appLink) logStr += " (App Link)";
+        log(logStr);
+        
+        assertTrue(Check_PageLoaded());
 }
 
 
