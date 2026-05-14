@@ -15,6 +15,11 @@ const viewableFileTypes = [".jpeg", ".jpg", ".png", ".gif", ".svg", ".pdf", ".mp
 const downloadableFileTypes = [".docx", ".xlsx", ".pptx", ".ics"];
 const deniedSymbols = ["|", "[", "]", "\\"];
 
+function Link_RunTests(p_link) {
+    p_link.RunTests();
+}
+
+
 class Link_ContentElement extends _ContentElement {
 
     constructor(in_webElement, in_parentXPath) {
