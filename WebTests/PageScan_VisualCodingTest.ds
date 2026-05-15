@@ -48,7 +48,7 @@
     <step action='js' value='iteration += 1' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='b0c19369-3d7d-45d1-8b03-46195fcabaf1' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
-    <step action='endWhile' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3af261a8-b1ef-49d5-aafd-4cca11677372' uiType='end' sibling='18df1ad5-927e-460c-8af0-03107e2db0ea'>
+    <step action='endWhile' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3af261a8-b1ef-49d5-aafd-4cca11677372' uiType='end' sibling=''>
       <dialect type='sahi'></dialect>
     </step>
   </testcase>
