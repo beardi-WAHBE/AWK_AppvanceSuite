@@ -8,4 +8,35 @@
         <accessor type='filePath' value='"{ds}/../../AppvanceSandboxThree/FPLCalculator.ds"' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
+    <step action='store' value='eval("byXPath(&apos;//select[@id=\"year_fpl\"]&apos;)")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='102206f6-3126-4df8-89a2-129b923e9287' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='yearDropdown' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='store' value='eval("[&#10;&apos;2026&apos;,&#10;&apos;2025&apos;,&#10;&apos;2024&apos;,&#10;&apos;2023&apos;,&#10;&apos;2022&apos;,&#10;&apos;2021&apos;,&#10;&apos;2020&apos;,&#10;&apos;2019&apos;,&#10;&apos;2018&apos;,&#10;&apos;2017&apos;,&#10;&apos;2016&apos;,&#10;&apos;2015&apos;,&#10;&apos;2014&apos;,&#10;&apos;Select&apos;&#10;]")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='aa29d3ac-49e3-475d-9675-c94cc04b73e2' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='yearDropdownOptions' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='store' value='0' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='d2d32592-1565-41ab-8652-dc79d1bfc5ab' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='Iteration' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='while' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='bd5ed610-c701-43ca-92e5-2ee6a6ef23c4' uiType='conditional'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='Iteration &gt; yearDropdownOptions.length()' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='verifySelectHasOption' value='eval("yearDropdownOptions[Iteration]")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='03fcf4e6-0941-413c-a824-e6bab908b00b' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='yearDropdown' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='js' value='Iteration++' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='c4ce90e0-dd51-4d59-959a-85714b61190e' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='endWhile' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='34e21977-b4e1-4967-95ba-e902431e705a' uiType='end' sibling='bd5ed610-c701-43ca-92e5-2ee6a6ef23c4'>
+      <dialect type='sahi'></dialect>
+    </step>
   </testcase>
