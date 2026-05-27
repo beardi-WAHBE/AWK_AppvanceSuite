@@ -13,7 +13,7 @@
         <accessor type='unknown' value='yearDropdown' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='store' value='eval("[&apos;2026&apos;,&apos;2025&apos;,&apos;2024&apos;,&apos;2023&apos;,&apos;2022&apos;,&apos;2021&apos;,&apos;2020&apos;,&apos;2019&apos;,&apos;2018&apos;,&apos;2017&apos;,&apos;2016&apos;,&apos;2015&apos;,&apos;2014&apos;,&apos;Select&apos;]")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='aa29d3ac-49e3-475d-9675-c94cc04b73e2' uiType='base'>
+    <step action='js' value='eval("yearDropdownOptions = [&apos;2026&apos;,&apos;2025&apos;,&apos;2024&apos;,&apos;2023&apos;,&apos;2022&apos;,&apos;2021&apos;,&apos;2020&apos;,&apos;2019&apos;,&apos;2018&apos;,&apos;2017&apos;,&apos;2016&apos;,&apos;2015&apos;,&apos;2014&apos;,&apos;Select&apos;]")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='aa29d3ac-49e3-475d-9675-c94cc04b73e2' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='yearDropdownOptions' selected='true' fallback='true'></accessor>
       </dialect>
