@@ -18,7 +18,7 @@
         <accessor type='unknown' value='yearDropdownOptions' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='store' value='"0"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='d2d32592-1565-41ab-8652-dc79d1bfc5ab' uiType='base'>
+    <step action='js' value='eval("Iteration = 0")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='d2d32592-1565-41ab-8652-dc79d1bfc5ab' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='Iteration' selected='true' fallback='true'></accessor>
       </dialect>
