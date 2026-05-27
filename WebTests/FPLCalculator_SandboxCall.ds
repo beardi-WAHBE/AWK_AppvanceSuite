@@ -25,7 +25,8 @@
     </step>
     <step action='while' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='bd5ed610-c701-43ca-92e5-2ee6a6ef23c4' uiType='conditional'>
       <dialect type='sahi'>
-        <accessor type='unknown' value='Iteration &gt; yearDropdownOptions.length' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='Iteration &lt; yearDropdownOptions.length' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='Iteration &gt; yearDropdownOptions.length' selected='false' fallback='true'></accessor>
         <accessor type='unknown' value='Iteration &gt; yearDropdownOptions.length()' selected='false' fallback='true'></accessor>
       </dialect>
     </step>
