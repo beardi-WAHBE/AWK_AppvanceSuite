@@ -3,7 +3,9 @@
     <dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
     <fallback useFallback='true'></fallback>
     <shadowDOM useShadowDOM='true'></shadowDOM>
-    <step action='log' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='ccefef38-a1fc-462b-90fc-1fe99de03daa' uiType='base'>
-      <dialect type='sahi'></dialect>
+    <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='6c172f61-4d9c-4d74-8d4e-80b619a72906' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='filePath' value='"{ds}/../../AppvanceSandboxThree/FPLCalculator.ds"' selected='true' fallback='true'></accessor>
+      </dialect>
     </step>
   </testcase>
