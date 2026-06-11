@@ -89,7 +89,7 @@
     <step action='endif' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='7ceebc78-fe3c-47c6-be8f-5363806c8dd5' uiType='end' sibling=''>
       <dialect type='sahi'></dialect>
     </step>
-    <step action='verifyContains' value='expectedFPL' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='47df425c-38cf-4d63-a1bd-dc929305c38d' uiType='base'>
+    <step action='verifyContains' value='$expectedFPL' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='47df425c-38cf-4d63-a1bd-dc929305c38d' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.percentFPL.xpath)' selected='true' fallback='true'></accessor>
         <accessor type='unknown' value='byXPath(FPLCalculatorData.monthlyIncome.planYear.xpath)' selected='false' fallback='true'></accessor>
