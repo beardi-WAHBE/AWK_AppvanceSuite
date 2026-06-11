@@ -3,7 +3,7 @@
  * This script requires AIQ Web Designer
 */
 
-const FPLCalculatorMetaData = {
+const FPLCalculatorData = {
     name: "HBE FPL Calculator",
     url: "https://uat-corp.wahpf.org/resources/tools/affordability-exemption-calculators/federal-poverty-level/",
 
