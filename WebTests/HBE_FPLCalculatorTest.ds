@@ -1,11 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testcase  name= '' description='' author='' version=''>
-<dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale=''/>
-<fallback useFallback='true'/>
-<shadowDOM useShadowDOM='true'/>
-<step action='' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='' value='' selected='true'/>
-</dialect>
-</step>
-</testcase>
+  <testcase name='' description='script generated from Web Designer' author='sso.beardi@wahbexchange.org' version='webDesigner'>
+    <dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <fallback useFallback='true'></fallback>
+    <shadowDOM useShadowDOM='true'></shadowDOM>
+    <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='946762a2-239c-4968-94bc-351fcf7fe5da' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='filePath' value='"{ds}/../TestData/HBE_AffordabilityCalculators/HBE_FPLCalculatorData.js"' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='store' value='""' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3444e6c0-4e04-4613-b1d2-252830f3bd79' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='planYear' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='js' value='NavigateTo(FPLCalculatorMetaData.url)' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='c87d6f17-1008-4cd7-b6c4-475ae3e699ba' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+  </testcase>
