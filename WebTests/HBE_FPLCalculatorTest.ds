@@ -24,4 +24,76 @@
         <accessor type='unknown' value='byXpath' selected='false' fallback='true'></accessor>
       </dialect>
     </step>
+    <step action='if' value='$checkMonthOrYear' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='9eac8a1f-5ba2-4ef6-915d-276bcbc2ab58' uiType='conditional'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='$checkMonthOrYear == "year"' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='givenMonthlyOrYearly == "Yearly"' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='setValue' value='$yearlyIncome' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='b69909e8-22ae-4081-a84b-cb75fced7079' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.yearlyIncome.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='XPathId' value='byXPath(&apos;//*[@id="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='XPathName' value='byXPath(&apos;//*[@name="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='Id' value='numberbox("hbeyincome")' selected='false' fallback='true'></accessor>
+        <accessor type='AttrName' value='numberbox("hbeyincome")' selected='false' fallback='true'></accessor>
+        <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/div/main/section/div/div/div/div/div/div/div/div[3]/form/div/input&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='RelativeXPath' value='byXPath("id(&apos;hbeyincome&apos;)")' selected='false' fallback='true'></accessor>
+        <accessor type='XPath' value='byXPath("//input[@id=&apos;hbeyincome&apos;]")' selected='false' fallback='true'></accessor>
+        <accessor type='Attribute' value='numberbox({&apos;type&apos;:&apos;number&apos;})' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;#hbeyincome&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[name="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[value="0"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='verifyContainsText' value='$monthlyIncome' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='1eeecd79-3e03-44e3-8fe3-8b3f2131a9cd' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.monthlyIncome.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.monthlyIncome.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="hbemincome"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='elseif' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='6a41eacc-52f8-4e4c-bc26-2377056046e9' uiType='conditional'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='givenMonthlyOrYearly == "Monthly"' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='givenMonthlyOrYearly == "Yearly"' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='setValue' value='$monthlyIncome' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='65bb37b2-a0da-4d32-bf80-d1714b83e415' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.monthlyIncome..xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.monthlyIncome.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="hbemincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='XPathId' value='byXPath(&apos;//*[@id="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='XPathName' value='byXPath(&apos;//*[@name="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='Id' value='numberbox("hbeyincome")' selected='false' fallback='true'></accessor>
+        <accessor type='AttrName' value='numberbox("hbeyincome")' selected='false' fallback='true'></accessor>
+        <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/div/main/section/div/div/div/div/div/div/div/div[3]/form/div/input&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='RelativeXPath' value='byXPath("id(&apos;hbeyincome&apos;)")' selected='false' fallback='true'></accessor>
+        <accessor type='XPath' value='byXPath("//input[@id=&apos;hbeyincome&apos;]")' selected='false' fallback='true'></accessor>
+        <accessor type='Attribute' value='numberbox({&apos;type&apos;:&apos;number&apos;})' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;#hbeyincome&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[name="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;input[value="0"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='verifyContainsText' value='$yearlyIncome' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='1' isVisible='true' parentId='' uid='d65be0c7-208b-4a03-84e9-9cb550eeaf9a' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.yearlyIncome.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="hbeyincome"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="hbemincome"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='endif' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='7ceebc78-fe3c-47c6-be8f-5363806c8dd5' uiType='end' sibling=''>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='verifyContains' value='expectedFPL' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='47df425c-38cf-4d63-a1bd-dc929305c38d' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.percentFPL.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.monthlyIncome.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="hbefpl"]&apos;)' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
   </testcase>
