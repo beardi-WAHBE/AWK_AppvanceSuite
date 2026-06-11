@@ -5,7 +5,7 @@
 
 const FPLCalculatorData = {
     name: "HBE FPL Calculator",
-    url: "https://uat-corp.wahpf.org/resources/tools/affordability-exemption-calculators/federal-poverty-level/",
+    url: "https://www.wahbexchange.org/resources/tools/affordability-exemption-calculators/federal-poverty-level/",
 
     fields: {
         planYear: {
