@@ -14,7 +14,7 @@
         <accessor type='unknown' value='data' selected='false' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='js' value='navigateTo(url)' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='2080f78c-de61-46c3-b4a4-0755bdd873c1' uiType='base'>
+    <step action='js' value='navigateTo("https://www.wahbexchange.org/resources/tools/affordability-exemption-calculators/federal-poverty-level/")' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='2080f78c-de61-46c3-b4a4-0755bdd873c1' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
     <step action='setSelected' value='$planYear' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='9bb7fed4-91fe-40fe-bc9f-3fa374597d47' uiType='base'>
