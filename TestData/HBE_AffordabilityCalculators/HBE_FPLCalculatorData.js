@@ -32,14 +32,3 @@ const FPLCalculatorData = {
         },
     }
 }
-
-const FPLCalculatorTestCases = [
-    {
-        checkMonthOrYear: "year",
-        planYear: "2026",
-        householdSize: "1",
-        yearlyIncome: "",
-        monthlyIncome: "",
-        expectedFPL: ""
-    },
-]
