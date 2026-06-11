@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
   <testcase name='' description='script generated from Web Designer' author='sso.beardi@wahbexchange.org' version='webDesigner'>
-    <dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <dpl filename='{ds}/../TestData/HBE_AffordabilityCalculators/HBE_FPLCalculatorTestCases.csv' exectype='runstepbystep' errorhandling='' type='HashDPL' locale='en_US'></dpl>
     <fallback useFallback='true'></fallback>
     <shadowDOM useShadowDOM='true'></shadowDOM>
     <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='946762a2-239c-4968-94bc-351fcf7fe5da' uiType='base'>
@@ -8,12 +8,20 @@
         <accessor type='filePath' value='"{ds}/../TestData/HBE_AffordabilityCalculators/HBE_FPLCalculatorData.js"' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='store' value='""' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3444e6c0-4e04-4613-b1d2-252830f3bd79' uiType='base'>
+    <step action='navigateTo' value='"FPLCalculatorData.url"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='2080f78c-de61-46c3-b4a4-0755bdd873c1' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='setSelected' value='$planYear' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='9bb7fed4-91fe-40fe-bc9f-3fa374597d47' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='unknown' value='planYear' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.planYear.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXpath' selected='false' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='js' value='NavigateTo(FPLCalculatorMetaData.url)' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='c87d6f17-1008-4cd7-b6c4-475ae3e699ba' uiType='base'>
-      <dialect type='sahi'></dialect>
+    <step action='setSelected' value='$householdSize' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='fbb078f9-082d-4076-84a3-ca81cac95b50' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.householdSize.xpath)' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='byXPath(FPLCalculatorData.fields.planYear.xpath)' selected='false' fallback='true'></accessor>
+        <accessor type='unknown' value='byXpath' selected='false' fallback='true'></accessor>
+      </dialect>
     </step>
   </testcase>
