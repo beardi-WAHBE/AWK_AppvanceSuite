@@ -8,12 +8,7 @@
         <accessor type='filePath' value='"{ds}/../../TestData/HBE_AffordabilityCalculators/HPF_ContactUsForm_English.js"' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='evalAndReturn' value='ContactUsEnglishData' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='c5d5c7ed-e5b8-4635-befb-86db189628ea' uiType='base'>
-      <dialect type='sahi'>
-        <accessor type='unknown' value='formData' selected='true' fallback='true'></accessor>
-      </dialect>
-    </step>
-    <step action='js' value='navigateTo(formData.url);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='6e13bf9f-47aa-493f-99f7-098bf9b5e711' uiType='base'>
+    <step action='js' value='navigateTo(ContactUsEnglishData.url);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='6e13bf9f-47aa-493f-99f7-098bf9b5e711' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
   </testcase>
