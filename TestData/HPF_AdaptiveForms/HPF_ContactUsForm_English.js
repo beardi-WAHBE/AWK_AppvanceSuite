@@ -4,7 +4,7 @@
 */
 
 
-const FPLCalculatorData = {
+const ContactUsEnglishData = {
     name: "HPF Contact Us Adaptive Form (English)",
     url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
     formXPath: "//form[@id='guideContainerForm']",
