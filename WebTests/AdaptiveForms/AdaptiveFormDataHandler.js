@@ -41,4 +41,4 @@ class AdaptiveFormField {
         this.input = "";
         this.expectedResult = "";
     }
-}
+} 
