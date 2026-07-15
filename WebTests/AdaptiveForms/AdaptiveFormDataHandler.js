@@ -22,7 +22,6 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
 
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i < headerArr.length; i++) {
-		_log(headerArr[i]);
         if (!headerArr[i].toLowerCase().contains("_input")) continue;
 
         let fieldName = headerArr[i].split("_")[0].trim();
