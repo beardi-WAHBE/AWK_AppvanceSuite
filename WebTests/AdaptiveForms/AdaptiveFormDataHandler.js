@@ -19,6 +19,7 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let headerArr = p_headerRow.split("|");
 
 	_log(exampleArr);
+	_log(headerArr);
 
 	let output = new Map();
 
