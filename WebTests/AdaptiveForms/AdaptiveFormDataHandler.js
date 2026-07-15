@@ -145,9 +145,14 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 				 `Pages:\n`;
 
 	let page = contactUsFormData.pages[0];
+	let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
+
+
+	_navigateTo(contactUsFormData.url);
 
 	for (field in page) {
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
+		page[field].SendData(testData[field], "");
 	}
 
 	_log(logStr);
