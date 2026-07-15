@@ -18,6 +18,8 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let exampleArr = p_exampleRow.split("|");
     let headerArr = p_headerRow.split("|");
 
+	_log(exampleArr);
+
 	let output = new Map();
 
     // Process field value/result groups together, using the header row to find each group.
