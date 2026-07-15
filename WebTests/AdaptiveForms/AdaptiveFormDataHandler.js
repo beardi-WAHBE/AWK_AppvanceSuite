@@ -124,12 +124,12 @@ function TEST_InitializeAdaptiveFormData() {
 		name: "Contact Us Form (English)",
 		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
 		pages: [
-			{FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT, true, "guideContainer-rootPanel-guidetextbox_copy___widget")}, 
-			{LastName: new AdaptiveFormField("Last Name", InputType.INPUT_TEXT, true, "guideContainer-rootPanel-guidetextbox_1880158___widget")}, 
-			{Email: new AdaptiveFormField("Email", InputType.INPUT_EMAIL, true, "guideContainer-rootPanel-guidetextbox_1495532___widget")}, 
-			{Phone: new AdaptiveFormField("Phone", InputType.INPUT_PHONE, true, "guideContainer-rootPanel-guidetextbox_4808239___widget")}, 
-			{Subject: new AdaptiveFormField("Subject", InputType.INPUT_TEXT, false, "guideContainer-rootPanel-guidetextdraw___widget")}, 
-			{Message: new AdaptiveFormField("Message", InputType.TEXTAREA, true, "guideContainer-rootPanel-guidetextbox_3287953___widget")}, 
+			{FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget")}, 
+			{LastName:  new AdaptiveFormField("Last Name",  InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget")}, 
+			{Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget")}, 
+			{Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget")}, 
+			{Subject:   new AdaptiveFormField("Subject",    InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget")}, 
+			{Message:   new AdaptiveFormField("Message",    InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")}, 
 		]
 	}
 }
