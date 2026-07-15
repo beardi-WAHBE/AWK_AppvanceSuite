@@ -111,13 +111,11 @@ class AdaptiveFormField {
 }
 
 function TEST_ParseInputData(p_headerRow, p_bddExample) {
-	_log("Testing ParseInputData()");
-
 	const headerRow = "| TestName                | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input                   | Email_Result | Phone_Input | Phone_Result | Subject_Input | Subject_Result | Message_Input  |Message_Result | Page_1_Result      |";
 	const testData =  "| Smoke Test: Valid Input | Test            | No Error         | Test           | No Error        | FormsTesting@wahbexchange.org | No Error     | 1234567890  | No Error     |               | No Error       | This is a test | No Error      | Form should submit |";
 
 	let output = ParseBDDExample(p_headerRow, p_bddExample);
-	let logText = " -| Example Output |-\n"
+	let logText = "\n -| Example Output |-\n"
 	for (entry of output.keys()) {
 		logText += `${entry}: ${output.get(entry).input} (${output.get(entry).result})\n`;
 	}
