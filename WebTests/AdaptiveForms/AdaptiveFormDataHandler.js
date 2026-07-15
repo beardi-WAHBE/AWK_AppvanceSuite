@@ -150,7 +150,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	_navigateTo(contactUsFormData.url);
 	_log(_getIframesInfo());
-	_selectFrame("aemFormFrame");
+	_selectFrame(frame("aemFormFrame"));
 	_log(testData);
 
 
