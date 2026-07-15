@@ -70,12 +70,11 @@ class AdaptiveFormPage {
 }
 
 class AdaptiveFormField {
-	constructor(p_name, p_type, p_required, p_id, p_input, p_result, p_options = [], p_parentXPath = '//form') {
+	constructor(p_name, p_type, p_required, p_id, p_options = [], p_parentXPath = '//form') {
 		this.name = p_name;
+		this.id = p_id;
 		this.type = p_type;
 		this.flag_required = p_required;
-		this.input = p_input;
-		this.result = p_result;
 		this.options = p_options;
 
 		this.XPath = p_parentXPath;
@@ -89,7 +88,7 @@ class AdaptiveFormField {
 		}
 	}
 
-	SendData() {
+	SendData(p_input, p_result) {
 		const element = _byXPath(this.m_XPath);
 		
 		switch(this.type) {
@@ -118,6 +117,21 @@ function TEST_ParseInputData() {
 		logText += `${entry}: ${output.get(entry).input} (${output.get(entry).result})\n`;
 	}
 	_log(logText);
+}
+
+function TEST_InitializeAdaptiveFormData() {
+	const contactUsFormData = {
+		name: "Contact Us Form (English)",
+		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
+		pages: [
+			{FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT, true, "guideContainer-rootPanel-guidetextbox_copy___widget")}, 
+			{LastName: new AdaptiveFormField("Last Name", InputType.INPUT_TEXT, true, "guideContainer-rootPanel-guidetextbox_1880158___widget")}, 
+			{Email: new AdaptiveFormField("Email", InputType.INPUT_EMAIL, true, "guideContainer-rootPanel-guidetextbox_1495532___widget")}, 
+			{Phone: new AdaptiveFormField("Phone", InputType.INPUT_PHONE, true, "guideContainer-rootPanel-guidetextbox_4808239___widget")}, 
+			{Subject: new AdaptiveFormField("Subject", InputType.INPUT_TEXT, false, "guideContainer-rootPanel-guidetextdraw___widget")}, 
+			{Message: new AdaptiveFormField("Message", InputType.TEXTAREA, true, "guideContainer-rootPanel-guidetextbox_3287953___widget")}, 
+		]
+	}
 }
 
 TEST_ParseInputData();
