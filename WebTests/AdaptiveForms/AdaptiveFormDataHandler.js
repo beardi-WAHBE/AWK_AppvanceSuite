@@ -20,6 +20,8 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
 
 	let output = new Map();
 
+	_log(headerArr.length);
+
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i > headerArr.length; i++) {
 		_log(headerArr[i]);
