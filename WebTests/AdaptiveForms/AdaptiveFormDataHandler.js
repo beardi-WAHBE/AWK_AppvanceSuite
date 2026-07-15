@@ -15,8 +15,8 @@ const InputType = Object.freeze({
 
 
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
-    let exampleArr = p_exampleRow.split("|").trim();
-    let headerArr = p_headerRow.split("|").trim();
+    let exampleArr = p_exampleRow.split("|");
+    let headerArr = p_headerRow.split("|");
 
 	let output = new Map();
 
@@ -24,9 +24,9 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     for (let i = 0; i > headerArr.length; i++) {
         if (!headerArr[i].contains("_input")) continue;
 
-        let fieldName = headerRow[i].split("_")[0];
-        let fieldInput = exampleArr[i];
-        let fieldResult = exampleArr[i + 1];
+        let fieldName = headerRow[i].split("_")[0].trim();
+        let fieldInput = exampleArr[i].trim();
+        let fieldResult = exampleArr[i + 1].trim();
 
         output.set(fieldName, {input: fieldInput, result: fieldResult});
     }
