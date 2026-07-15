@@ -137,6 +137,15 @@ function TEST_InitializeAdaptiveFormData() {
 			{Message:   new AdaptiveFormField("Message",    InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")}, 
 		]
 	}
+
+	let logStr = "\n -| Initialize Adaptive Form Data |- \n\n" +
+				 `Name: ${contactUsFormData.name}\n` + 
+				 `URL: ${contactUsFormData.url}\n` +
+				 `Pages:\n`;
+	for (field in contactUsFormData.pages) {
+		logStr += ` - ${field.toString()}\n`;
+	}
 }
 
-TEST_ParseInputData();
+//TEST_ParseInputData();
+TEST_InitializeAdaptiveFormData();
