@@ -14,9 +14,11 @@ const InputType = Object.freeze({
 });
 
 
-function ParseBDDExample(p_formData, p_exampleRowIndex = 0) {
-    let exampleArr = p_formData.bddExamples[p_exampleRowIndex].split(" | ");
-    let headerArr = p_formData.bddHeaderRow.split(" | ");
+function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
+    let exampleArr = p_exampleRow.split("|").trim();
+    let headerArr = p_headerRow.split("|").trim();
+
+	let output = new Map();
 
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i > headerArr.length; i++) {
@@ -26,8 +28,10 @@ function ParseBDDExample(p_formData, p_exampleRowIndex = 0) {
         let fieldInput = exampleArr[i];
         let fieldResult = exampleArr[i + 1];
 
-        let fieldData = new AdaptiveFormField()
+        output.set(fieldName, {input: fieldInput, result: fieldResult});
     }
+
+	return output;
 }
 
 class AdaptiveFormTest {
@@ -101,3 +105,16 @@ class AdaptiveFormField {
 		}
 	}
 }
+
+function TEST_ParseInputData() {
+	const headerRow = "| TestName                | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input                   | Email_Result | Phone_Input | Phone_Result | Subject_Input | Subject_Result | Message_Input  |Message_Result | Page_1_Result      |";
+	const testData =  "| Smoke Test: Valid Input | Test            | No Error         | Test           | No Error        | FormsTesting@wahbexchange.org | No Error     | 1234567890  | No Error     |               | No Error       | This is a test | No Error      | Form should submit |";
+
+	let output = ParseBDDExample(headerRow, testData);
+	let logText = " -| Example Output |-\n"
+	for (entry of output.keys()) {
+		_log(`${entry}: ${output.get(entry).input} (${output.get(entry).result})\n`);
+	}
+}
+
+TEST_ParseInputData();
