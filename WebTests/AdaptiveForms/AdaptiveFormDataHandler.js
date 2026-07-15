@@ -149,6 +149,8 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 
 	_navigateTo(contactUsFormData.url);
+	_log(testData);
+
 
 	for (field in page) {
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
