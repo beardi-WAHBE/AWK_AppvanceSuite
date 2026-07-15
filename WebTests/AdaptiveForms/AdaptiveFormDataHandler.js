@@ -103,6 +103,11 @@ class AdaptiveFormField {
 				break;
 		}
 	}
+
+	toString() {
+		let requiredStr = this.flag_required ? "required" : "not required";
+		return `${this.name}: ${this.type} | ${requiredStr} | ${this.XPath}`;
+	}
 }
 
 function TEST_ParseInputData() {
