@@ -145,6 +145,8 @@ function TEST_InitializeAdaptiveFormData() {
 	for (field in contactUsFormData.pages) {
 		logStr += ` - ${field.toString()}\n`;
 	}
+
+	_log(logStr);
 }
 
 //TEST_ParseInputData();
