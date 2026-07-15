@@ -144,8 +144,11 @@ function TEST_InitializeAdaptiveFormData() {
 				 `Name: ${contactUsFormData.name}\n` + 
 				 `URL: ${contactUsFormData.url}\n` +
 				 `Pages:\n`;
-	for (field in contactUsFormData.pages[0]) {
-		logStr += ` - ${field.toString()}\n`;
+
+	let page = contactUsFormData.pages[0];
+
+	for (field in page) {
+		logStr += ` - (${field}) ${page[field].toString()}\n`;
 	}
 
 	_log(logStr);
