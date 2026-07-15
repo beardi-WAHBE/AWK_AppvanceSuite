@@ -139,7 +139,7 @@ function TEST_InitializeAdaptiveFormData() {
 				Message:   new AdaptiveFormField("Message",    InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
 			}, 
 		]
-	}
+	} 
 
 	let logStr = "\n -| Initialize Adaptive Form Data |- \n\n" +
 				 `Name: ${contactUsFormData.name}\n` + 
