@@ -151,13 +151,13 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	_navigateTo(contactUsFormData.url);
 	//_selectFrame("aemFormFrame");
-	_log(testData.get("FirstName"));
+	//_log(testData.get("FirstName"));
 
 
 	for (field in page) {
 		_log(field)
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
-		//page[field].SendData(testData.get(field).input, "");
+		page[field].SendData(testData.get(field).input, "");
 	}
 
 	_log(logStr);
