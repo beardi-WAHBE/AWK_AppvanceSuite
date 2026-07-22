@@ -24,9 +24,9 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     for (let i = 0; i < headerArr.length; i++) {
         if (!headerArr[i].toLowerCase().contains("_input")) continue;
 
-        let fieldName = headerArr[i].split("_")[0];
-        let fieldInput = exampleArr[i];
-        let fieldResult = exampleArr[i + 1];
+        let fieldName = headerArr[i].split("_")[0].trim();
+        let fieldInput = exampleArr[i].trim();
+        let fieldResult = exampleArr[i + 1].trim();
 
         output.set(fieldName, {input: fieldInput, result: fieldResult});
     }
