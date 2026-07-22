@@ -149,10 +149,10 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 
 	_navigateTo(contactUsFormData.url);
-	_selectFrame(frame("aemFormFrame"));
+	//_selectFrame(frame("aemFormFrame"));
 	_log(testData);
 
-/*
+
 	for (field in page) {
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
 		page[field].SendData(testData[field], "");
@@ -161,7 +161,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	_log(logStr);
 
 	TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
-	*/
+	
 }
 
 TEST_InitializeAdaptiveFormData("| Smoke Test: Valid Input | Test | No Error | Test | No Error | FormsTesting@wahbexchange.org | No Error | 1234567890  | No Error |  | No Error | This is a test | No Error | Form should submit |");
