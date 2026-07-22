@@ -81,10 +81,13 @@ class AdaptiveFormField {
 		switch(p_type) {
 			case InputType.DROPDOWN:
 				this.XPath += `//select[@id='${p_id}']`;
+				break;
 			case InputType.TEXTAREA:
 				this.XPath += `//textarea[@id='${p_id}']`;
+				break;
 			default:
 				this.XPath += `//input[@id='${p_id}']`;
+				break;
 		}
 	}
 
