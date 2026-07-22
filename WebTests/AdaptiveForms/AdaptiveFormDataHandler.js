@@ -89,7 +89,6 @@ class AdaptiveFormField {
 	}
 
 	SendData(p_input, p_result) {
-		_log(this.XPath);
 		const element = _byXPath(this.XPath);
 		
 		switch(this.type) {
