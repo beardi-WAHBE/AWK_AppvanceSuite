@@ -89,7 +89,8 @@ class AdaptiveFormField {
 	}
 
 	SendData(p_input, p_result) {
-		const element = _byXPath(this.m_XPath);
+		_log(this.XPath);
+		const element = _byXPath(this.XPath);
 		
 		switch(this.type) {
 			case InputType.DROPDOWN:
