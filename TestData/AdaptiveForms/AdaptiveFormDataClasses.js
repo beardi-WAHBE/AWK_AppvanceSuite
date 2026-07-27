@@ -87,6 +87,7 @@ class AdaptiveForm {
 
 	TestForm(p_bddExample) {
 		let testData = ParseBDDExample(this.bddHeader, p_bddExample);
+		_navigateTo(this.url);
 
 		for (let i_page = 0; i_page < this.pages.length; i_page++) {
 			let page = this.pages[i_page];
