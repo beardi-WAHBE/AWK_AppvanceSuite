@@ -36,6 +36,7 @@ class AdaptiveFormField {
 	}
 
 	SendData(p_input, p_result) {
+		let resultString = "";
 		const element = _byXPath(this.XPath);
 		
 		switch(this.type) {
@@ -49,6 +50,7 @@ class AdaptiveFormField {
 				_setValue(element, p_input);
 				break;
 		}
+		return resultString;
 	}
 
 	toString() {
@@ -100,12 +102,14 @@ class AdaptiveForm {
 
 			// Fill out the page
 			for (field of page) {
-				page[field].SendData(testData.get(field).input, testData.get(field).result);
+				resultString += page[field].SendData(testData.get(field).input, testData.get(field).result);
 				if (testData.get(field).result != "No Error") flag_validInput = false;
 			}
 			
 			// Try to submit the page
 			_click(_byXPath(btnXPath));
 		}
+
+		return resultString;
 	} 
 }
