@@ -87,14 +87,23 @@ class AdaptiveForm {
 
 	TestForm(p_bddExample) {
 		let testData = ParseBDDExample(this.bddHeader, p_bddExample);
+		let flag_validInput = true;
 		_navigateTo(this.url);
 
 		for (let i_page = 0; i_page < this.pages.length; i_page++) {
 			let page = this.pages[i_page];
-			for (field of page) {
-				page[field].SendData(testData.get(field).input, testData.get(field).input, result);
-			}
 			let btnXPath = (i_page == this.pages.length - 1) ? "//button[contains(@class, 'moveNext')]" : "//button[contains(@class, 'submit')]";
+
+			// Click the next/submit button to make error messages start appearing with bad input.
+			_click(_byXPath(btnXPath));
+
+			// Fill out the page
+			for (field of page) {
+				page[field].SendData(testData.get(field).input, testData.get(field).result);
+				if (testData.get(field).result != "No Error") flag_validInput = false;
+			}
+			
+			// Try to submit the page
 			_click(_byXPath(btnXPath));
 		}
 	} 
