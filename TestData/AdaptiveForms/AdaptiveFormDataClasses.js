@@ -86,6 +86,7 @@ class AdaptiveForm {
 	}
 
 	TestForm(p_bddExample) {
+		let resultString = "";
 		let testData = ParseBDDExample(this.bddHeader, p_bddExample);
 		let flag_validInput = true;
 		_navigateTo(this.url);
