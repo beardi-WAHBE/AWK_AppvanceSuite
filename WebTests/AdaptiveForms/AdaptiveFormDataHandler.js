@@ -108,7 +108,7 @@ class AdaptiveFormField {
 
 		var errorMessage = _byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`);
 		if(p_result == "No Error") {
-			_verifyDoesNotContainText(errorMessage);
+			_verifyNotExists(errorMessage);
 		}
 		else {
 			_verifyContainsText(p_result, errorMessage);
@@ -165,7 +165,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
-	wait(3000);
+	wait(3000, `_isVisible(_byXPath("//button[contains(@class, 'submit')]"))`);
 
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
