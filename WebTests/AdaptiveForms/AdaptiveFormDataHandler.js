@@ -169,9 +169,9 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
-	var flag_submitted = wait(1000, "_isVisible(_byXPath(\"//div[@class='tyMessage']\"))");
+	wait(1000, "_isVisible(_byXPath(\"//div[@class='tyMessage']\"))");
 	
-	_log(flag_submitted);
+	_verifyExists(_byXPath("//div[@class='tyMessage']"));
 
 	//TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
 	
