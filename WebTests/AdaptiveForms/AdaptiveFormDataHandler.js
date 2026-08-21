@@ -165,6 +165,8 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
+	wait(3000);
+
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
 	for (field in page) {
