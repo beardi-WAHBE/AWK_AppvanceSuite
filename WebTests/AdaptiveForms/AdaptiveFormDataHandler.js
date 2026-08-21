@@ -171,7 +171,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	for (field in page) {
 		_log(field)
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
-		page[field].SendData(testData.get(field).input, "");
+		page[field].SendData(testData.get(field).input, testData.get(field).result);
 	}
 
 	_log(logStr);
