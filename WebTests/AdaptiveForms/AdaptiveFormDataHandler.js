@@ -106,12 +106,11 @@ class AdaptiveFormField {
 				break;
 		}
 
-		var errorMessage = _byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`);
-		if(p_result == "No Error") {
-			_verifyNotExists(errorMessage);
+		if(p_result.contains("No Error")) {
+			_verifyNotExists(_byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`));
 		}
 		else {
-			_verifyContainsText(p_result, errorMessage);
+			_verifyContainsText(p_result, _byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`));
 		}
 	}
 
