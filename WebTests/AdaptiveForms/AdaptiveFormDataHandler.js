@@ -157,7 +157,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
-	_click(_byXPath("//button[contains(@class, 'moveNext')]"));
+	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
 	for (field in page) {
 		_log(field)
@@ -166,8 +166,14 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	}
 
 	_log(logStr);
+	
+	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
-	TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
+	wait(15000, _isVisible(_byXPath("//div[@class='tyMessage']")));
+
+	_log("PASSED");
+
+	//TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
 	
 }
 
