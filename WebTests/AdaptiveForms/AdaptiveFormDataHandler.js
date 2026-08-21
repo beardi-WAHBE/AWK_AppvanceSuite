@@ -70,7 +70,7 @@ class AdaptiveFormPage {
 }
 
 class AdaptiveFormField {
-	constructor(p_name, p_type, p_required, p_id, p_options = [], p_parentXPath = '//form') {
+	constructor(p_name, p_type, p_required, p_id, p_options = [], p_parentXPath = '') {
 		this.name = p_name;
 		this.id = p_id;
 		this.type = p_type;
