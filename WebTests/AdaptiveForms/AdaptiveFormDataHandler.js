@@ -155,6 +155,9 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//_selectFrame("aemFormFrame");
 	//_log(testData.get("FirstName"));
 
+	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
+
+	_click(_byXPath("//button[contains(@class, 'moveNext')]"));
 
 	for (field in page) {
 		_log(field)
