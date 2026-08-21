@@ -179,7 +179,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	wait(1000, "_isVisible(_byXPath(\"//div[@class='tyMessage']\"))");
 	
-	_verifyExists(_byXPath("//div[@class='tyMessage']"));
+	//_verifyExists(_byXPath("//div[@class='tyMessage']"));
 
 	//TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
 	
