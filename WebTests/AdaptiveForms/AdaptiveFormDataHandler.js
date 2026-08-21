@@ -106,7 +106,7 @@ class AdaptiveFormField {
 				break;
 		}
 
-		var errorMessage = _byXPath(`//div[@class='guideFieldError' and @id='${this.id}']`);
+		var errorMessage = _byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`);
 		if(p_result == "No Error") {
 			_verifyDoesNotContainText(errorMessage);
 		}
