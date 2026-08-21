@@ -136,7 +136,7 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	const contactUsFormData = {
 		name: "Contact Us Form (English)",
-		url: "https://dev.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
+		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
 		bddHeader: "| TestName | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input | Email_Result | Phone_Input | Phone_Result | Subject_Input | Subject_Result | Message_Input | Message_Result | Page_1_Result |",
 		pages: [
 			{
