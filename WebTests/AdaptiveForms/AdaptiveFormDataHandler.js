@@ -168,7 +168,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	wait(3000);
 
-	_eval(`ds$('#aemFormFrame').contents().find('button.submit').click()`);
+	_eval(`ds$('#aemFormFrame').contents().find('.submit').click()`);
 
 	for (field in page) {
 		_log(field)
