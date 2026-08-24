@@ -111,7 +111,7 @@ class AdaptiveFormField {
 			//var errorMsgXPath = `//div[@class='guideFieldError' and @id='${this.id}_desc']`;
 			//var errorMsgBox = _eval(`${document}.evaluate("${errorMsgXPath}", ${document}, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;`);
 			
-			_log(_eval(`ds$(document).querySelector(#${this.id}.guideFieldError)`));
+			_log(_eval(`ds$(document).querySelector('#${this.id}.guideFieldError')`));
 			//_verifyNotExists(_byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`));
 		}
 		else {
