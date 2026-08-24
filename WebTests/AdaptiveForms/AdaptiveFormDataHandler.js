@@ -106,9 +106,9 @@ class AdaptiveFormField {
 				break;
 		}
 		
-		//log(`\n\n -- XPATH //div[@id='${this.id}_desc' and @class='guideFieldError']`);
+		log(`\n \n -- XPATH //div[@id='${this.id}_desc' and @class='guideFieldError']`);
 		var errorMsgText = _eval(`ds$('#${this.id}_desc.guideFieldError').text()`);
-		_log("\n\n -- ERROR MESSAGE BOX LOG:" + errorMsgText);
+		_log("\n \n -- ERROR MESSAGE BOX LOG:" + errorMsgText);
 		if(p_result.contains("No Error")) {
 			_verifyNull(errorMsgText)
 		}
