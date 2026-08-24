@@ -107,8 +107,8 @@ class AdaptiveFormField {
 		}
 		
 		log(`\n \n -- XPATH //div[@id='${this.id}_desc' and @class='guideFieldError']`);
-		//var errorMsgText = _eval(`ds$('#${this.id}_desc.guideFieldError')`);
-		var errorMsgText = ds$('#${this.id}_desc.guideFieldError').text()
+		var errorMsgText = _eval(`ds$('#${this.id}_desc.guideFieldError')`);
+		
 		_log("\n \n -- ERROR MESSAGE BOX LOG:" + errorMsgText);
 		if(p_result.contains("No Error")) {
 			_verifyNull(errorMsgText)
@@ -169,6 +169,8 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	wait(3000);
+
+	_log(_eval("ds$('.cmp-title__text').text()"));
 
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
