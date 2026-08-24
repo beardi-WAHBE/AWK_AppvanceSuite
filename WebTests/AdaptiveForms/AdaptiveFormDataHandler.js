@@ -105,19 +105,13 @@ class AdaptiveFormField {
 				_setValue(element, p_input);
 				break;
 		}
-
+		
+		var errorMsgBox = _eval(`ds$('#${this.id}.guideFieldError')`);
 		if(p_result.contains("No Error")) {
-			//var document = _eval("ds$(document)");
-			var errorMsgXPath = `//div[@class='guideFieldError' and @id='${this.id}_desc']`;
-			//var errorMsgBox = _eval(`document.evaluate(${errorMsgXPath}, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue`);
-			var errorMsgBox = _eval(`ds$('#${this.id}.guideFieldError')`);
-			_log(errorMsgBox.text);
-
-			//_log(_eval(`ds$(document).querySelector('#${this.id}.guideFieldError')`));
-			//_verifyNotExists(_byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`));
+			_verifyNull(errorMsgBox.text)
 		}
 		else {
-			_verifyContainsText(p_result, _byXPath(`//div[@class='guideFieldError' and @id='${this.id}_desc']`));
+			_verifyEqual(p_result, errorMsgBox.text);
 		}
 	}
 
