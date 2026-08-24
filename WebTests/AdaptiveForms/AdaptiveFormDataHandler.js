@@ -102,7 +102,7 @@ class AdaptiveFormField {
 				_log("File upload not supported");
 				break;
 			default:
-				element.value = p_input;
+				_eval(`ds$('#aemFormFrame').contents().find('#${this.id}').value = '${p_input}'`);
 				break;
 		}
 		
