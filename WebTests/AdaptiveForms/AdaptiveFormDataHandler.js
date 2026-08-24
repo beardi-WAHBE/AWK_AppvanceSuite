@@ -168,10 +168,6 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	wait(3000);
 
-	_log(_eval("ds$('.cmp-title__text').text()"));
-
-	_click(_byXPath("//button[contains(@class, 'submit')]"));
-
 	_eval(`ds$('#aemFormFrame').contents().find('button.submit').click()`);
 
 	for (field in page) {
