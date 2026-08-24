@@ -92,7 +92,7 @@ class AdaptiveFormField {
 	}
 
 	SendData(p_input, p_result) {
-		const element = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}')`);
+		//const element = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}')`);
 		
 		switch(this.type) {
 			case InputType.DROPDOWN:
