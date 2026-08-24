@@ -102,11 +102,11 @@ class AdaptiveFormField {
 				_log("File upload not supported");
 				break;
 			default:
-				_eval(`ds$('#aemFormFrame').contents().find('#${this.id}').focus().val('${p_input}').focus()`);
+				_eval(`ds$('#aemFormFrame').contents().find('#${this.id}').focus().val('${p_input}').focus();`);
 				break;
 		}
 		
-		var errorMsgText = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError').text()`);
+		var errorMsgText = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError').text();`);
 		
 		if(p_result.contains("No Error")) {
 			_verifyEqual(errorMsgText, "");
@@ -168,7 +168,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	wait(3000);
 
-	_eval(`ds$('#aemFormFrame').contents().find('.submit').click()`);
+	_eval(`ds$('#aemFormFrame').contents().find('button.submit').click();`);
 
 	for (field in page) {
 		_log(field)
