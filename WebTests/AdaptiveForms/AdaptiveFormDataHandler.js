@@ -107,7 +107,7 @@ class AdaptiveFormField {
 		}
 
 		if(p_result.contains("No Error")) {
-			var document = _eval("ds$(document)");
+			var document = _eval("ds$('html')");
 			var errorMsgXPath = `//div[@class='guideFieldError' and @id='${this.id}_desc']`;
 			var errorMsgBox = _eval(`${document}.evaluate("${errorMsgXPath}", ${document}, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;`);
 			
