@@ -106,12 +106,13 @@ class AdaptiveFormField {
 				break;
 		}
 		
+		_log(errorMsgBox.textContent);
 		var errorMsgBox = _eval(`ds$('#${this.id}.guideFieldError')`);
 		if(p_result.contains("No Error")) {
-			_verifyNull(errorMsgBox.text)
+			_verifyNull(errorMsgBox.textContent)
 		}
 		else {
-			_verifyEqual(p_result, errorMsgBox.text);
+			_verifyEqual(p_result, errorMsgBox.textContent);
 		}
 	}
 
