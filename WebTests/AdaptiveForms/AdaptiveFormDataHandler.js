@@ -167,7 +167,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	wait(3000);
-
+	_log(_eval(`ds$('#aemFormFrame').contents().find('button.submit').text();`))
 	_eval(`ds$('#aemFormFrame').contents().find('button.submit').trigger('click');`);
 
 	for (field in page) {
