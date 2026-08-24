@@ -1,6 +1,5 @@
 /**
  * @aiq.webdesigner
- * @jest-environment jsdom
  * This script requires AIQ Web Designer
 */
 
