@@ -172,6 +172,9 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
+	var btn = _eval("ds$('#aemFormFrame').contents().find('button.submit')")
+	_eval(`${btn}.click()`);
+
 	for (field in page) {
 		_log(field)
 		logStr += ` - (${field}) ${page[field].toString()}\n`;
