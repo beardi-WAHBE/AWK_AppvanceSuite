@@ -102,7 +102,7 @@ class AdaptiveFormField {
 				_log("File upload not supported");
 				break;
 			default:
-				_setValue(element, p_input);
+				element.value = p_input;
 				break;
 		}
 		
