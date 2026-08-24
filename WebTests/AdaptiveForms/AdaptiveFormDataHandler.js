@@ -111,7 +111,7 @@ class AdaptiveFormField {
 		
 		_log("\n \n -- ERROR MESSAGE BOX LOG:" + errorMsgText);
 		if(p_result.contains("No Error")) {
-			_verifyNull(errorMsgText)
+			_verifyEqual(errorMsgText, "");
 		}
 		else {
 			_verifyEqual(p_result, errorMsgText);
