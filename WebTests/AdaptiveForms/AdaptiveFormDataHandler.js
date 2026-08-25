@@ -37,6 +37,7 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 
 		})();
 	`);
+	_log(flag_elementFound);
 	return flag_elementFound;
 }
 
@@ -200,8 +201,7 @@ async function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	_eval(`window.location.href = '${contactUsFormData.url}'`);
 	var formLoaded = await WaitForElement("ds$('#aemFormFrame').contents().find('form')");
-	_log(formLoaded);
-
+	
 	_eval(`
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
 	`);
