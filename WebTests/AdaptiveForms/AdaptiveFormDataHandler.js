@@ -28,7 +28,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 				}
 				else if (attempts >= p_maxAttepts) {
 					clearInterval(timer);
-					return = false;
+					return false;
 				}
 
 				attempts += 1;
