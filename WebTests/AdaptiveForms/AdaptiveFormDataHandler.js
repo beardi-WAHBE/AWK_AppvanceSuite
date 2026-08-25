@@ -45,7 +45,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	*/
 
 
-	var flag_elementFound = "Empty";
+	var flag_elementFound;
 	var CheckIsInteractable = () => { 
 			flag_elementFound = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`)
 			return flag_elementFound;
