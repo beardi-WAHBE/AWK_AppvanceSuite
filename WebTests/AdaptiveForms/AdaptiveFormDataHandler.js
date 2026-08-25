@@ -14,11 +14,11 @@ const InputType = Object.freeze({
 });
 
 function CheckIsInteractable(p_jqElementStr) {
-	return _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
+	return _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
 }
 
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
-	wait(p_waitTimeMS, CheckIsInteractable());
+	wait(p_waitTimeMS, CheckIsInteractable(p_jqElementStr));
 	return CheckIsInteractable();
 }
 
