@@ -166,7 +166,6 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
-	wait(3000);
 	_eval(`
 		var e = ds$.Event('keydown', {key: 'enter', keyCode: 13, which: 13});
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
