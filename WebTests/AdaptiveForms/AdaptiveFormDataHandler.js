@@ -38,7 +38,7 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 
 		}
 	`);
-
+	_log(flag_elementFound);
 	return flag_elementFound;
 }
 
@@ -168,7 +168,7 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 	_log(logText);
 }
 
-function TEST_InitializeAdaptiveFormData(p_bddExample) {
+async function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	const contactUsFormData = {
 		name: "Contact Us Form (English)",
 		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
