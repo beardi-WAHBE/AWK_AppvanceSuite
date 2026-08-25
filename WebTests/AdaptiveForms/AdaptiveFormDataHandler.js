@@ -13,12 +13,12 @@ const InputType = Object.freeze({
 	FILE_UPLOAD: 'file_upload',
 });
 
-function WaitForElement(p_selector, p_interval = 100, p_maxAttepts = 50) {
+function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	var attempts = 0;
 
 	var timer = setInterval(() => {
 		var flag_isInteractable = _eval(`
-			return (ds$('${p_selector}').length && ds$('${p_selector}').is(':visible') && !ds$('${p_selector}').is(':disabled'));
+			return (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
 		`);
 
 		if (flag_isInteractable) {
@@ -186,8 +186,9 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
+	WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+
 	_eval(`
-		var e = ds$.Event('keydown', {key: 'enter', keyCode: 13, which: 13});
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
 	`);
 
