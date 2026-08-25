@@ -13,7 +13,7 @@ const InputType = Object.freeze({
 	FILE_UPLOAD: 'file_upload',
 });
 
-async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
+function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	/*
 	var flag_elementFound = await _eval(`
 		(async () => {
@@ -44,28 +44,23 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 	`);
 	*/
 
+
+	var flag_elementFound = "Empty";
 	var attempts = 0;
-	const WaitForElement = () => {
-		return new Promise((resolve) => {
-			var timer = setInterval(() => {
-				var flag_isInteractable = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
-				
-				if (flag_isInteractable) {
-					clearInterval(timer);
-					resolve("true");
-				}
-				else if (attempts >= p_maxAttepts) {
-					clearInterval(timer);
-					resolve("false");
-				}
+	var timer = setInterval(() => {
+		var flag_isInteractable = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
+		
+		if (flag_isInteractable) {
+			clearInterval(timer);
+			flag_elementFound = "true";
+		}
+		else if (attempts >= p_maxAttepts) {
+			clearInterval(timer);
+			flag_elementFound = "false";
+		}
 
-				attempts += 1;
-			}, p_interval);
-			resolve("Shouldn't get here??");
-		});
-	};
-
-	var flag_elementFound = await WaitForElement();
+		attempts += 1;
+	}, p_interval);
 
 	_log(flag_elementFound);
 	return flag_elementFound;
@@ -197,7 +192,7 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 	_log(logText);
 }
 
-async function TEST_InitializeAdaptiveFormData(p_bddExample) {
+function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	const contactUsFormData = {
 		name: "Contact Us Form (English)",
 		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
