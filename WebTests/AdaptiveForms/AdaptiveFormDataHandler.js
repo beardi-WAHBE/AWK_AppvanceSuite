@@ -133,8 +133,8 @@ class AdaptiveFormField {
 		var errorMsgText = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError').click().text();`);
 		
 		_log(`\n - Check Error Message - \n
-				p_result: ${p_result} \n
-				errorMessage: ${errorMsgText} \n`);
+				p_result: '${p_result}' \n
+				errorMessage: '${errorMsgText}' \n`);
 
 		if(p_result.contains("No Error")) {
 			_verifyEqual(errorMsgText, "");
