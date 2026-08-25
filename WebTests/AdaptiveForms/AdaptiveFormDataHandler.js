@@ -24,11 +24,11 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 
 					if (flag_isInteractable) {
 						clearInterval(timer);
-						resolve(true);
+						resolve("true");
 					}
 					else if (attempts >= p_maxAttepts) {
 						clearInterval(timer);
-						resolve(false);
+						resolve("false");
 					}
 
 					attempts += 1;
