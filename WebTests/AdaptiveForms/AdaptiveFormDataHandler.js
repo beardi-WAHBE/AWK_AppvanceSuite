@@ -168,7 +168,7 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 	_log(logText);
 }
 
-async function TEST_InitializeAdaptiveFormData(p_bddExample) {
+function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	const contactUsFormData = {
 		name: "Contact Us Form (English)",
 		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
