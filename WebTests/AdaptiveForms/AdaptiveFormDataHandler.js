@@ -17,7 +17,7 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 	var flag_elementFound = await _eval(`
 		async function CheckIfInteractable() {
 			var attempts = 0;
-			var result = new Promise((resolve) => {
+			return new Promise((resolve) => {
 				var timer = setInterval(() => {
 					var flag_isInteractable = (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
 					
@@ -34,9 +34,9 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 					attempts += 1;
 				}, ${p_interval});
 			});
-			return result;
 
 		}
+		await CheckIfInteractable();
 	`);
 	_log(flag_elementFound);
 	return flag_elementFound;
