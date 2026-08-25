@@ -13,47 +13,13 @@ const InputType = Object.freeze({
 	FILE_UPLOAD: 'file_upload',
 });
 
-function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
-	/*
-	var flag_elementFound = await _eval(`
-		(async () => {
-			var attempts = 0;
-			const WaitForElement = () => {
-				return new Promise((resolve) => {
-					var timer = setInterval(() => {
-						var flag_isInteractable = (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
-						
-						if (flag_isInteractable) {
-							clearInterval(timer);
-							resolve("true");
-						}
-						else if (attempts >= p_maxAttepts) {
-							clearInterval(timer);
-							resolve("false");
-						}
+function CheckIsInteractable(p_jqElementStr) {
+	return _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
+}
 
-						attempts += 1;
-					}, ${p_interval});
-					resolve("Shouldn't get here??");
-				});
-			};
-			
-			await WaitForElement();
-
-		})();
-	`);
-	*/
-
-
-	var flag_elementFound;
-	var CheckIsInteractable = () => { 
-			flag_elementFound = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`)
-			return flag_elementFound;
-		};
-	wait(5000, CheckIsInteractable);
-
-	_log(flag_elementFound);
-	return flag_elementFound;
+function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
+	wait(p_waitTimeMS, CheckIsInteractable());
+	return CheckIsInteractable();
 }
 
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
