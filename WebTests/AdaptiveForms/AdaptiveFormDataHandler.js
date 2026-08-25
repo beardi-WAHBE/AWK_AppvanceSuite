@@ -211,7 +211,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
 	_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
-	wait(1000, "_isVisible(_byXPath(\"//div[@class='tyMessage']\"))");
+	
 	
 	//_verifyExists(_byXPath("//div[@class='tyMessage']"));
 
