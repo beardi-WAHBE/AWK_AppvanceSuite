@@ -35,7 +35,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 		}, ${p_interval});
 
 		log(retunVal);
-		return returnVal;
+		returnVal;
 	`);
 
 	_log(flag_elementFound);
