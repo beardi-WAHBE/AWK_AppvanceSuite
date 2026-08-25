@@ -15,7 +15,7 @@ const InputType = Object.freeze({
 
 async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	var flag_elementFound = await _eval(`
-		async function CheckIfInteractable() {
+		(async () => {
 			var attempts = 0;
 			return new Promise((resolve) => {
 				var timer = setInterval(() => {
@@ -35,8 +35,7 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 				}, ${p_interval});
 			});
 
-		}
-		await CheckIfInteractable();
+		});
 	`);
 	_log(flag_elementFound);
 	return flag_elementFound;
