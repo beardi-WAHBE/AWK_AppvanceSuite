@@ -14,6 +14,7 @@ const InputType = Object.freeze({
 });
 
 async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
+	/*
 	var flag_elementFound = await _eval(`
 		(async () => {
 			var attempts = 0;
@@ -41,6 +42,31 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 
 		})();
 	`);
+	*/
+
+	var attempts = 0;
+	const WaitForElement = () => {
+		return new Promise((resolve) => {
+			var timer = setInterval(() => {
+				var flag_isInteractable = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
+				
+				if (flag_isInteractable) {
+					clearInterval(timer);
+					resolve("true");
+				}
+				else if (attempts >= p_maxAttepts) {
+					clearInterval(timer);
+					resolve("false");
+				}
+
+				attempts += 1;
+			}, p_interval);
+			resolve("Shouldn't get here??");
+		});
+	};
+
+	var flag_elementFound = await WaitForElement();
+
 	_log(flag_elementFound);
 	return flag_elementFound;
 }
