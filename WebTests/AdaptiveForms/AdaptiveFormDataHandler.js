@@ -13,11 +13,11 @@ const InputType = Object.freeze({
 	FILE_UPLOAD: 'file_upload',
 });
 
-function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
-	var flag_elementFound = _eval(`
-		function CheckIfInteractable() {
+async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
+	var flag_elementFound = await _eval(`
+		async function CheckIfInteractable() {
 			var attempts = 0;
-			return new Promise((resolve) => {
+			var result = new Promise((resolve) => {
 				var timer = setInterval(() => {
 					var flag_isInteractable = (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
 					
@@ -34,16 +34,11 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 					attempts += 1;
 				}, ${p_interval});
 			});
+			return result;
 
 		}
-		var returnValue;
-		CheckIfInteractable().then((result) => {
-			returnValue = result;
-		});
-		returnValue;
 	`);
 
-	_log(flag_elementFound);
 	return flag_elementFound;
 }
 
