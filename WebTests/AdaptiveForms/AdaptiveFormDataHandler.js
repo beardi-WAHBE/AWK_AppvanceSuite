@@ -25,10 +25,12 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 				if (flag_isInteractable) {
 					clearInterval(timer);
 					dataCallback(true);
+					return;
 				}
 				else if (attempts >= p_maxAttepts) {
 					clearInterval(timer);
 					dataCallback(false);
+					return;
 				}
 
 				attempts += 1;
