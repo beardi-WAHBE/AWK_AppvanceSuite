@@ -16,22 +16,23 @@ const InputType = Object.freeze({
 function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	var attempts = 0;
 
-	var timer = window.setInterval(() => {
-		var flag_isInteractable = _eval(`
-			return (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
-		`);
+	return _eval(`
+		var timer = window.setInterval(() => {
+			var flag_isInteractable = (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
+			
 
-		if (flag_isInteractable) {
-			clearInterval(timer);
-			return true;
-		}
-		else if (attempts >= p_maxAttepts) {
-			clearInterval(timer);
-			return false;
-		}
+			if (flag_isInteractable) {
+				clearInterval(timer);
+				return true;
+			}
+			else if (attempts >= p_maxAttepts) {
+				clearInterval(timer);
+				return false;
+			}
 
-		attempts += 1;
-	}, p_interval);
+			attempts += 1;
+		}, p_interval);
+	`);
 }
 
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
