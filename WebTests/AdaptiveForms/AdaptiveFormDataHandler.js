@@ -169,7 +169,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	wait(3000);
 	_eval(`
 		var e = ds$.Event('keydown', {key: 'enter', keyCode: 13, which: 13});
-		ds$('#aemFormFrame').contents().find(form).trigger(e);
+		ds$('#aemFormFrame').contents().find('form').trigger(e);
 	`);
 
 	for (field in page) {
