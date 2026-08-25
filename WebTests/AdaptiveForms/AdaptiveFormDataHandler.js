@@ -36,7 +36,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 			});
 
 		}
-		var returnValue = false;
+		var returnValue;
 		CheckIfInteractable().then((result) => {
 			returnValue = result;
 		});
