@@ -168,7 +168,7 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 	_log(logText);
 }
 
-function TEST_InitializeAdaptiveFormData(p_bddExample) {
+async function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	const contactUsFormData = {
 		name: "Contact Us Form (English)",
 		url: "https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
@@ -201,7 +201,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	_eval(`window.location.href = '${contactUsFormData.url}'`);
-	WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+	await WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 
 	_eval(`
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
@@ -217,7 +217,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
-	_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+	_verifyTrue(await WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
 	
 	
 	//_verifyExists(_byXPath("//div[@class='tyMessage']"));
