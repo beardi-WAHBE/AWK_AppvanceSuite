@@ -124,7 +124,7 @@ class AdaptiveFormField {
 				break;
 			default:
 				_eval(`
-					ds$('#aemFormFrame').contents().find('#${this.id}').val('${p_input}').focus();
+					ds$('#aemFormFrame').contents().find('#${this.id}').focus().val('${p_input}').focus();
 					ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError').focus();
 				`);
 				break;
