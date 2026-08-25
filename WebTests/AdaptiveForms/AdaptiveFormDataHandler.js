@@ -23,15 +23,17 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 
 			if (flag_isInteractable) {
 				clearInterval(timer);
-				return true;
+				flag_elementFound = true;
 			}
 			else if (attempts >= p_maxAttepts) {
 				clearInterval(timer);
-				return false;
+				flag_elementFound = false;
 			}
 
 			attempts += 1;
 		}, ${p_interval});
+
+		flag_elementFound;
 	`);
 
 	_log(flag_elementFound);
