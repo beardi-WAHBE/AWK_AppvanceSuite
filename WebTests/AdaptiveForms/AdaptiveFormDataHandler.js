@@ -31,7 +31,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 			}
 
 			attempts += 1;
-		}, p_interval);
+		}, ${p_interval});
 	`);
 }
 
