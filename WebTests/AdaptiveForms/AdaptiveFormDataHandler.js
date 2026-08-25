@@ -37,7 +37,6 @@ async function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) 
 
 		});
 	`);
-	_log(flag_elementFound);
 	return flag_elementFound;
 }
 
