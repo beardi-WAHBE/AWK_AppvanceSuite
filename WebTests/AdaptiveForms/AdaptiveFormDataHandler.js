@@ -13,6 +13,26 @@ const InputType = Object.freeze({
 	FILE_UPLOAD: 'file_upload',
 });
 
+function WaitForElement(p_selector, p_interval = 100, p_maxAttepts = 50) {
+	var attempts = 0;
+
+	var timer = setInterval(() => {
+		var flag_isInteractable = _eval(`
+			return (ds$('${p_selector}').length && ds$('${p_selector}').is(':visible') && !ds$('${p_selector}').is(':disabled'));
+		`);
+
+		if (flag_isInteractable) {
+			clearInterval(timer);
+			return true;
+		}
+		else if (attempts >= p_maxAttepts) {
+			clearInterval(timer);
+			return false;
+		}
+
+		attempts += 1;
+	}, p_interval);
+}
 
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let exampleArr = p_exampleRow.split("|");
