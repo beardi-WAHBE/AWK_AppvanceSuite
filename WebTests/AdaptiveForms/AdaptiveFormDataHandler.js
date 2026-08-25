@@ -14,8 +14,7 @@ const InputType = Object.freeze({
 });
 
 function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
-	var flag_elementFound;
-	_eval(`
+	var flag_elementFound = _eval(`
 		var attempts = 0;
 
 		var timer = setInterval(() => {
@@ -24,11 +23,11 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 
 			if (flag_isInteractable) {
 				clearInterval(timer);
-				flag_elementFound = true;
+				return true;
 			}
 			else if (attempts >= p_maxAttepts) {
 				clearInterval(timer);
-				flag_elementFound = false;
+				return false;
 			}
 
 			attempts += 1;
