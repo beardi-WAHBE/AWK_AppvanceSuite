@@ -14,7 +14,7 @@ const InputType = Object.freeze({
 });
 
 function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
-	return _eval(`
+	var flag_elementFound = _eval(`
 		var attempts = 0;
 
 		var timer = setInterval(() => {
@@ -33,6 +33,9 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 			attempts += 1;
 		}, ${p_interval});
 	`);
+
+	_log(flag_elementFound);
+	return flag_elementFound;
 }
 
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
