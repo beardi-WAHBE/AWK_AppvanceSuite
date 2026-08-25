@@ -14,9 +14,9 @@ const InputType = Object.freeze({
 });
 
 function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
-	var attempts = 0;
-
 	return _eval(`
+		var attempts = 0;
+
 		var timer = window.setInterval(() => {
 			var flag_isInteractable = (${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'));
 			
