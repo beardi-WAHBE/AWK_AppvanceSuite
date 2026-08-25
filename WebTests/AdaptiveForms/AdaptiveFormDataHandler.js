@@ -225,7 +225,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	_eval(`window.location.href = '${contactUsFormData.url}'`);
-	var formLoaded = await WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+	var formLoaded = WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 	
 	_eval(`
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
@@ -241,7 +241,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	
 	_click(_byXPath("//button[contains(@class, 'submit')]"));
 
-	_verifyTrue(await WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+	_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
 	
 	
 	//_verifyExists(_byXPath("//div[@class='tyMessage']"));
