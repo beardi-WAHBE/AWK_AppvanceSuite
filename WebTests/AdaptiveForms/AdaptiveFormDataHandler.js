@@ -46,21 +46,11 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 
 
 	var flag_elementFound = "Empty";
-	var attempts = 0;
-	var timer = setInterval(() => {
-		var flag_isInteractable = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`);
-		
-		if (flag_isInteractable) {
-			clearInterval(timer);
-			flag_elementFound = "true";
-		}
-		else if (attempts >= p_maxAttepts) {
-			clearInterval(timer);
-			flag_elementFound = "false";
-		}
-
-		attempts += 1;
-	}, p_interval);
+	var CheckIsInteractable = () => { 
+			flag_elementFound = _eval(`(${p_jqElement}.length && ${p_jqElement}.is(':visible') && !${p_jqElement}.is(':disabled'))`)
+			return flag_elementFound;
+		};
+	wait(5000, CheckIsInteractable);
 
 	_log(flag_elementFound);
 	return flag_elementFound;
