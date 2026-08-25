@@ -187,12 +187,13 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
 
 
-	_navigateTo(contactUsFormData.url);
+	//_navigateTo(contactUsFormData.url);
 	//_selectFrame("aemFormFrame");
 	//_log(testData.get("FirstName"));
 
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
+	_eval(`window.location.href = '${contactUsFormData.url}'`);
 	WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 
 	_eval(`
