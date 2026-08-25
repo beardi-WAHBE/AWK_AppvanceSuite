@@ -125,7 +125,7 @@ class AdaptiveFormField {
 			default:
 				_eval(`
 					ds$('#aemFormFrame').contents().find('#${this.id}').val('${p_input}');
-					ds$('#aemFormFrame').contents().find('form').focus();
+					ds$('#aemFormFrame').contents().find('#${this.id}').focus();
 				`);
 				break;
 		}
