@@ -15,7 +15,7 @@ const InputType = Object.freeze({
 
 function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 	var flag_elementFound = _eval(`
-		(function() {
+		(() => ) {
 			var attempts = 0;
 			var returnVal;
 
@@ -36,7 +36,7 @@ function WaitForElement(p_jqElement, p_interval = 100, p_maxAttepts = 50) {
 			}, ${p_interval});
 
 			return returnVal;
-		})();
+		})()
 	`);
 
 	_log(flag_elementFound);
