@@ -199,7 +199,8 @@ async function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	_eval(`window.location.href = '${contactUsFormData.url}'`);
-	await WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+	var formLoaded = await WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+	_log(formLoaded);
 
 	_eval(`
 		ds$('#aemFormFrame').contents().find('button.submit')[0].click();
