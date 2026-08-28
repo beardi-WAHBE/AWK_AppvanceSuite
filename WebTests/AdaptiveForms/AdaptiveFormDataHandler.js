@@ -77,7 +77,8 @@ class AdaptiveForm {
 			_click(_byXPath(btnXPath));
 
 			// Fill out form
-			for (field in this.pages[i]) {
+			let page = this.pages[i];
+			for (field in page) {
 				page[field].SendData(testData.get(field).input, testData.get(field).result);
 			}
 
