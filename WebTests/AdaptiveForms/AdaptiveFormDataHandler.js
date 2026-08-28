@@ -79,9 +79,8 @@ class AdaptiveForm {
 			// Fill out form
 			let page = this.pages[i];
 			_log(page.keys);
-			for (field in page.keys) {
-				_log(field);
-				page[field].SendData(testData.get(field).input, testData.get(field).result);
+			for (const [key, value] of Object.entries(page)) {
+				value.SendData(testData.get(key).input, testData.get(key).result);
 			}
 
 			// Verify the results
