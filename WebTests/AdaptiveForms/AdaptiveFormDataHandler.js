@@ -72,7 +72,7 @@ class AdaptiveForm {
 			WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 			
 			// Press the Next/Submit button to make error messages start appearing
-			var btnClass = (i < pages.length) ? "moveNext" : "submit";
+			var btnClass = (i < this.pages.length) ? "moveNext" : "submit";
 			var btnXPath = `//button[contains(@class, '${btnClass}')]`;
 			_click(_byXPath(btnXPath));
 
@@ -89,7 +89,7 @@ class AdaptiveForm {
 				_log("Page should not have submitted");
 				continue;
 			}
-			else if (i < pages.length) {
+			else if (i < this.pages.length) {
 				// If the page is expected to pass and isn't the last page, make sure the form progressed to the next page
 				_log("Should have progressed to the next page");
 			}
