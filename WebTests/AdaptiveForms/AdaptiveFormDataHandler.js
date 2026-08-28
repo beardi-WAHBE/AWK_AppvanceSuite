@@ -20,7 +20,7 @@ function CheckIsInteractable(p_jqElementStr) {
 }
 
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
-	_log("Interactable before checking: " + CheckIsInteractable(p_jqElementStr));
+	//_log("Interactable before checking: " + CheckIsInteractable(p_jqElementStr));
 	wait(p_waitTimeMS, () => CheckIsInteractable(p_jqElementStr));
 	return CheckIsInteractable(p_jqElementStr);
 }
@@ -68,19 +68,21 @@ class AdaptiveForm {
 
 		// Navigate to the form
 		NavigateToPage(this.url);
-		WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 
 		for (let i = 0; i < this.pages.length; i++) {
 			// Wait for form to be interactable
+			var flag_lastPage = (i + 1 == this.pages.length);
 			WaitForElement("ds$('#aemFormFrame').contents().find('form')");
 			
 			// Press the Next/Submit button to make error messages start appearing
-			var btnClass = (i + 1 < this.pages.length) ? "moveNext" : "submit";
+			var btnClass = (flag_lastPage) ? "submit" : "moveNext";
 			var btnXPath = `//button[contains(@class, '${btnClass}')]`;
 			_click(_byXPath(btnXPath));
 
 			// Fill out form
+			var firstField = null;
 			for (const [fieldName, fieldObj] of Object.entries(this.pages[i])) {
+				if (firstField == null) firstField = fieldObj;
 				fieldObj.SendData(testData.get(fieldName).input, testData.get(fieldName).result);
 			}
 
@@ -90,12 +92,14 @@ class AdaptiveForm {
 			if (pageResult.toLowerCase().contains("should not")) {
 				// If page is expected to fail, make sure the page didn't submit then end the test
 				_log("Page should not have submitted");
-				_verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+				if (flag_lastPage) _verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+				else _verifyTrue(firstField.CheckFieldIsInteractable());
 				continue;
 			}
-			else if (i + 1 < this.pages.length) {
+			else if (!flag_lastPage) {
 				// If the page is expected to pass and isn't the last page, make sure the form progressed to the next page
 				_log("Should have progressed to the next page");
+				_verifyFalse(firstField.CheckFieldIsInteractable());
 			}
 			else {
 				// If the page is expected to pass and isn't the last page, make sure the form submitted
@@ -115,6 +119,8 @@ class AdaptiveFormField {
 		this.flag_required = p_required;
 		this.options = p_options;
 
+		this.jqString = `ds$('#aemFormFrame').contents().find('#${this.id}')`;
+
 		this.XPath = p_parentXPath;
 		switch(p_type) {
 			case InputType.DROPDOWN:
@@ -127,6 +133,10 @@ class AdaptiveFormField {
 				this.XPath += `//input[@id='${p_id}']`;
 				break;
 		}
+	}
+
+	CheckFieldIsInteractable() {
+		return CheckIsInteractable(jqString);
 	}
 
 	SendData(p_input, p_result) {
