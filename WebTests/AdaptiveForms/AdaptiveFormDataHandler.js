@@ -82,7 +82,21 @@ class AdaptiveForm {
 			}
 
 			// If the expected page result is to not submit, make sure the form didn't progress and break out of the loop
-
+			var pageResult = testData.get(`Page_${i + 1}_Result`);
+			_click(_byXPath(btnXPath));
+			if (pageResult.toLowerCase().contains("should not")) {
+				// Make sure the page didn't submit, then end the test
+				_log("Page should not have submitted");
+				continue;
+			}
+			else if (i < pages.length) {
+				// Make sure the form progressed to the next page
+				_log("Should have progressed to the next page");
+			}
+			else {
+				// Make sure the form submitted
+				_log("Should have submitted.")
+			}
 
 		}
 	}
