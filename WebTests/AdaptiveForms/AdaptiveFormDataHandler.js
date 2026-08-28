@@ -95,7 +95,8 @@ class AdaptiveForm {
 			}
 			else {
 				// If the page is expected to pass and isn't the last page, make sure the form submitted
-				_log("Should have submitted.")
+				_log("Should have submitted.");
+				_log(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
 			}
 
 		}
