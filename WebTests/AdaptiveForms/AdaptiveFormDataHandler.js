@@ -18,7 +18,7 @@ function CheckIsInteractable(p_jqElementStr) {
 }
 
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
-	wait(p_waitTimeMS, CheckIsInteractable(p_jqElementStr));
+	wait(p_waitTimeMS, `CheckIsInteractable(${p_jqElementStr})`);
 	return CheckIsInteractable(p_jqElementStr);
 }
 
