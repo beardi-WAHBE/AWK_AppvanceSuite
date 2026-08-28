@@ -14,7 +14,10 @@ const InputType = Object.freeze({
 });
 
 function CheckIsInteractable(p_jqElementStr) {
-	return _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
+	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
+	_log(flag_check);
+	if (flag_check == true) return true;
+	else return false;
 }
 
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
