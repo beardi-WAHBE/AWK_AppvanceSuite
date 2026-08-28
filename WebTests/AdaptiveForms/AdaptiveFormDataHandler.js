@@ -247,5 +247,5 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	
 }
 
-//TEST_InitializeAdaptiveFormData("| Smoke Test: Valid Input | Test | No Error | Test | No Error | FormsTesting@wahbexchange.org | No Error | 1234567890  | No Error |  | No Error | This is a test | No Error | Form should submit |");
-TEST_InitializeAdaptiveFormData("| Smoke Test: No Input |  | First name is required. |  | Last name is required. |  | Email is required. |  | Phone number is required. |  | No Error |  | Message is required. | Form should not submit |");
+TEST_InitializeAdaptiveFormData("| Smoke Test: Valid Input | Test | No Error | Test | No Error | FormsTesting@wahbexchange.org | No Error | 1234567890  | No Error |  | No Error | This is a test | No Error | Form should submit |");
+//TEST_InitializeAdaptiveFormData("| Smoke Test: No Input |  | First name is required. |  | Last name is required. |  | Email is required. |  | Phone number is required. |  | No Error |  | Message is required. | Form should not submit |");
