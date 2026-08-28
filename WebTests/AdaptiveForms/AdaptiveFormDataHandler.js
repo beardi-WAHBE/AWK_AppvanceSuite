@@ -47,33 +47,17 @@ class AdaptiveFormTest {
 		
 	}
 
+
 	TestForm() {
 	}
 }
 
-class AdaptiveFormPage {
-	constructor(p_btnXPath, p_expectedResult, p_isLastPage = true) {
-		this.fields = new Map();
-		this.btn = P_btn;
-		this.expectedResult = p_expectedResult;
-		this.flag_lastPage = p_isLastPage;
-	}
-
-	AddField(p_adaptiveFormField) {
-		this.fields.push(p_adaptiveFormField);
-	}
-
-	TestPage() {
-		// Click on submit button. Submission should fail and error messages should appear of required fields
-		for (field of this.fields) {
-			if(field.flag_required) {
-				// Check for error message
-			}
-
-			field.SendData();
-
-			
-		}
+class AdaptiveFormData {
+	constructor(p_name, p_url, p_bddHeader, p_pages) {
+		this.name = p_name; // String - Arbitrary name for form
+		this.url = p_url; // String - Full URL of form
+		this.bddHeader = p_bddHeader; // String: "| Test Name | <BDD Field Name 1>_Input | <BDD Field Name 1>_Result | <BDD Field Name 2>_Input | ... | Page_1_Result | Page_2_Result | ... | Page_<#>_Result |"
+		this.pages = p_pages; // Array of objects. Each object is a list of AdaptiveFormFields indexed by the BDD field name
 	}
 }
 
