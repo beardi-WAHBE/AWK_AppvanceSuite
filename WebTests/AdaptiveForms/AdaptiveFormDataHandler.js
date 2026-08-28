@@ -22,6 +22,11 @@ function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
 	return CheckIsInteractable(p_jqElementStr);
 }
 
+function NavigateToPage(p_url) {
+		_eval(`window.location.href = '${p_url}'`);
+		WaitForElement("ds$('body')");
+}
+
 function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let exampleArr = p_exampleRow.split("|");
     let headerArr = p_headerRow.split("|");
@@ -30,34 +35,56 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
 
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i < headerArr.length; i++) {
-        if (!headerArr[i].toLowerCase().contains("_input")) continue;
+        if (headerArr[i].toLowerCase().contains("_input")) {
+			let fieldName = headerArr[i].split("_")[0].trim();
+			let fieldInput = exampleArr[i].trim();
+			let fieldResult = exampleArr[i + 1].trim();
 
-        let fieldName = headerArr[i].split("_")[0].trim();
-        let fieldInput = exampleArr[i].trim();
-        let fieldResult = exampleArr[i + 1].trim();
-
-        output.set(fieldName, {input: fieldInput, result: fieldResult});
+			output.set(fieldName, {input: fieldInput, result: fieldResult});
+		}
+		else if (headerArr[i].toLowerCase().contains("page_")) {
+			output.set(headerArr[i].trim(), exampleArr[i].trim());
+		}
+		else continue;
     }
 
 	return output;
 }
 
-class AdaptiveFormTest {
-	constructor(p_bddHeader, p_bddExample) {
-		
-	}
-
-
-	TestForm() {
-	}
-}
-
-class AdaptiveFormData {
+class AdaptiveForm {
 	constructor(p_name, p_url, p_bddHeader, p_pages) {
 		this.name = p_name; // String - Arbitrary name for form
 		this.url = p_url; // String - Full URL of form
 		this.bddHeader = p_bddHeader; // String: "| Test Name | <BDD Field Name 1>_Input | <BDD Field Name 1>_Result | <BDD Field Name 2>_Input | ... | Page_1_Result | Page_2_Result | ... | Page_<#>_Result |"
 		this.pages = p_pages; // Array of objects. Each object is a list of AdaptiveFormFields indexed by the BDD field name
+	}
+
+	TestForm(p_bddExample) {
+		// Format the data from the input BDD Example
+		let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
+
+		// Navigate to the form
+		NavigateToPage(this.url);
+		WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+
+		for (let i = 0; i < this.pages.length; i++) {
+			// Wait for form to be interactable
+			WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+			
+			// Press the Next/Submit button to make error messages start appearing
+			var btnClass = (i < pages.length) ? "moveNext" : "submit";
+			var btnXPath = `//button[contains(@class, '${btnClass}')]`;
+			_click(_byXPath(btnXPath));
+
+			// Fill out form
+			for (field in this.pages[i]) {
+				page[field].SendData(testData.get(field).input, testData.get(field).result);
+			}
+
+			// If the expected page result is to not submit, make sure the form didn't progress and break out of the loop
+
+
+		}
 	}
 }
 
