@@ -61,7 +61,7 @@ class AdaptiveForm {
 
 	TestForm(p_bddExample) {
 		// Format the data from the input BDD Example
-		let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
+		let testData = ParseBDDExample(this.bddHeader, p_bddExample);
 
 		// Navigate to the form
 		NavigateToPage(this.url);
