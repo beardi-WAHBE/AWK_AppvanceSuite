@@ -190,6 +190,10 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 		]
 	} 
 
+	var form = new AdaptiveForm(contactUsFormData.name, contactUsFormData.url, contactUsFormData.bddHeader, contactUsFormData.pages);
+	form.TestForm(p_bddExample);
+
+/*
 	let logStr = "\n -| Initialize Adaptive Form Data |- \n\n" +
 				 `Name: ${contactUsFormData.name}\n` + 
 				 `URL: ${contactUsFormData.url}\n` +
@@ -198,12 +202,6 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	let page = contactUsFormData.pages[0];
 	let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
 
-
-	//_navigateTo(contactUsFormData.url);
-	//_selectFrame("aemFormFrame");
-	//_log(testData.get("FirstName"));
-
-	//button[contains(@class, 'moveNext') or contains(@class, 'submit')]
 
 	_eval(`window.location.href = '${contactUsFormData.url}'`);
 	WaitForElement("ds$('#aemFormFrame').contents().find('form')");
@@ -228,6 +226,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	//_verifyExists(_byXPath("//div[@class='tyMessage']"));
 
 	//TEST_ParseInputData(contactUsFormData.bddHeader, p_bddExample);
+*/
 	
 }
 
