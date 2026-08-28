@@ -15,7 +15,6 @@ const InputType = Object.freeze({
 
 function CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
-	_log(flag_check);
 	if (flag_check == true) return true;
 	else return false;
 }
@@ -91,6 +90,7 @@ class AdaptiveForm {
 			if (pageResult.toLowerCase().contains("should not")) {
 				// If page is expected to fail, make sure the page didn't submit then end the test
 				_log("Page should not have submitted");
+				_verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
 				continue;
 			}
 			else if (i + 1 < this.pages.length) {
