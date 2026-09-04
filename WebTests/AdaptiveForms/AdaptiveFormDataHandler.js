@@ -10,8 +10,31 @@ const InputType = Object.freeze({
 	INPUT_PHONE: 'input_phone',
 	TEXTAREA: 'textarea',
 	DROPDOWN: 'dropdown',
+	RADIO_BTNS: 'radio_buttons',
+	CHECKBOX: "checkbox",
 	FILE_UPLOAD: 'file_upload',
 });
+
+const FormKeys = Object.freeze({
+	HPF_ContactUs_English: 0,
+	HPF_ContactUs_Spanish: 1,
+	HPF_WebAccessibility_English: 2,
+	HPF_WebAccessibility_Spanish: 3,
+	HBE_ContactUs: 4,
+	HBE_IndividualAppeals: 5,
+	HBE_EmployerAppeals: 6,
+	HBE_FeedbackAndComplaints: 7,
+	HBE_ShareYourStory: 8,
+	HBE_DirectoryFeedback: 9,
+	HBE_RequestASpeaker: 10,
+});
+
+const EnvKeys = Object.freeze({
+	DEV: 0,
+	UAT: 1,
+	QA: 2,
+	PROD: 3,
+})
 
 function CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
@@ -52,6 +75,152 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     }
 
 	return output;
+}
+
+function GetFormData(p_formKey, p_env) {
+
+	// --=|| Form Data ||=--
+	let formDataMap = new Map();
+	let hpfBaseURL = "https://qa.wahpf.org";
+	let hbeBaseURL = "https://uat-corp.wahpf.org";
+
+	if (p_env == EnvKeys.DEV) {
+		hpfBaseURL = "https://dev.wahpf.org";
+		hbeBaseURL = "https://dev-corp.wahpf.org";
+	}
+	else if (p_env == EnvKeys.PROD) {
+		hpfBaseURL = "https://www.wahealthplanfinder.org";
+		hbeBaseURL = "https://www.wahbexchange.org";
+	}
+
+	// -| HPF - Contact Us (English) |-
+	formDataMap.set(FormKeys.HPF_ContactUs_English, {
+		name: "HPF - Contact Us Form (English)",
+		url: hpfBaseURL + "/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html",
+		bddHeader: "| TestName " +
+					"| FirstName_Input | FirstName_Result " +
+					"| LastName_Input | LastName_Result " +
+					"| Email_Input | Email_Result " +
+					"| Phone_Input | Phone_Result " +
+					"| Subject_Input | Subject_Result " +
+					"| Message_Input | Message_Result " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
+				LastName:  new AdaptiveFormField("Last Name",  InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
+				Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
+				Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
+				Subject:   new AdaptiveFormField("Subject",    InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget"), 
+				Message:   new AdaptiveFormField("Message",    InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
+			}, 
+		]
+	});
+
+	// -| HPF - Contact Us (Spanish) |-
+	formDataMap.set(FormKeys.HPF_ContactUs_Spanish, {
+		name: "HPF - Contact Us Form (Spanish)",
+		url: hpfBaseURL + "/es/herramientas-y-recursos/contactenos/encuentre-un-orientador/comuniquese-con-servicio-al-cliente.html",
+		bddHeader: " | TestName " +
+					"| Nombre_Input | Nombre_Result " +
+					"| Apellido_Input | Apellido_Result " +
+					"| CorreoElectronico_Input | CorreoElectronico_Result " +
+					"| NumeroDeTelefono_Input | NumeroDeTelefono_Result " +
+					"| Sujeto_Input | Sujeto_Result " +
+					"| Mensaje_Input | Mensaje_Result " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				Nombre:            new AdaptiveFormField("Nombre",             InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
+				Apellido:          new AdaptiveFormField("Apellido",           InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
+				CorreoElectronico: new AdaptiveFormField("Correo electrónico", InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
+				NumeroDeTelefono:  new AdaptiveFormField("Número de teléfono", InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
+				Sujeto:            new AdaptiveFormField("Sujeto",             InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget"), 
+				Mensaje:           new AdaptiveFormField("Mensaje",            InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
+			}, 
+		]
+	});
+
+	// -| HPF - Web Accessibility Form (English) |-
+	formDataMap.set(FormKeys.HPF_WebAccessibility_English, {
+		name: "HPF - Contact Us Form (English)",
+		url: hpfBaseURL + "",
+		bddHeader: "| TestName | | Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox___widget"), 
+				LastName:  new AdaptiveFormField("Last Name",  InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158892___widget"), 
+				Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  ""), 
+				Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  ""), 
+				Feedback:  new AdaptiveFormField("Feedback",   InputType.TEXTAREA,    true,  ""),
+				
+				WhatSite:  new AdaptiveFormField("What site are you referencing?",   InputType.RADIO_BTNS, false,  "", 
+					["wahealthplanfinder.org", "wahbexchange.org"]
+				),
+				WhichDevice_Computer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, ""),
+				WhichBrowser_Computer:  new AdaptiveFormField("Which browser...Computer",   InputType.RADIO_BTNS, false,  "", 
+					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
+				),
+				WhichDevice_Phone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, ""),
+				WhichBrowser_Phone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.RADIO_BTNS, false,  "", 
+					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
+				),
+				WhichDevice_APP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, ""),
+				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.RADIO_BTNS, false,  "", 
+					["Select mobile device", "Apple(iOS)", "Android"]
+				),
+
+				AttachAFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, )
+
+			}, 
+		]
+	});
+
+	// -| HPF - Web Accessibility Form (Spanish) |-
+	formDataMap.set(FormKeys.HPF_WebAccessibility_Spanish, {
+		name: "HPF - Contact Us Form (Spanish)",
+		url: hpfBaseURL + "",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+
+	//  -|HBE - Contact Us Form |-
+	formDataMap.set(FormKeys.HBE_ContactUs, {
+		name: "HBE - Contact Us Form",
+		url: hbeBaseURL + "",
+		bddHeader: "| TestName | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input | Email_Result | Phone_Input | Phone_Result | Subject_Input | Subject_Result | Message_Input | Message_Result | Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
+				LastName:  new AdaptiveFormField("Last Name",  InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
+				Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
+				Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
+				Subject:   new AdaptiveFormField("Subject",    InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget"), 
+				Message:   new AdaptiveFormField("Message",    InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
+			}, 
+		]
+	});
+
+	//  -|HBE - Contact Us Form |-
+	formDataMap.set(FormKeys.HBE_IndividualAppeals, {
+		name: "HBE - Individual Appeals Form",
+		url: hbeBaseURL + "",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+	
 }
 
 class AdaptiveForm {
