@@ -170,8 +170,7 @@ function GetFormData(p_formKey, p_env) {
 					["Select mobile device", "Apple(iOS)", "Android"]
 				),
 
-				AttachAFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, )
-
+				AttachFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, false, ""),
 			}, 
 		]
 	});
