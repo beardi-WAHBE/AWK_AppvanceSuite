@@ -150,27 +150,28 @@ function GetFormData(p_formKey, p_env) {
 			{
 				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox___widget"), 
 				LastName:  new AdaptiveFormField("Last Name",  InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158892___widget"), 
-				Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  ""), 
-				Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  ""), 
-				Feedback:  new AdaptiveFormField("Feedback",   InputType.TEXTAREA,    true,  ""),
+				Email:     new AdaptiveFormField("Email",      InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
+				Phone:     new AdaptiveFormField("Phone",      InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
+				Feedback:  new AdaptiveFormField("Feedback",   InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_328795377___widget"),
 				
-				WhatSite:  new AdaptiveFormField("What site are you referencing?",   InputType.RADIO_BTNS, false,  "", 
+				// NOTE: Skip the following dynamic feilds since we want to remake this form??
+				WhatSite:  new AdaptiveFormField("What site are you referencing?",   InputType.RADIO_BTNS, false,  "guideContainer-rootPanel-guideradiobutton___guide-item", 
 					["wahealthplanfinder.org", "wahbexchange.org"]
 				),
-				WhichDevice_Computer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, ""),
-				WhichBrowser_Computer:  new AdaptiveFormField("Which browser...Computer",   InputType.RADIO_BTNS, false,  "", 
+				WhichDevice_Computer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget value=1"),
+				WhichBrowser_Computer:  new AdaptiveFormField("Which browser...Computer",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget[0]", 
 					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
 				),
-				WhichDevice_Phone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, ""),
-				WhichBrowser_Phone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.RADIO_BTNS, false,  "", 
+				WhichDevice_Phone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget value=2"),
+				WhichBrowser_Phone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget[1]", 
 					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
 				),
-				WhichDevice_APP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, ""),
-				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.RADIO_BTNS, false,  "", 
+				WhichDevice_APP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget value=0"),
+				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
 					["Select mobile device", "Apple(iOS)", "Android"]
 				),
 
-				AttachFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, false, ""),
+				AttachFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, false, "guideContainer-rootPanel-guidefileupload_copy___widget"),
 			}, 
 		]
 	});
