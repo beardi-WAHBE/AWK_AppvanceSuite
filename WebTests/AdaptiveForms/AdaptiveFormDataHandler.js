@@ -214,7 +214,7 @@ function GetFormData(p_formKey, p_env) {
 		]
 	});
 
-	//  -|HBE - Contact Us Form |-
+	//  -|HBE -  |-
 	formDataMap.set(FormKeys.HBE_IndividualAppeals, {
 		name: "HBE - Individual Appeals Form",
 		url: hbeBaseURL + "",
