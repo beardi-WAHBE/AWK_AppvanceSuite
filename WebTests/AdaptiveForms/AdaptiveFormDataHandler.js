@@ -378,7 +378,8 @@ class AdaptiveFormField {
 		this.flag_required = p_required;
 		this.options = p_options;
 
-		this.jqString = `ds$('#aemFormFrame').contents().find('#${this.id}')`;
+		this.jqString_Field = `ds$('#aemFormFrame').contents().find('#${this.id}')`;
+		this.jqString_ErrorMsg = `ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError')`;
 
 		this.XPath = p_parentXPath;
 		switch(p_type) {
@@ -395,7 +396,7 @@ class AdaptiveFormField {
 	}
 
 	CheckFieldIsInteractable() {
-		return CheckIsInteractable(jqString);
+		return CheckIsInteractable(this.jqString_Field);
 	}
 
 	SendData(p_input, p_result) {
@@ -410,12 +411,12 @@ class AdaptiveFormField {
 				break;
 			default:
 				_eval(`
-					ds$('#aemFormFrame').contents().find('#${this.id}').focus().val('${p_input}').blur();
+					${this.jqString_Field}.focus().val('${p_input}').blur();
 				`);
 				break;
 		}
 		
-		var errorMsgText = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError').focus().text();`);
+		var errorMsgText = _eval(`${jqString_ErrorMsg}.focus().text();`);
 		
 		/*
 		_log(`\n - Check Error Message - \n
