@@ -13,6 +13,7 @@ const InputType = Object.freeze({
 	RADIO_BTNS: 'radio_buttons',
 	CHECKBOX: "checkbox",
 	FILE_UPLOAD: 'file_upload',
+	DATE_PICKER: 'date_picker',
 });
 
 const FormKeys = Object.freeze({
@@ -194,7 +195,7 @@ function GetFormData(p_formKey, p_env) {
 	formDataMap.set(FormKeys.HBE_ContactUs, {
 		name: "HBE - Contact Us Form",
 		url: hbeBaseURL + "/contact-us/contact-us/",
-		bddHeader: "| TestName " +
+		bddHeader:  "| TestName " +
 					"| FirstName_Input | FirstName_Result " +
 					"| LastName_Input | LastName_Result " +
 					"| Email_Input | Email_Result " +
