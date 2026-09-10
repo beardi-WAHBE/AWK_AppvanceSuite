@@ -190,10 +190,10 @@ function GetFormData(p_formKey, p_env) {
 		]
 	});
 
-	//  -|HBE - Contact Us Form |-
+	//  -| HBE - Contact Us Form |-
 	formDataMap.set(FormKeys.HBE_ContactUs, {
 		name: "HBE - Contact Us Form",
-		url: hbeBaseURL + "",
+		url: hbeBaseURL + "/contact-us/contact-us/",
 		bddHeader: "| TestName " +
 					"| FirstName_Input | FirstName_Result " +
 					"| LastName_Input | LastName_Result " +
@@ -214,13 +214,95 @@ function GetFormData(p_formKey, p_env) {
 		]
 	});
 
-	//  -|HBE -  |-
+	//  -| HBE - Individual Appeals Form |-
 	formDataMap.set(FormKeys.HBE_IndividualAppeals, {
 		name: "HBE - Individual Appeals Form",
-		url: hbeBaseURL + "",
+		url: hbeBaseURL + "/contact-us/appeals/individual-appeal-request-form/",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result " + 
+					"|" + 
+					"| Page_2_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+			{},
+		]
+	});
+
+	//  -| HBE - Employer Appeals Form |-
+	formDataMap.set(FormKeys.HBE_EmployerAppeals, {
+		name: "HBE - Employer Appeals Form",
+		url: hbeBaseURL + "/contact-us/appeals/employer-appeal-request-form/",
 		bddHeader:  "| TestName " +
 					"|  " +
 					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+
+	//  -| HBE - Feedback & Complaints Form |-
+	formDataMap.set(FormKeys.HBE_FeedbackAndComplaints, {
+		name: "HBE - Feedback & Complaints Form",
+		url: hbeBaseURL + "/contact-us/feedback-complaints/",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+
+	//  -| HBE - HBE - Share Your Story Form |-
+
+	// NOTE: User gets option to submit instead of going to the second page if they say "no" to the last question
+
+	formDataMap.set(FormKeys.HBE_ShareYourStory, {
+		name: "HBE - Share Your Story Form",
+		url: hbeBaseURL + "/contact-us/feedback-complaints/share-your-story/",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result " + 
+					"|" + 
+					"| Page_2_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+
+	//  -| HBE - HBE - Provider Directory Feedback Form |-
+	formDataMap.set(FormKeys.HBE_DirectoryFeedback, {
+		name: "HBE - Provider Directory Feedback Form",
+		url: hbeBaseURL + "/contact-us/feedback-complaints/provider-directory-feedback/",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result |",
+		pages: [
+			{
+				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
+			}, 
+		]
+	});
+
+	//  -| HBE -  |-
+	formDataMap.set(FormKeys.HBE_RequestASpeaker, {
+		name: "HBE - Request a Speaker Form",
+		url: hbeBaseURL + "/contact-us/request-a-speaker/",
+		bddHeader:  "| TestName " +
+					"|  " +
+					"| Page_1_Result " + 
+					"|" + 
+					"| Page_2_Result " + 
+					"|" + 
+					"| Page_3_Result |",
 		pages: [
 			{
 				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  ""), 
