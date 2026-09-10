@@ -194,7 +194,14 @@ function GetFormData(p_formKey, p_env) {
 	formDataMap.set(FormKeys.HBE_ContactUs, {
 		name: "HBE - Contact Us Form",
 		url: hbeBaseURL + "",
-		bddHeader: "| TestName | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input | Email_Result | Phone_Input | Phone_Result | Subject_Input | Subject_Result | Message_Input | Message_Result | Page_1_Result |",
+		bddHeader: "| TestName " +
+					"| FirstName_Input | FirstName_Result " +
+					"| LastName_Input | LastName_Result " +
+					"| Email_Input | Email_Result " +
+					"| Phone_Input | Phone_Result " +
+					"| Subject_Input | Subject_Result " +
+					"| Message_Input | Message_Result " +
+					"| Page_1_Result |",
 		pages: [
 			{
 				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
