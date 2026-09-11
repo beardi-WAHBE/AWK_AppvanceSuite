@@ -333,6 +333,8 @@ function GetFormData(p_formKey, p_env) {
 			}, 
 		]
 	});
+
+	return formDataMap.get(p_formKey);
 	
 }
 
