@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testcase  name= '' description='' author='' version=''>
-<dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale=''/>
-<fallback useFallback='true'/>
-<shadowDOM useShadowDOM='true'/>
-<step action='' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
-  <dialect type='sahi'>
-   <accessor type='' value='' selected='true'/>
-</dialect>
-</step>
-</testcase>
+  <testcase name='' description='script generated from Web Designer' author='sso.beardi@wahbexchange.org' version='webDesigner'>
+    <dpl filename='{ds}/TestDataFiles/HPF Web Accessibility Form 2026-09-11.csv' exectype='runspecificstep0' errorhandling='' type='HashDPL' locale='en_US'></dpl>
+    <fallback useFallback='true'></fallback>
+    <shadowDOM useShadowDOM='true'></shadowDOM>
+    <step action='include' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='850c1cd2-2e2a-471c-a5d8-0d7111d383e9' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='filePath' value='"{ds}/AdaptiveFormDataHandler.js"' selected='true' fallback='true'></accessor>
+      </dialect>
+    </step>
+    <step action='js' value='let FormUnderTest = GetFormData(FormKeys.HPF_WebAccessibility_English, EnvKeys.QA);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1bfa1825-cc40-43e6-818e-63529cc4d873' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='js' value='FormUnderTest.TestForm($BDDTestCases)' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='69a411d4-2105-43bd-b4e2-6fdd32214726' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+  </testcase>
