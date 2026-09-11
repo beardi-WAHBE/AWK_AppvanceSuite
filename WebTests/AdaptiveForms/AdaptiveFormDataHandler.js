@@ -122,22 +122,22 @@ function GetFormData(p_formKey, p_env) {
 	formDataMap.set(FormKeys.HPF_ContactUs_Spanish, {
 		name: "HPF - Contact Us Form (Spanish)",
 		url: hpfBaseURL + "/es/herramientas-y-recursos/contactenos/encuentre-un-orientador/comuniquese-con-servicio-al-cliente.html",
-		bddHeader: " | TestName " +
-					"| Nombre_Input | Nombre_Result " +
-					"| Apellido_Input | Apellido_Result " +
-					"| CorreoElectronico_Input | CorreoElectronico_Result " +
-					"| NumeroDeTelefono_Input | NumeroDeTelefono_Result " +
-					"| Sujeto_Input | Sujeto_Result " +
-					"| Mensaje_Input | Mensaje_Result " +
+		bddHeader:  "| TestName " +
+					"| FirstName_Input | FirstName_Result " +
+					"| LastName_Input | LastName_Result " +
+					"| Email_Input | Email_Result " +
+					"| Phone_Input | Phone_Result " +
+					"| Subject_Input | Subject_Result " +
+					"| Message_Input | Message_Result " +
 					"| Page_1_Result |",
 		pages: [
 			{
-				Nombre:            new AdaptiveFormField("Nombre",             InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
-				Apellido:          new AdaptiveFormField("Apellido",           InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
-				CorreoElectronico: new AdaptiveFormField("Correo electrónico", InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
-				NumeroDeTelefono:  new AdaptiveFormField("Número de teléfono", InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
-				Sujeto:            new AdaptiveFormField("Sujeto",             InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget"), 
-				Mensaje:           new AdaptiveFormField("Mensaje",            InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
+				FirstName:            new AdaptiveFormField("Nombre",             InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
+				LastName:          new AdaptiveFormField("Apellido",           InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
+				Email: new AdaptiveFormField("Correo electrónico", InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
+				Phone:  new AdaptiveFormField("Número de teléfono", InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
+				Subject:            new AdaptiveFormField("Sujeto",             InputType.INPUT_TEXT,  false, "guideContainer-rootPanel-guidetextdraw___widget"), 
+				Message:           new AdaptiveFormField("Mensaje",            InputType.TEXTAREA,    true,  "guideContainer-rootPanel-guidetextbox_3287953___widget")
 			}, 
 		]
 	});
