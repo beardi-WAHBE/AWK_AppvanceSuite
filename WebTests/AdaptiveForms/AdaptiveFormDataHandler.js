@@ -145,7 +145,7 @@ function GetFormData(p_formKey, p_env) {
 	// -| HPF - Web Accessibility Form (English) |-
 	formDataMap.set(FormKeys.HPF_WebAccessibility_English, {
 		name: "HPF - Contact Us Form (English)",
-		url: hpfBaseURL + "",
+		url: hpfBaseURL + "/us/en/about-us/our-organization/website-accessibility.html",
 		bddHeader: "| TestName | | Page_1_Result |",
 		pages: [
 			{
@@ -180,7 +180,7 @@ function GetFormData(p_formKey, p_env) {
 	// -| HPF - Web Accessibility Form (Spanish) |-
 	formDataMap.set(FormKeys.HPF_WebAccessibility_Spanish, {
 		name: "HPF - Contact Us Form (Spanish)",
-		url: hpfBaseURL + "",
+		url: hpfBaseURL + "/us/es/acerca-de-nosotros/nuestra-organizacion/accesibilidad-del-sitio-de-internet.html",
 		bddHeader:  "| TestName " +
 					"|  " +
 					"| Page_1_Result |",
