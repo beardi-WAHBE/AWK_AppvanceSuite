@@ -41,11 +41,11 @@ var testResultString = "";
 function EndTest() {
 	if (testResultString == "") {
 		_log("\n --=|| TEST PASSED ||=-- \n");
-		return;
 	}
-
-	_log("\n --=|| TEST FAILED ||=-- \n" + testResultString);
-	_assertTrue(false);
+	else {
+		_log("\n --=|| TEST FAILED ||=-- \n" + testResultString);
+	}
+	_assertEquals("", testResultString);
 }
 
 function CheckIsInteractable(p_jqElementStr) {
@@ -490,7 +490,7 @@ class AdaptiveFormField {
 				p_result: '${p_result}' \n
 				errorMessage: '${errorMsgText}' \n`);
 		*/
-		if (p_result.contains("No Error") && errorMsgText == "") return;
+		//if (p_result.contains("No Error") && errorMsgText == "") return;
 		
 		if(p_result.contains("No Error") && errorMsgText != "") {
 			testResultString += `\n FAILURE: A field expected to have valid input is throwing an error \n`
