@@ -81,7 +81,7 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let headerArr = p_headerRow.split("|");
 
 	let output = new Map();
-	let logStr = " - PARSE BDD EXAMPLE -\n|\n|";
+	let logStr = "\n| --=|| PARSE BDD EXAMPLE ||=-- \n|";
 
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i < headerArr.length; i++) {
@@ -91,16 +91,16 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
 			let fieldResult = exampleArr[i + 1].trim();
 
 			output.set(fieldName, {input: fieldInput, result: fieldResult});
-			logStr += `${fieldName}: ${fieldInput} - ${fieldResult}\n|`;
+			logStr += `\n| ${fieldName}: ${fieldInput} - ${fieldResult}`;
 		}
 		else if (headerArr[i].toLowerCase().contains("page_")) {
 			output.set(headerArr[i].trim(), exampleArr[i].trim());
-			logStr += `${headerArr[i].trim()}: ${exampleArr[i].trim()}\n|`;
+			logStr += `\n| ${headerArr[i].trim()}: ${exampleArr[i].trim()}`;
 		}
 		else continue;
     }
 
-	_log(logStr);
+	_log(logStr + "\n| ");
 
 	return output;
 }
