@@ -39,7 +39,7 @@ const EnvKeys = Object.freeze({
 
 var testResultString = "";
 function EndTest() {
-	if (testResultString = "") {
+	if (testResultString == "") {
 		_log("\n --=|| TEST PASSED ||=-- \n");
 		return;
 	}
