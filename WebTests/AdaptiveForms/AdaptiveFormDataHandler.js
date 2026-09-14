@@ -43,7 +43,8 @@ function EndTest() {
 		_log("\n --=|| TEST PASSED ||=-- \n");
 	}
 	else {
-		_log("\n --=|| TEST FAILED ||=-- \n" + testResultString);
+		testResultString = "\n --=|| TEST FAILED ||=-- \n\n" + testResultString
+		_log(testResultString);
 	}
 	_assertEquals("", testResultString);
 }
