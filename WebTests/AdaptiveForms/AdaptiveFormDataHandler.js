@@ -381,7 +381,7 @@ class AdaptiveForm {
 			if (pageResult.toLowerCase().contains("should not")) {
 				// If page is expected to fail, make sure the page didn't submit then end the test
 				_log("Page should not have submitted");
-				if (flag_lastPage) _verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+				if (flag_lastPage) _verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1, #tyMessage')"), 10000);
 				else _verifyTrue(firstField.CheckFieldIsInteractable());
 				continue;
 			}
@@ -393,7 +393,7 @@ class AdaptiveForm {
 			else {
 				// If the page is expected to pass and isn't the last page, make sure the form submitted
 				_log("Should have submitted.");
-				_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1')"));
+				_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('#tyMessage')", 10000));
 			}
 
 		}
