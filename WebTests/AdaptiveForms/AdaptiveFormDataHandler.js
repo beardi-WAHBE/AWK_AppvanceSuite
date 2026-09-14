@@ -441,7 +441,7 @@ class AdaptiveForm {
 }
 
 class AdaptiveFormField {
-	constructor(p_name, p_type, p_required, p_id, p_options = [], p_parentXPath = '') {
+	constructor(p_name, p_type, p_required, p_id, p_options = []) {
 		this.name = p_name;
 		this.id = p_id;
 		this.type = p_type;
@@ -451,18 +451,6 @@ class AdaptiveFormField {
 		this.jqString_Field = `ds$('#aemFormFrame').contents().find('#${this.id}')`;
 		this.jqString_ErrorMsg = `ds$('#aemFormFrame').contents().find('#${this.id}_desc.guideFieldError')`;
 
-		this.XPath = p_parentXPath;
-		switch(p_type) {
-			case InputType.DROPDOWN:
-				this.XPath += `//select[@id='${p_id}']`;
-				break;
-			case InputType.TEXTAREA:
-				this.XPath += `//textarea[@id='${p_id}']`;
-				break;
-			default:
-				this.XPath += `//input[@id='${p_id}']`;
-				break;
-		}
 	}
 
 	CheckFieldIsInteractable() {
@@ -494,11 +482,24 @@ class AdaptiveFormField {
 				errorMessage: '${errorMsgText}' \n`);
 		*/
 
-		if(p_result.contains("No Error")) {
-			_verifyEqual(errorMsgText, "");
+		if(p_result.contains("No Error") && errorMsgText != "") {
+			testResultString += `\n FAILURE: A field expected to have valid input is throwing an error \n`
+			+ ` - Field: ${this.toString()} \n`
+			+ ` - Input: ${p_input} \n`
+			+ ` - Error Message: ${errorMsgText} \n`;
 		}
-		else {
-			_verifyEqual(p_result, errorMsgText);
+		else if (!p_result.contains("No Error") && errorMsgText == ""){
+			testResultString += `\n FAILURE: A field expected to have invalid input did not throw an error \n`
+			+ ` - Field: ${this.toString()} \n`
+			+ ` - Input: ${p_input} \n`
+			+ ` - Expected Error Message: ${errorMsgText} \n`;
+		}
+		else if (p_result != errorMsgText){
+			testResultString += `\n FAILURE: A field expected to have invalid input is not throwing the right error \n`
+			+ ` - Field: ${this.toString()} \n`
+			+ ` - Input: ${p_input} \n`
+			+ ` - Expected Error Message: ${p_result} \n`
+			+ ` - Actual Error Message: ${errorMsgText} \n`;
 		}
 	}
 
