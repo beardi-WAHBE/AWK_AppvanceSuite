@@ -40,10 +40,10 @@ const EnvKeys = Object.freeze({
 var testResultString = "";
 function EndTest() {
 	if (testResultString == "") {
-		_log("\n --=|| TEST PASSED ||=-- \n");
+		_log("\n. --=|| TEST PASSED ||=-- \n.");
 	}
 	else {
-		testResultString = "\n --=|| TEST FAILED ||=-- \n\n" + testResultString
+		testResultString = "\n. --=|| TEST FAILED ||=-- \n." + testResultString
 		_log(testResultString);
 	}
 	_assertEquals("", testResultString);
@@ -61,9 +61,9 @@ function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = 
 
 	var elementFound = CheckIsInteractable(p_jqElementStr);
 	if (!elementFound && p_failIfNotFound) {
-		testResultString += `\n FAILURE: Element not found after ${p_waitTimeMS}ms \n`
-		+ ` - Identifier: ${p_jqElementStr} \n`
-		+ "\n FAILED ASSERT: ENDING TEST \n";
+		testResultString += `\n. FAILURE: Element not found after ${p_waitTimeMS}ms \n.`
+		+ ` - Identifier: ${p_jqElementStr} \n.`
+		+ "\n. FAILED ASSERT: ENDING TEST \n.";
 
 		EndTest();
 
@@ -81,7 +81,7 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
     let headerArr = p_headerRow.split("|");
 
 	let output = new Map();
-	let logStr = " - PARSE BDD EXAMPLE -\n\n";
+	let logStr = " - PARSE BDD EXAMPLE -\n.\n.";
 
     // Process field value/result groups together, using the header row to find each group.
     for (let i = 0; i < headerArr.length; i++) {
@@ -91,11 +91,11 @@ function ParseBDDExample(p_headerRow, p_exampleRow = 0) {
 			let fieldResult = exampleArr[i + 1].trim();
 
 			output.set(fieldName, {input: fieldInput, result: fieldResult});
-			logStr += `${fieldName}: ${fieldInput} - ${fieldResult}\n`;
+			logStr += `${fieldName}: ${fieldInput} - ${fieldResult}\n.`;
 		}
 		else if (headerArr[i].toLowerCase().contains("page_")) {
 			output.set(headerArr[i].trim(), exampleArr[i].trim());
-			logStr += `${headerArr[i].trim()}: ${exampleArr[i].trim()}\n`;
+			logStr += `${headerArr[i].trim()}: ${exampleArr[i].trim()}\n.`;
 		}
 		else continue;
     }
@@ -405,8 +405,8 @@ class AdaptiveForm {
 			if (flag_expectedToFail) {
 				_log("Page should not have submitted or progressed");
 				if (!flag_pageFirstInputAccessible) {
-					testResultString += `\n FAILURE: Form submitted/progressed when it should not have \n`
-					+ ` - First field of the current page not accessible: ${firstField.toString()} \n`;
+					testResultString += `\n. FAILURE: Form submitted/progressed when it should not have \n.`
+					+ ` - First field of the current page not accessible: ${firstField.toString()} \n.`;
 				}
 				EndTest();
 			}
@@ -415,8 +415,8 @@ class AdaptiveForm {
 				_log("Should have submitted.");
 				
 				if (flag_pageFirstInputAccessible) {
-					testResultString += `\n FAILURE: Form did not submit after clicking submit button \n` 
-					+ ` - First field of current page was still accesible: ${firstField.toString()}\n`;
+					testResultString += `\n. FAILURE: Form did not submit after clicking submit button \n.` 
+					+ ` - First field of current page was still accesible: ${firstField.toString()}\n.`;
 					EndTest();
 				}
 
@@ -428,8 +428,8 @@ class AdaptiveForm {
 				}
 				var flag_formSubmitted = CheckIsInteractable("ds$('#aemFormFrame').contents().find('.tyMessage')");
 				if (!flag_formSubmitted) {
-					testResultString += `\n FAILURE: Form did not submit within ${submitWaitTimeMS} \n`
-					+ ` - Thank you message did not load \n`;
+					testResultString += `\n. FAILURE: Form did not submit within ${submitWaitTimeMS} \n.`
+					+ ` - Thank you message did not load \n.`;
 				}
 				EndTest();
 			}
@@ -480,37 +480,37 @@ class AdaptiveFormField {
 				break;
 			default:
 				_log(`${this.type} not yet supported`);
-				testResultString + `\n TODO: Implement ${this.type} fields \n`;
+				testResultString + `\n. TODO: Implement ${this.type} fields \n.`;
 				break;
 		}
 		
 		var errorMsgText = _eval(`${this.jqString_ErrorMsg}.focus().text();`);
 		
 		/*
-		_log(`\n - Check Error Message - \n
-				p_result: '${p_result}' \n
-				errorMessage: '${errorMsgText}' \n`);
+		_log(`\n. - Check Error Message - \n.
+				p_result: '${p_result}' \n.
+				errorMessage: '${errorMsgText}' \n.`);
 		*/
 		//if (p_result.contains("No Error") && errorMsgText == "") return;
 		
 		if(p_result.contains("No Error") && errorMsgText != "") {
-			testResultString += `\n FAILURE: A field expected to have valid input is throwing an error \n`
-			+ ` - Field: ${this.toString()} \n`
-			+ ` - Input: ${p_input} \n`
-			+ ` - Error Message: ${errorMsgText} \n`;
+			testResultString += `\n. FAILURE: A field expected to have valid input is throwing an error \n.`
+			+ ` - Field: ${this.toString()} \n.`
+			+ ` - Input: ${p_input} \n.`
+			+ ` - Error Message: ${errorMsgText} \n.`;
 		}
 		else if (!p_result.contains("No Error") && errorMsgText == ""){
-			testResultString += `\n FAILURE: A field expected to have invalid input did not throw an error \n`
-			+ ` - Field: ${this.toString()} \n`
-			+ ` - Input: ${p_input} \n`
-			+ ` - Expected Error Message: ${errorMsgText} \n`;
+			testResultString += `\n. FAILURE: A field expected to have invalid input did not throw an error \n.`
+			+ ` - Field: ${this.toString()} \n.`
+			+ ` - Input: ${p_input} \n.`
+			+ ` - Expected Error Message: ${errorMsgText} \n.`;
 		}
 		else if (p_result != errorMsgText){
-			testResultString += `\n FAILURE: A field expected to have invalid input is not throwing the right error \n`
-			+ ` - Field: ${this.toString()} \n`
-			+ ` - Input: ${p_input} \n`
-			+ ` - Expected Error Message: ${p_result} \n`
-			+ ` - Actual Error Message: ${errorMsgText} \n`;
+			testResultString += `\n. FAILURE: A field expected to have invalid input is not throwing the right error \n.`
+			+ ` - Field: ${this.toString()} \n.`
+			+ ` - Input: ${p_input} \n.`
+			+ ` - Expected Error Message: ${p_result} \n.`
+			+ ` - Actual Error Message: ${errorMsgText} \n.`;
 		}
 	}
 
@@ -525,9 +525,9 @@ function TEST_ParseInputData(p_headerRow, p_bddExample) {
 	const testData =  "| Smoke Test: Valid Input | Test            | No Error         | Test           | No Error        | FormsTesting@wahbexchange.org | No Error     | 1234567890  | No Error     |               | No Error       | This is a test | No Error      | Form should submit |";
 
 	let output = ParseBDDExample(p_headerRow, p_bddExample);
-	let logText = "\n -| Example Output |-\n"
+	let logText = "\n. -| Example Output |-\n."
 	for (entry of output.keys()) {
-		logText += `${entry}: ${output.get(entry).input} (${output.get(entry).result})\n`;
+		logText += `${entry}: ${output.get(entry).input} (${output.get(entry).result})\n.`;
 	}
 	_log(logText);
 }
@@ -553,10 +553,10 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 	form.TestForm(p_bddExample);
 
 /*
-	let logStr = "\n -| Initialize Adaptive Form Data |- \n\n" +
-				 `Name: ${contactUsFormData.name}\n` + 
-				 `URL: ${contactUsFormData.url}\n` +
-				 `Pages:\n`;
+	let logStr = "\n. -| Initialize Adaptive Form Data |- \n.\n." +
+				 `Name: ${contactUsFormData.name}\n.` + 
+				 `URL: ${contactUsFormData.url}\n.` +
+				 `Pages:\n.`;
 
 	let page = contactUsFormData.pages[0];
 	let testData = ParseBDDExample(contactUsFormData.bddHeader, p_bddExample);
@@ -571,7 +571,7 @@ function TEST_InitializeAdaptiveFormData(p_bddExample) {
 
 	for (field in page) {
 		_log(field)
-		logStr += ` - (${field}) ${page[field].toString()}\n`;
+		logStr += ` - (${field}) ${page[field].toString()}\n.`;
 		page[field].SendData(testData.get(field).input, testData.get(field).result);
 	}
 
