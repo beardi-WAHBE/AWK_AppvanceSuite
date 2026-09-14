@@ -35,7 +35,18 @@ const EnvKeys = Object.freeze({
 	UAT: 1,
 	QA: 2,
 	PROD: 3,
-})
+});
+
+var testResultString = "";
+function EndTest() {
+	if (testResultString = "") {
+		_log("\n --=|| TEST PASSED ||=-- \n");
+		return;
+	}
+
+	_log("\n --=|| TEST FAILED ||=-- \n" + testResultString);
+	_assertTrue(false);
+}
 
 function CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
@@ -43,9 +54,19 @@ function CheckIsInteractable(p_jqElementStr) {
 	else return false;
 }
 
-function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
+function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) {
 	//_log("Interactable before checking: " + CheckIsInteractable(p_jqElementStr));
 	wait(p_waitTimeMS, () => CheckIsInteractable(p_jqElementStr));
+
+	var elementFound = CheckIsInteractable(p_jqElementStr);
+	if (!elementFound && p_failIfNotFound) {
+		testResultString += `\n FAILURE: Element not found after ${p_waitTimeMS}ms \n`
+		+ ` - Identifier: ${p_jqElementStr} \n`
+		+ "\n FAILED ASSERT: ENDING TEST \n";
+
+		EndTest();
+
+	}
 	return CheckIsInteractable(p_jqElementStr);
 }
 
@@ -352,19 +373,18 @@ class AdaptiveForm {
 	}
 
 	TestForm(p_bddExample) {
-		// Format the data from the input BDD Example
+		// Initialize Test
+		testResultString = "";
 		let testData = ParseBDDExample(this.bddHeader, p_bddExample);
-
-		// Navigate to the form
 		NavigateToPage(this.url);
 
 		for (let i = 0; i < this.pages.length; i++) {
-			// Wait for form to be interactable
+			// Fail the test if the submit/next button can't be found
 			var flag_lastPage = (i + 1 == this.pages.length);
-			WaitForElement("ds$('#aemFormFrame').contents().find('form')");
+			var btnClass = (flag_lastPage) ? "submit" : "moveNext";
+			WaitForElement(`ds$('#aemFormFrame').contents().find('.${btnClass}')`);
 			
 			// Press the Next/Submit button to make error messages start appearing
-			var btnClass = (flag_lastPage) ? "submit" : "moveNext";
 			var btnXPath = `//button[contains(@class, '${btnClass}')]`;
 			_click(_byXPath(btnXPath));
 
@@ -378,23 +398,43 @@ class AdaptiveForm {
 			// Verify the results
 			var pageResult = testData.get(`Page_${i + 1}_Result`);
 			_click(_byXPath(btnXPath));
-			if (pageResult.toLowerCase().contains("should not")) {
-				// If page is expected to fail, make sure the page didn't submit then end the test
-				_log("Page should not have submitted");
-				if (flag_lastPage) _verifyFalse(WaitForElement("ds$('#aemFormFrame').contents().find('#loadingPage h1, .tyMessage')"), 10000);
-				else _verifyTrue(firstField.CheckFieldIsInteractable());
-				continue;
+			// If the current page should not have submitted/progressed
+			var flag_expectedToFail = pageResult.toLowerCase().contains("should not");
+			var flag_pageFirstInputAccessible = WaitForElement(firstField.jqString_Field, 1000, false);
+			if (flag_expectedToFail) {
+				_log("Page should not have submitted or progressed");
+				if (!flag_pageFirstInputAccessible) {
+					testResultString += `\n FAILURE: Form submitted/progressed when it should not have \n`
+					+ ` - First field of the current page not accessible: ${firstField.toString()} \n`;
+				}
+				EndTest();
 			}
-			else if (!flag_lastPage) {
-				// If the page is expected to pass and isn't the last page, make sure the form progressed to the next page
-				_log("Should have progressed to the next page");
-				_verifyFalse(firstField.CheckFieldIsInteractable());
-			}
-			else {
+			else if (flag_lastPage) { 
 				// If the page is expected to pass and isn't the last page, make sure the form submitted
 				_log("Should have submitted.");
-				_verifyTrue(WaitForElement("ds$('#aemFormFrame').contents().find('.tyMessage')", 10000));
+				
+				if (flag_pageFirstInputAccessible) {
+					testResultString += `\n FAILURE: Form did not submit after clicking submit button \n` 
+					+ ` - First field of current page was still accesible: ${firstField.toString()}\n`;
+					EndTest();
+				}
+
+				var submitWaitTimeS = 10;
+				var secondsWaited = 0;
+				while (CheckIsInteractable("ds$('#aemFormFrame').contents().find('#loadingPage h1')") && secondsWaited < submitWaitTimeS) {
+					secondsWaited += 1;
+					wait(1000);
+				}
+				var flag_formSubmitted = CheckIsInteractable("ds$('#aemFormFrame').contents().find('.tyMessage')");
+				if (!flag_formSubmitted) {
+					testResultString += `\n FAILURE: Form did not submit within ${submitWaitTimeMS} \n`
+					+ ` - Thank you message did not load \n`;
+				}
+				EndTest();
 			}
+
+			// If the page is expected to pass and isn't the last page, make sure the form progressed to the next page
+			_log("Should have progressed to the next page");
 
 		}
 	}
