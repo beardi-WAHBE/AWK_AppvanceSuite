@@ -126,7 +126,7 @@ function GetFormData(p_formKey, p_env) {
 	// -| HPF - Contact Us (Spanish) |-
 	formDataMap.set(FormKeys.HPF_ContactUs_Spanish, {
 		name: "HPF - Contact Us Form (Spanish)",
-		url: hpfBaseURL + "/es/herramientas-y-recursos/contactenos/encuentre-un-orientador/comuniquese-con-servicio-al-cliente.html",
+		url: hpfBaseURL + "/us/es/herramientas-y-recursos/contactenos/encuentre-un-orientador/comuniquese-con-servicio-al-cliente.html",
 		bddHeader:  "| TestName " +
 					"| FirstName_Input | FirstName_Result " +
 					"| LastName_Input | LastName_Result " +
