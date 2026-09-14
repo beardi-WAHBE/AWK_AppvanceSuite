@@ -137,7 +137,7 @@ function GetFormData(p_formKey, p_env) {
 					"| Page_1_Result |",
 		pages: [
 			{
-				FirstName:            new AdaptiveFormField("Nombre",             InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy___widget"), 
+				FirstName:            new AdaptiveFormField("Nombre",             InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_copy_co___widget"), 
 				LastName:          new AdaptiveFormField("Apellido",           InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox_1880158___widget"), 
 				Email: new AdaptiveFormField("Correo electrónico", InputType.INPUT_EMAIL, true,  "guideContainer-rootPanel-guidetextbox_1495532___widget"), 
 				Phone:  new AdaptiveFormField("Número de teléfono", InputType.INPUT_PHONE, true,  "guideContainer-rootPanel-guidetextbox_4808239___widget"), 
