@@ -437,6 +437,8 @@ class AdaptiveForm {
 			_log("Should have progressed to the next page");
 
 		}
+
+		EndTest();
 	}
 }
 
@@ -461,6 +463,14 @@ class AdaptiveFormField {
 		//const element = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}')`);
 		
 		switch(this.type) {
+			case InputType.INPUT_TEXT:
+			case InputType.INPUT_EMAIL:
+			case InputType.INPUT_NUMBER:
+			case InputType.INPUT_PHONE:
+			case InputType.TEXTAREA:
+			case InputType.DATE_PICKER:
+				_eval(`${this.jqString_Field}.focus().val('${p_input}').blur();`);
+				break;
 			case InputType.DROPDOWN:
 				_setSelected(element, p_input);
 				break;
@@ -468,9 +478,8 @@ class AdaptiveFormField {
 				_log("File upload not supported");
 				break;
 			default:
-				_eval(`
-					${this.jqString_Field}.focus().val('${p_input}').blur();
-				`);
+				_log(`${this.type} not yet supported`);
+				testResultString + `\n TODO: Implement ${this.type} fields \n`;
 				break;
 		}
 		
