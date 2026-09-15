@@ -529,7 +529,7 @@ class AdaptiveFormField {
 		
 		var errorLogStr = ` - Field: ${this.toString()} \n|`
 			+ ` - Input: ${p_input} \n|`
-			+ ` - Expected Error Message (${flag_expectedError}): ${p_result} \n|`
+			+ ` - Expected Error Message (${p_result != ""}): ${p_result} \n|`
 			+ ` - Actual Error Message: ${errorMsgText} \n|`;
 
 		if(!flag_expectedError && errorMsgText) {
