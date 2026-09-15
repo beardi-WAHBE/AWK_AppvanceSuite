@@ -205,11 +205,11 @@ function GetFormData(p_formKey, p_env) {
 				),
 				WhichDeviceComputer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget"),
 				WhichBrowserComputer:  new AdaptiveFormField("Which browser...Computer",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
-					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
+					{"Select browser": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Other": 5}
 				),
 				WhichDevicePhone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget"),
 				WhichBrowserPhone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget", 
-					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
+					{"Select browser": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Other": 5}
 				),
 				WhichDeviceAPP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget"),
 				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
@@ -242,7 +242,7 @@ function GetFormData(p_formKey, p_env) {
 				),
 				WhichDevice_Computer: new AdaptiveFormField("Qué dispositivo...Computadora", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget value=1"),
 				WhichBrowser_Computer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget[0]", 
-					["Seleccione un navegador", "Chrome", "Edge", "Firefox", "Safari", "Otro"]
+					{"Seleccione un navegador": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Otro": 5}
 				),
 				WhichDevice_Phone: new AdaptiveFormField("Qué dispositivo...Teléfono o tableta", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget value=2"),
 				WhichBrowser_Phone:  new AdaptiveFormField("Qué navegador...Teléfono o tableta",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget[1]", 
@@ -497,7 +497,8 @@ class AdaptiveFormField {
 				_eval(`${this.jqString_Field}.focus().val('${p_input}').change().blur();`);
 				break;
 			case InputType.DROPDOWN:
-				_eval(`${this.jqString_Field}.focus().val('${p_input}').change().blur();`);
+				var optionValue = this.options[p_input];
+				_eval(`${this.jqString_Field}.focus().val('${optionValue}').change().blur();`);
 				break;
 			case InputType.CHECKBOX:
 				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
