@@ -487,7 +487,7 @@ class AdaptiveFormField {
 	SendData(p_input, p_result) {
 		//const element = _eval(`ds$('#aemFormFrame').contents().find('#${this.id}')`);
 		
-		switch(this.type) {
+		if (p_input != "") switch(this.type) {
 			case InputType.INPUT_TEXT:
 			case InputType.INPUT_EMAIL:
 			case InputType.INPUT_NUMBER:
