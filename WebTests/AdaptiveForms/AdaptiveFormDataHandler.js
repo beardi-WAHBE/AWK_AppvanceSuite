@@ -438,9 +438,12 @@ class AdaptiveForm {
 			// Verify the results
 			var pageResult = testData.get(`Page_${i + 1}_Result`);
 			_click(_byXPath(btnXPath));
+			wait(1000);
+
 			// If the current page should not have submitted/progressed
 			var flag_expectedToFail = pageResult.toLowerCase().contains("should not");
 			var flag_pageFirstInputAccessible = WaitForElement(firstField.jqString_Field, 1000, false);
+
 			if (flag_expectedToFail) {
 				_log("Page should not have submitted or progressed");
 				if (!flag_pageFirstInputAccessible) {
