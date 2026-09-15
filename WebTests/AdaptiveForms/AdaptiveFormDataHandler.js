@@ -551,7 +551,7 @@ class AdaptiveFormField {
 
 	toString() {
 		let requiredStr = this.flag_required ? "required" : "not required";
-		return `${this.name}: ${this.type} | ${requiredStr} | ${this.XPath}`;
+		return `${this.name}: ${this.type} | ${requiredStr} | ${this.id}`;
 	}
 }
 
