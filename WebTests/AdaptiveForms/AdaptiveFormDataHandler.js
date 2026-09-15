@@ -211,7 +211,7 @@ function GetFormData(p_formKey, p_env) {
 				WhichBrowserPhone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget", 
 					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
 				),
-				WhichDeviceAPP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget value=0"),
+				WhichDeviceAPP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget"),
 				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
 					["Select mobile device", "Apple(iOS)", "Android"]
 				),
