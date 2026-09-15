@@ -501,7 +501,7 @@ class AdaptiveFormField {
 				break;
 			case InputType.CHECKBOX:
 				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
-				_eval(`${this.jqString_Field}.focus().click().blur()`);
+				_eval(`${this.jqString_Field}.focus().prop('checked', true).blur()`);
 				break;
 			case InputType.RADIO_BTNS: 
 				if(!Object.keys(this.options).includes(p_input)) break;
