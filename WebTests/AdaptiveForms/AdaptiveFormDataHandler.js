@@ -173,7 +173,19 @@ function GetFormData(p_formKey, p_env) {
 	formDataMap.set(FormKeys.HPF_WebAccessibility_English, {
 		name: "HPF - Contact Us Form (English)",
 		url: hpfBaseURL + "/us/en/about-us/our-organization/website-accessibility.html",
-		bddHeader: "| TestName | FirstName_Input | FirstName_Result | LastName_Input | LastName_Result | Email_Input | Email_Result | Phone_Input | Phone_Result | Feedback_Input | Feedback_Result | WhatSite_Input | WhatSite_Result | WhichDeviceComputer_Input | WhichDeviceComputer_Result | WhichDevicePhone_Input | WhichDevicePhone_Result | WhichDeviceAPP_Input | WhichDeviceAPP_Result | MobileDevice_Input | MobileDevice_Result | AttachFile_Input | AttachFile_Result | Page_1_Result |",
+		bddHeader: "| TestName "
+				 + "| FirstName_Input | FirstName_Result "
+				 + "| LastName_Input | LastName_Result "
+				 + "| Email_Input | Email_Result "
+				 + "| Phone_Input | Phone_Result "
+				 + "| Feedback_Input | Feedback_Result "
+				 + "| WhatSite_Input | WhatSite_Result "
+				 + "| WhichDeviceComputer_Input | WhichDeviceComputer_Result "
+				 + "| WhichDevicePhone_Input | WhichDevicePhone_Result "
+				 + "| WhichDeviceAPP_Input | WhichDeviceAPP_Result "
+				 + "| MobileDevice_Input | MobileDevice_Result "
+				 + "| AttachFile_Input | AttachFile_Result "
+				 + "| Page_1_Result |",
 		pages: [
 			{
 				FirstName: new AdaptiveFormField("First Name", InputType.INPUT_TEXT,  true,  "guideContainer-rootPanel-guidetextbox___widget"), 
@@ -396,6 +408,13 @@ class AdaptiveForm {
 			var firstField = null;
 			for (const [fieldName, fieldObj] of Object.entries(this.pages[i])) {
 				if (firstField == null) firstField = fieldObj;
+
+				if(!testData.get(fieldName)) {
+					testResultString += `\n| FAILURE: Field not initialized in testData Map \n|`
+					+ ` - Field: ${fieldName} \n|`
+					EndTest();
+				}
+
 				fieldObj.SendData(testData.get(fieldName).input, testData.get(fieldName).result);
 			}
 
