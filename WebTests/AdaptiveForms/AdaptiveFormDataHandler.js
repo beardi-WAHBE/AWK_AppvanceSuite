@@ -238,7 +238,10 @@ function GetFormData(p_formKey, p_env) {
 				
 				// NOTE: Skip the following dynamic feilds since we want to remake this form??
 				WhatSite:  new AdaptiveFormField("¿A qué sitio está haciendo referencia?",   InputType.RADIO_BTNS, false,  "guideContainer-rootPanel-guideradiobutton___guide-item", 
-					["wahealthplanfinder.org", "wahbexchange.org"]
+					{
+						"wahealthplanfinder.org": "guideContainer-rootPanel-guideradiobutton__-1_widget", 
+						"wahbexchange.org": "guideContainer-rootPanel-guideradiobutton__-2_widget"
+					}
 				),
 				WhichDevice_Computer: new AdaptiveFormField("Qué dispositivo...Computadora", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget value=1"),
 				WhichBrowser_Computer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget[0]", 
@@ -246,11 +249,11 @@ function GetFormData(p_formKey, p_env) {
 				),
 				WhichDevice_Phone: new AdaptiveFormField("Qué dispositivo...Teléfono o tableta", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget value=2"),
 				WhichBrowser_Phone:  new AdaptiveFormField("Qué navegador...Teléfono o tableta",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget[1]", 
-					["Seleccione un navegador", "Chrome", "Edge", "Firefox", "Safari", "Otro"]
+					{"Seleccione un navegador": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Otro": 5}
 				),
 				WhichDevice_APP: new AdaptiveFormField("Qué dispositivo...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget value=0"),
 				MobileDevice:  new AdaptiveFormField("¿Dispositivo móvil?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
-					["Select mobile device", "Apple(iOS)", "Android"]
+					{"Select mobile device": 0, "Apple(iOS)": 1, "Android": 2}
 				),
 
 				AttachFile: new AdaptiveFormField("Adjuntar un archivo", InputType.FILE_UPLOAD, false, "guideContainer-rootPanel-guidefileupload_copy___widget"),
