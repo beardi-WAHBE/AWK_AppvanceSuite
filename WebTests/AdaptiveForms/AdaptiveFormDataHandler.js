@@ -524,18 +524,18 @@ class AdaptiveFormField {
 				p_result: '${p_result}' \n|
 				errorMessage: '${errorMsgText}' \n|`);
 		*/
-		var flag_expectedError = p_result != "" || !p_result.toLowerCase().contains("no error")
-		if (!flag_expectedError && !errorMsgText) return;
+		var flag_expectedNoError = p_result == "" || p_result.toLowerCase().contains("no error")
+		if (flag_expectedNoError && !errorMsgText) return;
 		
 		var errorLogStr = ` - Field: ${this.toString()} \n|`
 			+ ` - Input: ${p_input} \n|`
-			+ ` - Expected Error Message (${p_result != ""}): ${p_result} \n|`
+			+ ` - Expected Error Message (${!flag_expectedNoError}): ${p_result} \n|`
 			+ ` - Actual Error Message: ${errorMsgText} \n|`;
 
-		if(!flag_expectedError && errorMsgText) {
+		if(flag_expectedNoError && errorMsgText) {
 			testResultString += `\n| FAILURE: A field expected to have valid input is throwing an error \n|` + errorLogStr;
 		}
-		else if (flag_expectedError && !errorMsgText){
+		else if (!flag_expectedNoError && !errorMsgText){
 			testResultString += `\n| FAILURE: A field expected to have invalid input did not throw an error \n|` + errorLogStr;
 		}
 		else if (p_result != errorMsgText){
