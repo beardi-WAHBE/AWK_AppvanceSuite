@@ -475,6 +475,10 @@ class AdaptiveFormField {
 			case InputType.DROPDOWN:
 				_setSelected(element, p_input);
 				break;
+			case InputType.CHECKBOX:
+				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
+				_setSelected(element, p_input);
+				break;
 			case InputType.FILE_UPLOAD:
 				_log("File upload not supported");
 				break;
