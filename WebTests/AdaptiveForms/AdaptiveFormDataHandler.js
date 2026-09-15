@@ -184,7 +184,10 @@ function GetFormData(p_formKey, p_env) {
 				
 				// NOTE: Skip the following dynamic feilds since we want to remake this form??
 				WhatSite:  new AdaptiveFormField("What site are you referencing?",   InputType.RADIO_BTNS, false,  "guideContainer-rootPanel-guideradiobutton___guide-item", 
-					["wahealthplanfinder.org", "wahbexchange.org"]
+					{
+						"wahealthplanfinder.org": "guideContainer-rootPanel-guideradiobutton__-1_widget", 
+						"wahbexchange.org": "guideContainer-rootPanel-guideradiobutton__-2_widget"
+					}
 				),
 				WhichDeviceComputer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget"),
 				WhichBrowserComputer:  new AdaptiveFormField("Which browser...Computer",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
@@ -477,7 +480,12 @@ class AdaptiveFormField {
 				break;
 			case InputType.CHECKBOX:
 				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
-				_setSelected(element, p_input);
+				_eval(`${this.jqString_Field}.focus().trigger("click").blur()`);
+				break;
+			case InputType.RADIO_BTNS: 
+				if(!Object.keys(options).includes(p_input)) break;
+				var optionID = options[p_input];
+				_eval(`ds$('#aemFormFrame').contents().find('#${optionID}').focus().trigger("click").blur()`);
 				break;
 			case InputType.FILE_UPLOAD:
 				_log("File upload not supported");
