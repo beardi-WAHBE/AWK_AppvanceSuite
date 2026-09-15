@@ -255,15 +255,15 @@ function GetFormData(p_formKey, p_env) {
 						"wahbexchange.org": "guideContainer-rootPanel-guideradiobutton__-2_widget"
 					}
 				),
-				WhichDeviceComputer: new AdaptiveFormField("Qué dispositivo...Computadora", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget value=1"),
-				WhichBrowser_Computer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget[0]", 
+				WhichDeviceComputer: new AdaptiveFormField("Qué dispositivo...Computadora", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget"),
+				WhichBrowser_Computer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
 					{"Seleccione un navegador": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Otro": 5}
 				),
-				WhichDevicePhone: new AdaptiveFormField("Qué dispositivo...Teléfono o tableta", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget value=2"),
-				WhichBrowserPhone:  new AdaptiveFormField("Qué navegador...Teléfono o tableta",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget[1]", 
+				WhichDevicePhone: new AdaptiveFormField("Qué dispositivo...Teléfono o tableta", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget"),
+				WhichBrowserPhone:  new AdaptiveFormField("Qué navegador...Teléfono o tableta",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget", 
 					{"Seleccione un navegador": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Otro": 5}
 				),
-				WhichDeviceAPP: new AdaptiveFormField("Qué dispositivo...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget value=0"),
+				WhichDeviceAPP: new AdaptiveFormField("Qué dispositivo...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget"),
 				MobileDevice:  new AdaptiveFormField("¿Dispositivo móvil?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
 					{"Select mobile device": 0, "Apple(iOS)": 1, "Android": 2}
 				),
