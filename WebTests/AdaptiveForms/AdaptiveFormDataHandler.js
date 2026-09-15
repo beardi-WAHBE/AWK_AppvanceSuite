@@ -442,7 +442,7 @@ class AdaptiveForm {
 
 			// If the current page should not have submitted/progressed
 			var flag_expectedToFail = pageResult.toLowerCase().contains("should not");
-			var flag_pageFirstInputAccessible = WaitForElement(firstField.jqString_Field, 1000, false);
+			var flag_pageFirstInputAccessible = WaitForElement(firstField.jqString_Field, 1000, false) && !CheckIsInteractable("ds$('#aemFormFrame').contents().find('#loadingPage h1')");
 
 			if (flag_expectedToFail) {
 				_log("Page should not have submitted or progressed");
