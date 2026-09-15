@@ -494,19 +494,19 @@ class AdaptiveFormField {
 			case InputType.INPUT_PHONE:
 			case InputType.TEXTAREA:
 			case InputType.DATE_PICKER:
-				_eval(`${this.jqString_Field}.focus().val('${p_input}').change();`);
+				_eval(`${this.jqString_Field}.focus().val('${p_input}').change().blur();`);
 				break;
 			case InputType.DROPDOWN:
-				_eval(`${this.jqString_Field}.focus().val('${p_input}').blur();`);
+				_eval(`${this.jqString_Field}.focus().val('${p_input}').change().blur();`);
 				break;
 			case InputType.CHECKBOX:
 				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
-				_eval(`${this.jqString_Field}.focus().prop('checked', true).blur()`);
+				_eval(`${this.jqString_Field}.focus().prop('checked', true).change().blur()`);
 				break;
 			case InputType.RADIO_BTNS: 
 				if(!Object.keys(this.options).includes(p_input)) break;
 				var optionID = this.options[p_input];
-				_eval(`ds$('#aemFormFrame').contents().find('#${optionID}').focus().trigger("click").blur()`);
+				_eval(`ds$('#aemFormFrame').contents().find('#${optionID}').focus().trigger("click").change().blur()`);
 				break;
 			case InputType.FILE_UPLOAD:
 				_log("File upload not supported");
