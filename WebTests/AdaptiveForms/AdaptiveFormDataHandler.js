@@ -517,7 +517,7 @@ class AdaptiveFormField {
 				break;
 		}
 		
-		var errorMsgText = _eval(`${this.jqString_ErrorMsg}.focus().text();`);
+		var errorMsgText = _eval(`${this.jqString_ErrorMsg}.focus().text();`).trim();
 		_log(errorMsgText);
 		
 		/*
