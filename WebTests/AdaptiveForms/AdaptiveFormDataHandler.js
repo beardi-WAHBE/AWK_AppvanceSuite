@@ -497,7 +497,7 @@ class AdaptiveFormField {
 				_eval(`${this.jqString_Field}.focus().val('${p_input}').blur();`);
 				break;
 			case InputType.DROPDOWN:
-				_setSelected(element, p_input);
+				_setSelected(_byID(this.id), p_input);
 				break;
 			case InputType.CHECKBOX:
 				if (p_input == "" || p_input.toLowerCase() == "unchecked") break;
