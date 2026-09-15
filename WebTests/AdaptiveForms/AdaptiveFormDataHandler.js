@@ -518,14 +518,8 @@ class AdaptiveFormField {
 		}
 		
 		var errorMsgText = _eval(`${this.jqString_ErrorMsg}.focus().text();`).trim();
-		_log(errorMsgText);
+		var flag_expectedNoError = !p_result || p_result.toLowerCase().contains("no error")
 		
-		/*
-		_log(`\n| - Check Error Message - \n|
-				p_result: '${p_result}' \n|
-				errorMessage: '${errorMsgText}' \n|`);
-		*/
-		var flag_expectedNoError = p_result == "" || p_result.toLowerCase().contains("no error")
 		if (flag_expectedNoError && !errorMsgText) return;
 		
 		var errorLogStr = ` - Field: ${this.toString()} \n|`
