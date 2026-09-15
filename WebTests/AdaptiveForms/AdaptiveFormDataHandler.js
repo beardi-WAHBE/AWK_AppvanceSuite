@@ -438,7 +438,6 @@ class AdaptiveForm {
 			// Verify the results
 			var pageResult = testData.get(`Page_${i + 1}_Result`);
 			_click(_byXPath(btnXPath));
-			wait(500);
 
 			// If the current page should not have submitted/progressed
 			var flag_expectedToFail = pageResult.toLowerCase().contains("should not");
