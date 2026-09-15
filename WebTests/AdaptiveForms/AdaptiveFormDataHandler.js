@@ -186,12 +186,12 @@ function GetFormData(p_formKey, p_env) {
 				WhatSite:  new AdaptiveFormField("What site are you referencing?",   InputType.RADIO_BTNS, false,  "guideContainer-rootPanel-guideradiobutton___guide-item", 
 					["wahealthplanfinder.org", "wahbexchange.org"]
 				),
-				WhichDeviceComputer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget value=1"),
-				WhichBrowserComputer:  new AdaptiveFormField("Which browser...Computer",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget[0]", 
+				WhichDeviceComputer: new AdaptiveFormField("Which device...Computer", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget"),
+				WhichBrowserComputer:  new AdaptiveFormField("Which browser...Computer",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
 					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
 				),
-				WhichDevicePhone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget value=2"),
-				WhichBrowserPhone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget[1]", 
+				WhichDevicePhone: new AdaptiveFormField("Which device...Phone or tablet", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget"),
+				WhichBrowserPhone:  new AdaptiveFormField("Which browser...Phone or tablet",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500-guidedropdownlist___widget", 
 					["Select browser", "Chrome", "Edge", "Firefox", "Safari", "Other"]
 				),
 				WhichDeviceAPP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget value=0"),
