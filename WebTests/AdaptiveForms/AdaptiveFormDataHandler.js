@@ -438,7 +438,7 @@ class AdaptiveForm {
 			// Verify the results
 			var pageResult = testData.get(`Page_${i + 1}_Result`);
 			_click(_byXPath(btnXPath));
-			wait(1000);
+			wait(500);
 
 			// If the current page should not have submitted/progressed
 			var flag_expectedToFail = pageResult.toLowerCase().contains("should not");
@@ -465,8 +465,8 @@ class AdaptiveForm {
 				var submitWaitTimeS = 10;
 				var secondsWaited = 0;
 				while (CheckIsInteractable("ds$('#aemFormFrame').contents().find('#loadingPage h1')") && secondsWaited < submitWaitTimeS) {
-					secondsWaited += 1;
-					wait(1000);
+					secondsWaited += 0.5;
+					wait(500);
 				}
 				var flag_formSubmitted = CheckIsInteractable("ds$('#aemFormFrame').contents().find('.tyMessage')");
 				if (!flag_formSubmitted) {
