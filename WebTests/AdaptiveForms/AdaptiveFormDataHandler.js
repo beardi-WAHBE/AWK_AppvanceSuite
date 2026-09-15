@@ -530,13 +530,15 @@ class AdaptiveFormField {
 			testResultString += `\n| FAILURE: A field expected to have valid input is throwing an error \n|`
 			+ ` - Field: ${this.toString()} \n|`
 			+ ` - Input: ${p_input} \n|`
-			+ ` - Error Message: ${errorMsgText} \n|`;
+			+ ` - Expected Error Message: ${p_result} \n|`
+			+ ` - Actual Error Message: ${errorMsgText} \n|`;
 		}
 		else if (!p_result.contains("No Error") && errorMsgText == ""){
 			testResultString += `\n| FAILURE: A field expected to have invalid input did not throw an error \n|`
 			+ ` - Field: ${this.toString()} \n|`
 			+ ` - Input: ${p_input} \n|`
-			+ ` - Expected Error Message: ${errorMsgText} \n|`;
+			+ ` - Expected Error Message: ${p_result} \n|`
+			+ ` - Actual Error Message: ${errorMsgText} \n|`;
 		}
 		else if (p_result != errorMsgText){
 			testResultString += `\n| FAILURE: A field expected to have invalid input is not throwing the right error \n|`
