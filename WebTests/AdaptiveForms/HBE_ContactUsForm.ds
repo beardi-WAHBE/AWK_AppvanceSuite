@@ -8,6 +8,9 @@
         <accessor type='filePath' value='"{ds}/AdaptiveFormDataHandler.js"' selected='true' fallback='true'></accessor>
       </dialect>
     </step>
+    <step action='js' value='let formKey = FormKeys.HBE_ContactUs;' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='55ee2d8e-e6ab-4c6b-b234-c036442faa4b' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
     <step action='js' value='let FormData = GetFormData(FormKeys.HBE_ContactUs, EnvKeys.QA);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1bfa1825-cc40-43e6-818e-63529cc4d873' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
