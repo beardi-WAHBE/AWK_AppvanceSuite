@@ -213,7 +213,7 @@ function GetFormData(p_formKey, p_env) {
 				),
 				WhichDeviceAPP: new AdaptiveFormField("Which device...WAPlanfinder mobile app", InputType.CHECKBOX, false, "guideContainer-rootPanel-guideradiobutton_204___1_widget"),
 				MobileDevice:  new AdaptiveFormField("Mobile Device?",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel_1239610443-guidedropdownlist_co___widget", 
-					["Select mobile device", "Apple(iOS)", "Android"]
+					{"Select mobile device": 0, "Apple(iOS)": 1, "Android": 2}
 				),
 
 				AttachFile: new AdaptiveFormField("Attach a file", InputType.FILE_UPLOAD, false, "guideContainer-rootPanel-guidefileupload_copy___widget"),
