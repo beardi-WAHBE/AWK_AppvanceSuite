@@ -256,7 +256,7 @@ function GetFormData(p_formKey, p_env) {
 					}
 				),
 				WhichDeviceComputer: new AdaptiveFormField("Qué dispositivo...Computadora", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox_copy___1_widget"),
-				WhichBrowser_Computer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
+				WhichBrowserComputer:  new AdaptiveFormField("Qué navegador...Computadora",   InputType.DROPDOWN, false,  "guideContainer-rootPanel-panel1676498978500_c-guidedropdownlist___widget", 
 					{"Seleccione un navegador": 0, "Chrome": 1, "Edge": 2, "Firefox": 3, "Safari": 4, "Otro": 5}
 				),
 				WhichDevicePhone: new AdaptiveFormField("Qué dispositivo...Teléfono o tableta", InputType.CHECKBOX, false, "guideContainer-rootPanel-guidecheckbox___1_widget"),
