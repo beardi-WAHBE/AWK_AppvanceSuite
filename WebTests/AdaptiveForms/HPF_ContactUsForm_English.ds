@@ -11,7 +11,7 @@
     <step action='js' value='let formKey = FormKeys.HPF_ContactUs_English;' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='71e41820-f3b4-4ef6-a2ee-c6d1713201e6' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
-    <step action='js' value='let FormData = GetFormData(FormKeys.formKey, EnvKeys.QA);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1bfa1825-cc40-43e6-818e-63529cc4d873' uiType='base'>
+    <step action='js' value='let FormData = GetFormData(formKey, EnvKeys.QA);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1bfa1825-cc40-43e6-818e-63529cc4d873' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
     <step action='js' value='let formUnderTest = new AdaptiveForm(FormData.name, FormData.url, FormData.bddHeader, FormData.pages);' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='43c7fe4e-aed2-473c-9bf4-6a94b5c1519a' uiType='base'>
