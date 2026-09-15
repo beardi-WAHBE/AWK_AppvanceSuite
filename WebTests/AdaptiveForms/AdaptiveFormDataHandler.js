@@ -524,7 +524,7 @@ class AdaptiveFormField {
 				p_result: '${p_result}' \n|
 				errorMessage: '${errorMsgText}' \n|`);
 		*/
-		var flag_expectedError = p_result || !p_result.toLowerCase().contains("no error")
+		var flag_expectedError = p_result != "" || !p_result.toLowerCase().contains("no error")
 		if (!flag_expectedError && !errorMsgText) return;
 		
 		var errorLogStr = ` - Field: ${this.toString()} \n|`
