@@ -494,7 +494,7 @@ class AdaptiveFormField {
 			case InputType.INPUT_PHONE:
 			case InputType.TEXTAREA:
 			case InputType.DATE_PICKER:
-				_eval(`${this.jqString_Field}.focus().val('${p_input}').blur();`);
+				_eval(`${this.jqString_Field}.focus().val('${p_input}').change();`);
 				break;
 			case InputType.DROPDOWN:
 				_eval(`${this.jqString_Field}.focus().val('${p_input}').blur();`);
