@@ -483,8 +483,8 @@ class AdaptiveFormField {
 				_eval(`${this.jqString_Field}.focus().trigger("click").blur()`);
 				break;
 			case InputType.RADIO_BTNS: 
-				if(!Object.keys(options).includes(p_input)) break;
-				var optionID = options[p_input];
+				if(!Object.keys(this.options).includes(p_input)) break;
+				var optionID = this.options[p_input];
 				_eval(`ds$('#aemFormFrame').contents().find('#${optionID}').focus().trigger("click").blur()`);
 				break;
 			case InputType.FILE_UPLOAD:
