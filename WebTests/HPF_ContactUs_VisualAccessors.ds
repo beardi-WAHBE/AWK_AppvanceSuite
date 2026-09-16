@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testcase  name= '' description='' author='' version=''>
+<dpl filename='' exectype='runstepbystep' errorhandling='' type='HashDPL' locale=''/>
+<fallback useFallback='true'/>
+<shadowDOM useShadowDOM='true'/>
+<step action='' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0'>
+  <dialect type='sahi'>
+   <accessor type='' value='' selected='true'/>
+</dialect>
+</step>
+</testcase>
