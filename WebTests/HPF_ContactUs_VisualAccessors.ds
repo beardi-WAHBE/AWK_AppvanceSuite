@@ -8,7 +8,7 @@
         <accessor type='' value='' selected='true' fallback='false'></accessor>
       </dialect>
     </step>
-    <step action='setValue' value='Test' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='061e058f-fb85-46ba-82a4-f551c0401825' uiType='base'>
+    <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='061e058f-fb85-46ba-82a4-f551c0401825' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='byXPath(&apos;//*[@id="guideContainer-rootPanel-guidetextbox_copy___widget"]&apos;)' selected='true' fallback='true'></accessor>
         <accessor type='XPathId' value='byXPath(&apos;//*[@id="aemFormFrame"]&apos;)' selected='false' fallback='true'></accessor>
@@ -23,7 +23,7 @@
         <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-1981852.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-1981852.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
-    <step action='setValue' value='Test' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='efa52c9f-43d3-4382-931a-b1c02bccd453' uiType='base'>
+    <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='efa52c9f-43d3-4382-931a-b1c02bccd453' uiType='base'>
       <dialect type='sahi'>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='true' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='false' fallback='true'></accessor>
@@ -39,7 +39,7 @@
         <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-6959383.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-6959383.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
-    <step action='setValue' value='FormsTesting@wahbexchange.org' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a9cdaccb-3214-478c-9dad-97d191150265' uiType='base'>
+    <step action='setValue' value='"FormsTesting@wahbexchange.org"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a9cdaccb-3214-478c-9dad-97d191150265' uiType='base'>
       <dialect type='sahi'>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='true' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='false' fallback='true'></accessor>
@@ -55,7 +55,7 @@
         <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-5890829.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-5890829.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
-    <step action='setValue' value='1234567890' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='238662ab-cccd-4bfd-81a6-0be4a8822f35' uiType='base'>
+    <step action='setValue' value='"1234567890"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='238662ab-cccd-4bfd-81a6-0be4a8822f35' uiType='base'>
       <dialect type='sahi'>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_4808239___jqName"]&apos;)' selected='true' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_4808239___jqName"]&apos;)' selected='false' fallback='true'></accessor>
@@ -70,7 +70,7 @@
         <accessor type='JQuery' value='byJQuery(&apos;input[name="guideContainer-rootPanel-guidetextbox_4808239___jqName"]&apos;)' selected='false' fallback='true'></accessor>
       </dialect>
     </step>
-    <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1adfa7dc-367e-42a8-a2fb-4c1fadc56926' uiType='base'>
+    <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1adfa7dc-367e-42a8-a2fb-4c1fadc56926' uiType='base'>
       <dialect type='sahi'>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='true' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='false' fallback='true'></accessor>
