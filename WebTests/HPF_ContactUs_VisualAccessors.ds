@@ -8,6 +8,21 @@
         <accessor type='' value='' selected='true' fallback='false'></accessor>
       </dialect>
     </step>
+    <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1b589284-baab-46cd-ad86-063877eec740' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='AttrClass' value='span("iconButton-label")' selected='true' fallback='true'></accessor>
+        <accessor type='AttrClass' value='span("iconButton-label")' selected='false' fallback='true'></accessor>
+        <accessor type='Text' value='span("Submit")' selected='false' fallback='true'></accessor>
+        <accessor type='XPathClass' value='byXPath(&apos;//*[@class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/form/div[4]/div/div[2]/div/div/div/div/div[8]/div/div/div/button/span[2]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='RelativeXPath' value='byXPath("id(&apos;guideContainer-rootPanel-submit___widget&apos;)/span[@class=&apos;iconButton-label&apos;]")' selected='false' fallback='true'></accessor>
+        <accessor type='XPath' value='byXPath("//button[@id=&apos;guideContainer-rootPanel-submit___widget&apos;]/span[2]")' selected='false' fallback='true'></accessor>
+        <accessor type='Attribute' value='span({&apos;data-guide-button-label&apos;:&apos;true&apos;})' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;div[class="submit guidebutton guidefield"] &gt; div[class="guideFieldNode guideButton submitBtn defaultFieldLayout af-field-empty"] &gt; div[class="guideFieldWidget guideFieldButtonWidget xfaButton"] &gt; button[class="button-default button-medium submit"] &gt; span[class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-submit___widget &gt; .iconButton-label&apos;)' selected='false' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-2803520.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-2803520.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+      </dialect>
+    </step>
     <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='061e058f-fb85-46ba-82a4-f551c0401825' uiType='base'>
       <dialect type='sahi'>
         <accessor type='unknown' value='byXPath(&apos;//*[@id="guideContainer-rootPanel-guidetextbox_copy___widget"]&apos;)' selected='true' fallback='true'></accessor>
