@@ -11,7 +11,8 @@
     </step>
     <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1b589284-baab-46cd-ad86-063877eec740' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='AttrClass' value='span("iconButton-label")' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-2803520.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='true' imgPath='img-2803520.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='AttrClass' value='span("iconButton-label")' selected='false' fallback='true'></accessor>
         <accessor type='AttrClass' value='span("iconButton-label")' selected='false' fallback='true'></accessor>
         <accessor type='Text' value='span("Submit")' selected='false' fallback='true'></accessor>
         <accessor type='XPathClass' value='byXPath(&apos;//*[@class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
@@ -21,12 +22,12 @@
         <accessor type='Attribute' value='span({&apos;data-guide-button-label&apos;:&apos;true&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;div[class="submit guidebutton guidefield"] &gt; div[class="guideFieldNode guideButton submitBtn defaultFieldLayout af-field-empty"] &gt; div[class="guideFieldWidget guideFieldButtonWidget xfaButton"] &gt; button[class="button-default button-medium submit"] &gt; span[class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-submit___widget &gt; .iconButton-label&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-2803520.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-2803520.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='061e058f-fb85-46ba-82a4-f551c0401825' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='unknown' value='byXPath(&apos;//*[@id="guideContainer-rootPanel-guidetextbox_copy___widget"]&apos;)' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-1981852.png&apos;),{x:0.00,y:0.00,w:1.00,h:1.00,cx:0.16,cy:0.20}))' selected='true' fallback='false' imgPath='img-1981852.png' coords='{x:0.00,y:0.00,w:1.00,h:1.00,cx:0.16,cy:0.20}'></accessor>
+        <accessor type='unknown' value='byXPath(&apos;//*[@id="guideContainer-rootPanel-guidetextbox_copy___widget"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='XPathId' value='byXPath(&apos;//*[@id="aemFormFrame"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='XPathId' value='byXPath(&apos;//*[@id="aemFormFrame"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='Id' value='iframe("aemFormFrame")' selected='false' fallback='true'></accessor>
@@ -36,12 +37,12 @@
         <accessor type='XPath' value='byXPath("//iframe[@id=&apos;aemFormFrame&apos;]")' selected='false' fallback='true'></accessor>
         <accessor type='Attribute' value='iframe({&apos;scrolling&apos;:&apos;yes&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#aemFormFrame&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-1981852.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-1981852.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='efa52c9f-43d3-4382-931a-b1c02bccd453' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-6959383.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='false' imgPath='img-6959383.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='AttrName' value='textbox("guideContainer-rootPanel-guidetextbox_1880158___jqName")' selected='false' fallback='true'></accessor>
         <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/form/div[4]/div/div[2]/div/div/div/div/div[3]/div/div/div[2]/input&apos;)' selected='false' fallback='true'></accessor>
@@ -52,12 +53,12 @@
         <accessor type='Attribute' value='textbox({&apos;aria-label&apos;:&apos;Last name&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-guidetextbox_1880158___widget&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;input[name="guideContainer-rootPanel-guidetextbox_1880158___jqName"]&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-6959383.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-6959383.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='setValue' value='"FormsTesting@wahbexchange.org"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a9cdaccb-3214-478c-9dad-97d191150265' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-5890829.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='false' imgPath='img-5890829.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='AttrName' value='textbox("guideContainer-rootPanel-guidetextbox_1495532___jqName")' selected='false' fallback='true'></accessor>
         <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/form/div[4]/div/div[2]/div/div/div/div/div[4]/div/div/div[2]/input&apos;)' selected='false' fallback='true'></accessor>
@@ -68,7 +69,6 @@
         <accessor type='Attribute' value='textbox({&apos;aria-label&apos;:&apos;Email&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-guidetextbox_1495532___widget&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;input[name="guideContainer-rootPanel-guidetextbox_1495532___jqName"]&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-5890829.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-5890829.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='setValue' value='"1234567890"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='238662ab-cccd-4bfd-81a6-0be4a8822f35' uiType='base'>
@@ -88,7 +88,8 @@
     </step>
     <step action='setValue' value='"Test"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='1adfa7dc-367e-42a8-a2fb-4c1fadc56926' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-3308451.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='false' imgPath='img-3308451.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='XPathName' value='byXPath(&apos;//*[@name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='AttrName' value='textarea("guideContainer-rootPanel-guidetextbox_3287953___jqName")' selected='false' fallback='true'></accessor>
         <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/form/div[4]/div/div[2]/div/div/div/div/div[7]/div/div/div[2]/textarea&apos;)' selected='false' fallback='true'></accessor>
@@ -99,12 +100,12 @@
         <accessor type='Attribute' value='textarea({&apos;tabindex&apos;:&apos;0&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-guidetextbox_3287953___widget&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;textarea[name="guideContainer-rootPanel-guidetextbox_3287953___jqName"]&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-3308451.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-3308451.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='7808661b-3e18-4330-8e23-bf70daf41f95' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='AttrClass' value='span("iconButton-label")' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-2803520.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='false' imgPath='img-2803520.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='AttrClass' value='span("iconButton-label")' selected='false' fallback='true'></accessor>
         <accessor type='AttrClass' value='span("iconButton-label")' selected='false' fallback='true'></accessor>
         <accessor type='Text' value='span("Submit")' selected='false' fallback='true'></accessor>
         <accessor type='XPathClass' value='byXPath(&apos;//*[@class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
@@ -114,18 +115,17 @@
         <accessor type='Attribute' value='span({&apos;data-guide-button-label&apos;:&apos;true&apos;})' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;div[class="submit guidebutton guidefield"] &gt; div[class="guideFieldNode guideButton submitBtn defaultFieldLayout af-field-empty"] &gt; div[class="guideFieldWidget guideFieldButtonWidget xfaButton"] &gt; button[class="button-default button-medium submit"] &gt; span[class="iconButton-label"]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='JQuery' value='byJQuery(&apos;#guideContainer-rootPanel-submit___widget &gt; .iconButton-label&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-2803520.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-2803520.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
     <step action='click' value='' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='a2fb544f-53a7-4d25-8a20-fb579314ebb1' uiType='base'>
       <dialect type='sahi'>
-        <accessor type='unknown' value='paragraph(["Your form has been successfully sub"])' selected='true' fallback='true'></accessor>
+        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-8672874.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='true' fallback='true' imgPath='img-8672874.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
+        <accessor type='unknown' value='paragraph(["Your form has been successfully sub"])' selected='false' fallback='true'></accessor>
         <accessor type='unknown' value='paragraph(["Your form has been successfully sub"])' selected='false' fallback='true'></accessor>
         <accessor type='XPathText' value='byXPath(&apos;//*[text()="Your form has been successfully submitted. A customer support specialist will contact you in one to three business days."]&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='AbsoluteXPath' value='byXPath(&apos;/html/body/div/div[3]/p&apos;)' selected='false' fallback='true'></accessor>
         <accessor type='RelativeXPath' value='byXPath("/html[1]/body[1]/div[@class=&apos;aemformcontainer&apos;]/div[@class=&apos;tyMessage&apos;]/p[1]")' selected='false' fallback='true'></accessor>
         <accessor type='XPath' value='byXPath(&apos;//div[1]/div[3]/p&apos;)' selected='false' fallback='true'></accessor>
-        <accessor type='Image' value='byImg(imgSection(readImg(&apos;{resources}/img-8672874.png&apos;),{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}))' selected='false' fallback='false' imgPath='img-8672874.png' coords='{x:0,y:0,w:1,h:1,cx:0.50,cy:0.50}'></accessor>
       </dialect>
     </step>
   </testcase>
