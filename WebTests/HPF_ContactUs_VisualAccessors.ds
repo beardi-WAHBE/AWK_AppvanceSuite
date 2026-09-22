@@ -6,7 +6,10 @@
     <step action='navigateTo' value='"https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='0847faee-13ad-423e-80de-dbe89c7423fc' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
-    <step action='wait' value='10000' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3fa3185b-02fc-471b-8c05-2d9426baf3cd' uiType='base'>
+    <step action='navigateTo' value='"https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='3fa3185b-02fc-471b-8c05-2d9426baf3cd' uiType='base'>
+      <dialect type='sahi'></dialect>
+    </step>
+    <step action='wait' value='5000' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='37754294-979f-4fc0-b54b-e41eddd65cf4' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
     <step action='setValue' value='"firstName"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='0cb542f8-fff6-4f70-8355-f6fe52dfa390' uiType='base'>
