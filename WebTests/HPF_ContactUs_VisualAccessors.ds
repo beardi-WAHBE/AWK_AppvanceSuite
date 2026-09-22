@@ -6,6 +6,12 @@
     <step action='navigateTo' value='"https://qa.wahpf.org/us/en/tools-and-resources/connect-with-us/contact-us/customer-support.html"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='0847faee-13ad-423e-80de-dbe89c7423fc' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
+    <step action='setValue' value='"firstName"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='ce3193fc-9f5e-472d-92dd-de411c122047' uiType='base'>
+      <dialect type='sahi'>
+        <accessor type='unknown' value='textbox("guideContainer-rootPanel-guidetextbox_copy___widget")' selected='true' fallback='true'></accessor>
+        <accessor type='unknown' value='textbox("")' selected='false' fallback='true'></accessor>
+      </dialect>
+    </step>
     <step action='eval' value='"window.location = window.location"' type='web' desc='' isThinkTime='false' isCommented='false' sequence='0' hasBreakPoint='false' indentLevel='0' isVisible='true' parentId='' uid='926b88d5-8e2f-4aa1-898a-8894fe916702' uiType='base'>
       <dialect type='sahi'></dialect>
     </step>
