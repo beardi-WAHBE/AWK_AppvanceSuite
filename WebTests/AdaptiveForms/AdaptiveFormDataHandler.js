@@ -469,7 +469,7 @@ class AdaptiveForm {
 				}
 				var flag_formSubmitted = CheckIsInteractable("ds$('#aemFormFrame').contents().find('.tyMessage')");
 				if (!flag_formSubmitted) {
-					testResultString += `\n| FAILURE: Form did not submit within ${submitWaitTimeMS} \n|`
+					testResultString += `\n| FAILURE: Form did not submit within ${submitWaitTimeS} seconds \n|`
 					+ ` - Thank you message did not load \n|`;
 				}
 				EndTest();
