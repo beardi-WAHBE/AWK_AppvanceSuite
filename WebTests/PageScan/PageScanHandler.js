@@ -86,18 +86,27 @@ function GetEnv(p_url) {
     else return envIDs.PROD;
 }
 function ChangeURLToTestENV(p_url, p_env) {
-    if (GetSite(p_url) == siteIDs.EXTERNAL || GetEnv(p_url) == p_env) return p_url;
+    var currentSite = GetSite(p_url);
+    if (currentSite == siteIDs.EXTERNAL || GetEnv(p_url) == p_env) return p_url;
 
     var targetEnvStr = "www";
     if (p_env == envIDs.DEV) targetEnvStr = "dev";
     else if (p_env == envIDs.UAT) targetEnvStr = "uat";
     else if (p_env == envIDs.QA) targetEnvStr = "qa";
 
-    if (GetEnv(p_url) == envIDs.PROD && GetSite(p_url) == siteIDs.HPF) {
-        return p_url.replace("www.wahealthplanfinder.org", targetEnvStr + "wahpf.org");
+    if (p_env != envIDs.PROD) {
+        return p_url.replace(/www|qa|uat|dev/g, targetEnvStr);
     }
-    else if (GetEnv(p_url) == envIDs.PROD && GetSite(p_url) == siteIDs.HBE) {
-        return p_url.replace("www.wahbexchange.org", targetEnvStr + "-corp.wahpf.org");
+
+    if (currentSite == siteIDs.HBE) targetEnvStr += "-corp"
+
+    // From PROD to NON-PROD
+    if (GetEnv(p_url) == envIDs.PROD && GetSite(p_url) == siteIDs.HPF) {
+        return p_url.replace(/www.wahealthplanfinder.org|www.wahbexchange.org/g, targetEnvStr + ".wahpf.org");
+    }
+    // From NON-PROD to PROD
+    else if (p_env = envIDs.PROD) {
+
     }
 
 }
