@@ -138,6 +138,9 @@ var linkFlags = {
     InNav: (p_link) => { return false }, // can find "./ancestor::nav"
     InList: (p_link) => { return false }, // can find "./ancestor::ol | .ancestor::ul"
     IsButton:  (p_link) => { return false }, // link has class ".btn" or ".button"
+    IsUnderlinedCSS: (p_link) => {return false}, // css value "text-decoration" includes "underline"
+    IsUnderlinedTag: (p_link) => {return false}, // has ancestor or child <u> tag
+    IsBoldedTag: (p_link) => {return false}, // has ancestor or child <b> tag
     OpensNewTab: (p_link) => { return false }, // has attribute "target = '_blank'"
     HasHREF: (p_link) => { return false }, // has attribute "href"
     HasNewTabIcon: (p_link) => { return false }, 
@@ -176,4 +179,35 @@ function Link_GetLinkType(p_link) {
     else if (downloadableFileTypes.some((p_fileType) => href.includes(p_fileType))) return linkTypes.DOWNLOAD_FILE;
     else if (href.contains("youtube.com") && !linkFlags.ContainsText(p_link)) return linkTypes.EMB_VIDEO;
     else if (href.contains("HBEWeb/")) return linkTypes.APP;
+}
+
+function Link_GetAllLinksInCOntainer(p_container) {
+
+}
+
+function Link_CheckCSSRules(p_link) {
+    var failCategory = "STYLING ISSUE";
+
+    // --=|| Underlines ||=--
+    var flag_shouldBeUnderlined = !(
+           linkFlags.InNav(p_link)
+        || linkFlags.InHeader(p_link)
+        || linkFlags.InFooter(p_link)
+        || linkFlags.ContainsImage(p_link)
+        || linkFlags.IsButton(p_link)
+        || linkFlags.InList(p_link)
+        || !linkFlags.ContainsText(p_link)
+    );
+
+    if (flag_shouldBeUnderlined && ! linkFlags.IsUnderlinedCSS(p_link)) {
+        // Failed - link that should be underlined is not underlined with CSS
+    }
+    else if (!flag_shouldBeUnderlined && l(inkFlags.IsUnderlinedCSS(p_link) || linkFlags.IsUnderlinedTag(p_link))) {
+        // Failed - link that should not be underlined is underlined
+    }
+    if (linkFlags.IsUnderlinedTag(p_link)) {
+        // Failed - <u> detected
+    }
+
+    // --=|| Bold Text ||=--
 }
