@@ -8,16 +8,16 @@
 // #region
 
 
-function JQ_CheckIsInteractable(p_jqElementStr) {
+function PageNav_CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
 	if (flag_check == true) return true;
 	else return false;
 }
 
-function JQ_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) {
-	wait(p_waitTimeMS, () => JQ_CheckIsInteractable(p_jqElementStr));
+function PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) {
+	wait(p_waitTimeMS, () => PageNav_CheckIsInteractable(p_jqElementStr));
 
-	var elementFound = JQ_CheckIsInteractable(p_jqElementStr);
+	var elementFound = PageNav_CheckIsInteractable(p_jqElementStr);
     /*
 	if (!elementFound && p_failIfNotFound) {
 		testResultString += `\n| FAILURE: Element not found after ${p_waitTimeMS}ms \n|`
@@ -31,23 +31,23 @@ function JQ_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound
 	return elementFound;
 }
 
-function JQ_NavigateToPage(p_url) {
+function PageNav_NavigateToPage(p_url) {
 		_eval(`window.location.href = '${p_url}'`);
-		JQ_WaitForElement("ds$('body')");
+		PageNav_WaitForElement("ds$('body')");
 }
 
-function ContainsOneOfMany(p_string, p_checklist) {
+function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
-const envIDs = {
+const ENV_ID = {
     DEV: 0,
     UAT: 1,
     QA: 2,
     PROD: 3,
     EXTERNAL: 4
 }
-const siteIDs = {
+const SITE_ID = {
     HPF: 0,
     HBE: 1,
     WA_PATH: 2,
@@ -72,40 +72,40 @@ const HomepageURLs_HBE = [
             "https://dev-corp.wahpf.org/",
             "https://www.wahbexchange.org/home-page/"
 ]
-function GetSite(p_url) {
-    if (ContainsOneOfMany(p_url, HomepageURLs_HPF)) return siteIDs.HPF;
-    else if (ContainsOneOfMany(p_url, HomepageURLs_HBE)) return siteIDs.HBE;
-    else if (p_url.contains("wapathways.org")) return siteIDs.WA_PATH;
-    else return siteIDs.EXTERNAL;
+function PageNav_GetSite(p_url) {
+    if (Util_ContainsOneOfMany(p_url, HomepageURLs_HPF)) return SITE_ID.HPF;
+    else if (Util_ContainsOneOfMany(p_url, HomepageURLs_HBE)) return SITE_ID.HBE;
+    else if (p_url.contains("wapathways.org")) return SITE_ID.WA_PATH;
+    else return SITE_ID.EXTERNAL;
 }
-function GetEnv(p_url) {
-    if(GetSite(p_url) == siteIDs.EXTERNAL) return envIDs.EXTERNAL;
-    else if (p_url.contains("//dev")) return envIDs.DEV;
-    else if (p_url.contains("//uat")) return envIDs.UAT;
-    else if (p_url.contains("//qa")) return envIDs.QA;
-    else return envIDs.PROD;
+function PageNav_GetEnv(p_url) {
+    if(PageNav_GetSite(p_url) == SITE_ID.EXTERNAL) return ENV_ID.EXTERNAL;
+    else if (p_url.contains("//dev")) return ENV_ID.DEV;
+    else if (p_url.contains("//uat")) return ENV_ID.UAT;
+    else if (p_url.contains("//qa")) return ENV_ID.QA;
+    else return ENV_ID.PROD;
 }
-function ChangeURLToTestENV(p_url, p_env) {
-    var currentSite = GetSite(p_url);
-    if (currentSite == siteIDs.EXTERNAL || GetEnv(p_url) == p_env) return p_url;
+function PageNav_ChangeURLToTestENV(p_url, p_env) {
+    var currentSite = PageNav_GetSite(p_url);
+    if (currentSite == SITE_ID.EXTERNAL || PageNav_GetEnv(p_url) == p_env) return p_url;
 
     var targetEnvStr = "www";
-    if (p_env == envIDs.DEV) targetEnvStr = "dev";
-    else if (p_env == envIDs.UAT) targetEnvStr = "uat";
-    else if (p_env == envIDs.QA) targetEnvStr = "qa";
+    if (p_env == ENV_ID.DEV) targetEnvStr = "dev";
+    else if (p_env == ENV_ID.UAT) targetEnvStr = "uat";
+    else if (p_env == ENV_ID.QA) targetEnvStr = "qa";
 
-    if (p_env != envIDs.PROD) {
+    if (p_env != ENV_ID.PROD) {
         return p_url.replace(/www|qa|uat|dev/g, targetEnvStr);
     }
 
-    if (currentSite == siteIDs.HBE) targetEnvStr += "-corp"
+    if (currentSite == SITE_ID.HBE) targetEnvStr += "-corp"
 
     // From PROD to NON-PROD
-    if (GetEnv(p_url) == envIDs.PROD && GetSite(p_url) == siteIDs.HPF) {
+    if (PageNav_GetEnv(p_url) == ENV_ID.PROD && PageNav_GetSite(p_url) == SITE_ID.HPF) {
         return p_url.replace(/www.wahealthplanfinder.org|www.wahbexchange.org/g, targetEnvStr + ".wahpf.org");
     }
     // From NON-PROD to PROD
-    else if (p_env = envIDs.PROD) {
+    else if (p_env = ENV_ID.PROD) {
 
     }
 
@@ -161,13 +161,13 @@ var config_PageScan = {
     flag_testImages: false,
     flag_testFooter: false,
 
-    target_env: envIDs.QA, // Change URL based on target environment (QA and UAT just use input URL)
+    target_env: ENV_ID.QA, // Change URL based on target environment (QA and UAT just use input URL)
     target_linkTypes: [], // Test all types if empty
 }
 
 // --=|| LINK FUNCTIONS ||=--
 
-function GetLinkType(p_link) {
+function Link_GetLinkType(p_link) {
     var href = (linkFlags.HasHREF(p_link)) ? "get href" : "NO HREF FOUND";
 
     if (href.contains("mailto:")) return linkTypes.MAILTO;
