@@ -67,6 +67,9 @@ const HomepageURLs_HBE = [
 ]
 /** 
  * Gets which site the URL goes to
+ * 
+ * ---
+ * -
  * @param {string} p_url String formatted as valid URL (default value gets URL of the current page)
  * @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL )
  */
@@ -77,7 +80,10 @@ function PageNav_GetSite(p_url = PageNav_GetCurrentURL()) {
     else return SITE_ID.EXTERNAL;
 }
 /** 
- * Gets which environment the URL goes to
+ * Gets which environment the URL goes to. 
+ * 
+ * ----
+ * -
  * @param {string} p_url String formatted as valid URL (default value gets URL of the current page)
  * @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
  */
@@ -90,6 +96,9 @@ function PageNav_GetEnv(p_url = PageNav_GetCurrentURL()) {
 }
 /**
  * Changes the input URL to the given Environment
+ * 
+ * ---
+ * -
  * @param {string} p_url String formatted as valid URL
  * @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
  * @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged)
@@ -157,7 +166,11 @@ var linkFlags = {
 // --=|| TEST CASE CONFIG ||=--
 
 /** 
- * Values to be set in the test designer before running the test case telling the script which tests to run on the page 
+ * Values to be set in the test designer before running the test case  
+ * telling the script which tests to run on the page 
+ * 
+ * ---
+ * -
  * @type {{
  * flag_testHeader: boolean, 
  * flag_testFooter: boolean, 
