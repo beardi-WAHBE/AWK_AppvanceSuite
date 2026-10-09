@@ -3,95 +3,40 @@
  * This script requires AIQ Web Designer
 */
 
-// --=|| UTILIY FUNCTIONS ||=--
-// Move to external file?
-// #region
-
 include("{ds}/../../ReusableFunctions/ReportResults.js");
 /** Aliases for ReportResults.js functions */
 class Report {
-    /** Generate a log string for a failed test
-     * @param {string} p_failCategory A few words broadly describing the kind of failure that occured @param {string} p_failDesc A detailed description of why the test failed @param {boolean} p_endTest Flag whether or not the failure prevents the test from continuing (false by default) @returns {string} Returns a formatted string that will appear in the test log
-     */
+    /** @ -- Generate a log string for a failed test -- @param {string} p_failCategory A few words broadly describing the kind of failure that occured @param {string} p_failDesc A detailed description of why the test failed @param {boolean} p_endTest Flag whether or not the failure prevents the test from continuing (false by default) @returns {string} Formatted string that will appear in the test log */
     GenerateFailureLog = (p_failCategory, p_failDesc, p_endTest = false) => Report_GenerateFailureLog(p_failCategory, p_failDesc, p_endTest);
 }
+
 include("{ds}/../../ReusableFunctions/PageNavigation.js");
-/** Aliases for PageNavigation.js functions */
-class PageNav {
-    CheckIsInteractable = (p_jqElementStr) => PageNav_CheckIsInteractable(p_jqElementStr);
-    WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true);
-    NavigateToPage = (p_url) => PageNav_NavigateToPage(p_url);
-    GetCurrentURL = () => PageNav_GetCurrentURL();
-    
-    /** 
-     *  Gets which site the URL goes to
-     *  @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) 
-     */
-    GetSite = (p_url = PageNav.GetCurrentURL()) => PageNav_GetSite(p_url);
 
-    /** 
-     * Gets which environment the URL goes to. 
-     * @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
-     */
-    GetEnv = (p_url = PageNav_GetCurrentURL()) => PageNav_GetEnv(p_url);
+/** @ -- Uses JQuery to check if an element can be interacted with -- @param p_jqElementStr {string} JQuery string to find element @returns {boolean} True/False if the element can be interacted with */
+const PageNav_CheckIsInteractable = (p_jqElementStr) => CheckIsInteractable(p_jqElementStr);
 
-}
+/** @ -- Uses JQuery to wait and see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
+const PageNav_WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS);
+
+/** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
+const PageNav_NavigateToPage = (p_url) => NavigateToPage(p_url);
+
+/** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
+const PageNav_GetCurrentURL = () => GetCurrentURL();
+
+/** @ -- Gets which site the URL goes to -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) */
+const PageNav_GetSite = (p_url = PageNav_GetCurrentURL()) => GetSite(p_url);
+
+/** @ -- Gets which environment the URL goes to. -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) */
+const PageNav_GetEnv = (p_url = PageNav_GetCurrentURL()) => GetEnv(p_url);
+
+/** @ -- Changes the input URL to the given Environment @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
+const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
+
 
 function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
-
-/** 
- * Gets which environment the URL goes to. 
- * 
- * ----
- * -
- * @param {string} p_url String formatted as valid URL (default value gets URL of the current page)
- * @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
- */
-function PageNav_GetEnv(p_url = PageNav_GetCurrentURL()) {
-    if(PageNav_GetSite(p_url) == SITE_ID.EXTERNAL) return ENV_ID.EXTERNAL;
-    else if (p_url.contains("//dev")) return ENV_ID.DEV;
-    else if (p_url.contains("//uat")) return ENV_ID.UAT;
-    else if (p_url.contains("//qa")) return ENV_ID.QA;
-    else return ENV_ID.PROD;
-}
-/**
- * Changes the input URL to the given Environment
- * 
- * ---
- * -
- * @param {string} p_url String formatted as valid URL
- * @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
- * @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged)
- */
-function PageNav_ChangeURLToTestENV(p_url, p_env) {
-    var currentSite = PageNav_GetSite(p_url);
-    if (currentSite == SITE_ID.EXTERNAL || PageNav_GetEnv(p_url) == p_env) return p_url;
-
-    var targetEnvStr = "www";
-    if (p_env == ENV_ID.DEV) targetEnvStr = "dev";
-    else if (p_env == ENV_ID.UAT) targetEnvStr = "uat";
-    else if (p_env == ENV_ID.QA) targetEnvStr = "qa";
-
-    if (p_env != ENV_ID.PROD) {
-        return p_url.replace(/www|qa|uat|dev/g, targetEnvStr);
-    }
-
-    if (currentSite == SITE_ID.HBE) targetEnvStr += "-corp"
-
-    // From PROD to NON-PROD
-    if (PageNav_GetEnv(p_url) == ENV_ID.PROD && PageNav_GetSite(p_url) == SITE_ID.HPF) {
-        return p_url.replace(/www.wahealthplanfinder.org|www.wahbexchange.org/g, targetEnvStr + ".wahpf.org");
-    }
-    // From NON-PROD to PROD
-    else if (p_env = ENV_ID.PROD) {
-
-    }
-
-}
-
-// #endregion
 
 // --=|| GLOBAL TEST CONFIG ||=--
 // #region
