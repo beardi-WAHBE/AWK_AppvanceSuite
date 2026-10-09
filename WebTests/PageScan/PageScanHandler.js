@@ -21,7 +21,7 @@ const PageNav_WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000) => PageNav_
 /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
 const PageNav_NavigateToPage = (p_url) => NavigateToPage(p_url);
 
-/** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
+/** @ -- Gets the URL of the current page -- @returns String formatted as URL */
 const PageNav_GetCurrentURL = () => GetCurrentURL();
 
 /** @ -- Gets which site the URL goes to -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) */
