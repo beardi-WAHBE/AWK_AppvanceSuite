@@ -8,78 +8,39 @@
 // #region
 
 include("{ds}/../../ReusableFunctions/ReportResults.js");
-
-function PageNav_CheckIsInteractable(p_jqElementStr) {
-	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
-	if (flag_check == true) return true;
-	else return false;
+/** Aliases for ReportResults.js functions */
+class Report {
+    /** Generate a log string for a failed test
+     * @param {string} p_failCategory A few words broadly describing the kind of failure that occured @param {string} p_failDesc A detailed description of why the test failed @param {boolean} p_endTest Flag whether or not the failure prevents the test from continuing (false by default) @returns {string} Returns a formatted string that will appear in the test log
+     */
+    GenerateFailureLog = (p_failCategory, p_failDesc, p_endTest = false) => Report_GenerateFailureLog(p_failCategory, p_failDesc, p_endTest);
 }
+include("{ds}/../../ReusableFunctions/PageNavigation.js");
+/** Aliases for PageNavigation.js functions */
+class PageNav {
+    CheckIsInteractable = (p_jqElementStr) => PageNav_CheckIsInteractable(p_jqElementStr);
+    WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true);
+    NavigateToPage = (p_url) => PageNav_NavigateToPage(p_url);
+    GetCurrentURL = () => PageNav_GetCurrentURL();
+    
+    /** 
+     *  Gets which site the URL goes to
+     *  @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) 
+     */
+    GetSite = (p_url = PageNav.GetCurrentURL()) => PageNav_GetSite(p_url);
 
-function PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS = 5000, p_failIfNotFound = true) {
-	wait(p_waitTimeMS, () => PageNav_CheckIsInteractable(p_jqElementStr));
+    /** 
+     * Gets which environment the URL goes to. 
+     * @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL )
+     */
+    GetEnv = (p_url = PageNav_GetCurrentURL()) => PageNav_GetEnv(p_url);
 
-	var elementFound = PageNav_CheckIsInteractable(p_jqElementStr);
-    /*
-	if (!elementFound && p_failIfNotFound) {
-		testResultString += `\n| FAILURE: Element not found after ${p_waitTimeMS}ms \n|`
-		+ ` - Identifier: ${p_jqElementStr} \n|`
-		+ "\n| FAILED ASSERT: ENDING TEST \n|";
-
-		//EndTest();
-
-	}
-    */
-	return elementFound;
-}
-
-function PageNav_NavigateToPage(p_url) {
-		_eval(`window.location.href = '${p_url}'`);
-		PageNav_WaitForElement("ds$('body')");
-}
-
-function PageNav_GetCurrentURL() {
-    return _eval("window.location.href");
 }
 
 function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
-const ENV_ID = { DEV: 0, UAT: 1, QA: 2, PROD: 3, EXTERNAL: 4 }
-const SITE_ID = { HPF: 0, HBE: 1, WA_PATH: 2, EXTERNAL: 3 }
-
-const HomepageURLs_HPF = [
-            "https://qa.wahpf.org/us/en/home-page.html",
-            "https://qa.wahpf.org/content/wahpf/us/en/home-page.html",
-            "https://dev.wahpf.org/us/en/home-page.html",
-            "https://www.wahealthplanfinder.org/us/en/home-page.html",
-            "https://qa.wahpf.org/us/es/home-page.html",
-            "https://qa.wahpf.org/content/wahpf/us/es/home-page.html",
-            "https://dev.wahpf.org/us/es/home-page.html",
-            "https://www.wahealthplanfinder.org/us/es/home-page.html",
-            "https://www.wahealthplanfinder.org/",
-            "/content/wahpf/us/en/home-page.html",
-            "/content/wahpf/us/es/home-page.html"
-]
-const HomepageURLs_HBE = [
-            "https://uat-corp.wahpf.org/",
-            "https://dev-corp.wahpf.org/",
-            "https://www.wahbexchange.org/home-page/"
-]
-/** 
- * Gets which site the URL goes to
- * 
- * ---
- * -
- * @param {string} p_url String formatted as valid URL (default value gets URL of the current page)
- * @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL )
- */
-function PageNav_GetSite(p_url = PageNav_GetCurrentURL()) {
-    if (Util_ContainsOneOfMany(p_url, HomepageURLs_HPF)) return SITE_ID.HPF;
-    else if (Util_ContainsOneOfMany(p_url, HomepageURLs_HBE)) return SITE_ID.HBE;
-    else if (p_url.contains("wapathways.org")) return SITE_ID.WA_PATH;
-    else return SITE_ID.EXTERNAL;
-}
 /** 
  * Gets which environment the URL goes to. 
  * 
@@ -253,6 +214,8 @@ class Link {
 
     TestLink_HTTP() {
         var failMessage = "";
+
+        Report.GenerateFailureLog("", "");
 
         
     }
