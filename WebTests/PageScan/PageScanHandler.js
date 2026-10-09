@@ -7,6 +7,7 @@
 // Move to external file?
 // #region
 
+include("{ds}/../../ReusableFunctions/ReportResults.js");
 
 function PageNav_CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
@@ -171,17 +172,7 @@ var linkFlags = {
  * 
  * ---
  * -
- * @type {{
- * flag_testHeader: boolean, 
- * flag_testFooter: boolean, 
- * flag_testMegaMenu: boolean, 
- * flag_testNav: boolean, 
- * flag_testImages: boolean, 
- * flag_checkCSS: boolean,
- * target_env: ENV_ID,
- * target_linkTypes: Array<LINK_TYPE>
- * }}
- * 
+ * @type {{ flag_testHeader: boolean, flag_testFooter: boolean, flag_testMegaMenu: boolean, flag_testNav: boolean, flag_testImages: boolean, flag_checkCSS: boolean, target_env: ENV_ID, target_linkTypes: Array<LINK_TYPE> }}
  */
 var config_PageScan = {
     flag_testHeader: false,
@@ -253,4 +244,16 @@ function Link_CheckCSSRules(p_link) {
         || linkType == LINK_TYPE.DOWNLOAD_FILE
         || (linkType == LINK_TYPE.APP && PageNav_GetSite() != SITE_ID.HPF)
     );
+}
+
+class Link {
+    constructor(p_jqString) {
+        this.jqString = p_jqString;
+    }
+
+    TestLink_HTTP() {
+        var failMessage = "";
+
+        
+    }
 }
