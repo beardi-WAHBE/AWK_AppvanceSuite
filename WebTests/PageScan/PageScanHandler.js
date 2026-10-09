@@ -30,7 +30,7 @@ const PageNav_GetSite = (p_url = PageNav_GetCurrentURL()) => GetSite(p_url);
 /** @ -- Gets which environment the URL goes to. -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) */
 const PageNav_GetEnv = (p_url = PageNav_GetCurrentURL()) => GetEnv(p_url);
 
-/** @ -- Changes the input URL to the given Environment @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
+/** @ -- Changes the input URL to the given Environment -- @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
 const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
 
 
@@ -38,7 +38,7 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
-/** @ -- Use JQuery to check if a given element has a given ancestor @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
+/** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
 function Check_HasAncestor(p_jqString_Element, p_ancestorLocator) {
     return _eval(`(${p_jqString_Element}.parents(${p_ancestorLocator}).length > 0)`);
 }
