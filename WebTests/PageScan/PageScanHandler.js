@@ -37,8 +37,13 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
-/** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
+/** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
 function Check_HasAncestor(p_jqString_Element, p_ancestorLocator) {
+    return _eval(`(${p_jqString_Element}.parents(${p_ancestorLocator}).length > 0)`);
+}
+
+/** @ -- Use JQuery to check if a given element has a given attribute -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @param {string} p_attValue Value of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute and that attriblute has the given value */
+function Check_HasAttribute(p_jqString_Element, p_attName, p_attValue) {
     return _eval(`(${p_jqString_Element}.parents(${p_ancestorLocator}).length > 0)`);
 }
 
