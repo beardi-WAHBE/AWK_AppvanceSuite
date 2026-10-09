@@ -53,10 +53,10 @@ const downloadableFileTypes = [".docx", ".xlsx", ".pptx", ".ics" ]
 const viewableFileTypes = [".jpeg", ".jpg", ".png", ".gif", ".svg", ".pdf", ".mp3" ]
 
 var linkFlags = {
-    InHeader: (p_link) => { return false }, // can find "./ancestor::header"
-    InFooter: (p_link) => { return false }, // can find "./ancestor::footer | ./ancestor::div[@class='page__footer' or @id='ash-footer-wrapper']"
-    InNav: (p_link) => { return false }, // can find "./ancestor::nav"
-    InList: (p_link) => { return false }, // can find "./ancestor::ol | .ancestor::ul"
+    InHeader: (p_link) => { Check_HasAncestor(p_link, "header"); }, // can find "./ancestor::header"
+    InFooter: (p_link) => { Check_HasAncestor(p_link, "footer .page__footer #ash-footer-wrapper"); }, // can find "./ancestor::footer | ./ancestor::div[@class='page__footer' or @id='ash-footer-wrapper']"
+    InNav: (p_link) => { Check_HasAncestor(p_link, "nav"); }, // can find "./ancestor::nav"
+    InList: (p_link) => { Check_HasAncestor(p_link, "ol ul") }, // can find "./ancestor::ol | .ancestor::ul"
     IsButton:  (p_link) => { return false }, // link has class ".btn" or ".button"
     IsUnderlinedCSS: (p_link) => {return false}, // css value "text-decoration" includes "underline"
     IsUnderlinedTag: (p_link) => {return false}, // has ancestor or child <u> tag
