@@ -24,13 +24,14 @@ const HomepageURLs_HBE = [
             "https://www.wahbexchange.org/home-page/"
 ];
 
+/** @ -- Uses JQuery to check if an element can be interacted with -- @param p_jqElementStr {string} JQuery string to find element @returns {boolean} True/False if the element can be interacted with */
 function CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
 	if (flag_check == true) return true;
 	else return false;
 }
 
-/** @ -- Waits to see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
+/** @ -- Uses JQuery to wait and see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
 	wait(p_waitTimeMS, () => CheckIsInteractable(p_jqElementStr));
 	return elementFound = CheckIsInteractable(p_jqElementStr);
