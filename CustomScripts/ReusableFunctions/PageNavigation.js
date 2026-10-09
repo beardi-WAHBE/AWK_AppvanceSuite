@@ -25,6 +25,7 @@ const HomepageURLs_HBE = [
 ];
 
 /** @ -- Uses JQuery to check if an element can be interacted with -- @param p_jqElementStr {string} JQuery string to find element @returns {boolean} True/False if the element can be interacted with */
+// include() alias: const PageNav_CheckIsInteractable = (p_jqElementStr) => CheckIsInteractable(p_jqElementStr);
 function CheckIsInteractable(p_jqElementStr) {
 	var flag_check = _eval(`(${p_jqElementStr}.length && ${p_jqElementStr}.is(':visible') && !${p_jqElementStr}.is(':disabled'))`);
 	if (flag_check == true) return true;
@@ -32,23 +33,27 @@ function CheckIsInteractable(p_jqElementStr) {
 }
 
 /** @ -- Uses JQuery to wait and see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
+// include() alias: const PageNav_WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS);
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
 	wait(p_waitTimeMS, () => CheckIsInteractable(p_jqElementStr));
 	return elementFound = CheckIsInteractable(p_jqElementStr);
 }
 
 /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
+// include() alias: /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
 function NavigateToPage(p_url) {
 		_eval(`window.location.href = '${p_url}'`);
 		return PageNav_WaitForElement("ds$('body')");
 }
 
 /** @ -- Gets the URL of the current page -- @returns String formatted as URL */
+// include() alias: const PageNav_GetCurrentURL = () => GetCurrentURL();
 function GetCurrentURL() {
     return _eval("window.location.href");
 }
 
 /** @ -- Gets which site the URL goes to -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) */
+// include() alias: const PageNav_GetSite = (p_url = PageNav_GetCurrentURL()) => GetSite(p_url);
 function GetSite(p_url = GetCurrentURL()) {
     if (Util_ContainsOneOfMany(p_url, HomepageURLs_HPF)) return SITE_ID.HPF;
     else if (Util_ContainsOneOfMany(p_url, HomepageURLs_HBE)) return SITE_ID.HBE;
@@ -57,6 +62,7 @@ function GetSite(p_url = GetCurrentURL()) {
 }
 
 /** @ -- Gets which environment the URL goes to. -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) */
+// include() alias: /** @ -- Gets which environment the URL goes to. -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) */
 function GetEnv(p_url = PageNav_GetCurrentURL()) {
     if(PageNav_GetSite(p_url) == SITE_ID.EXTERNAL) return ENV_ID.EXTERNAL;
     else if (p_url.contains("//dev")) return ENV_ID.DEV;
@@ -66,6 +72,7 @@ function GetEnv(p_url = PageNav_GetCurrentURL()) {
 }
 
 /** @ -- Changes the input URL to the given Environment @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
+// include() alias: const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
 function ChangeURLToTestENV(p_url, p_env) {
     var currentSite = PageNav_GetSite(p_url);
     if (currentSite == SITE_ID.EXTERNAL || PageNav_GetEnv(p_url) == p_env) return p_url;
