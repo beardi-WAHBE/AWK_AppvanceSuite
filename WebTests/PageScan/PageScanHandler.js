@@ -32,14 +32,35 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
-/** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
-function Check_HasAncestor(p_jqString_Element, p_ancestorLocator) {
-    return _eval(`(${p_jqString_Element}.parents(${p_ancestorLocator}).length > 0)`);
+/** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
+function Check_HasAncestor(p_jqString, p_ancestorLocator) {
+    return _eval(`(${p_jqString}.parents(${p_ancestorLocator}).length > 0)`);
 }
 
-/** @ -- Use JQuery to check if a given element has a given attribute -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @param {string} p_attValue Value of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute and that attriblute has the given value */
-function Check_HasAttribute(p_jqString_Element, p_attName, p_attValue) {
-    return _eval(`${p_jqString_Element}.is([${p_attName}*='${p_attValue}'])`);
+function Check_HasChild(p_jqString, p_ancestorLocator) {
+    return _eval(`(${p_jqString}.find(${p_ancestorLocator}).length > 0)`);
+}
+
+/** @ -- Use JQuery to check if a given element has a given attribute -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute */
+function Check_HasAttribute(p_jqString, p_attName) {
+    return _eval(`${p_jqString}.is([${p_attName}])`);
+}
+
+/** @ -- Use JQuery to check if a given element has a given attribute with a given value -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @param {string} p_attValue Value of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute and that attriblute has the given value */
+function Check_HasAttributeValue(p_jqString, p_attName, p_attValue) {
+    return _eval(`${p_jqString}.is([${p_attName}*='${p_attValue}'])`);
+}
+
+function Check_HasText(p_jqString) {
+    return _eval(`$.trim((${p_jqString}.text()).length > 0)`);
+}
+
+function Check_HasNewTabIcon(p_jqString) {
+    var hasAfterElement = _eval(``);
+    var hasSpan = Check_HasChild(p_jqString, "span.external--icon span.cmp-button__icon");
+    var hasImg = Check_HasChild(p_jqString, "img.cmp-image__image");
+
+    return (hasAfterElement || hasSpan || hasImg);
 }
 
 // --=|| GLOBAL TEST CONFIG ||=--
@@ -53,23 +74,20 @@ const downloadableFileTypes = [".docx", ".xlsx", ".pptx", ".ics" ]
 const viewableFileTypes = [".jpeg", ".jpg", ".png", ".gif", ".svg", ".pdf", ".mp3" ]
 
 var linkFlags = {
-    InHeader: (p_link) => { Check_HasAncestor(p_link, "header"); }, // can find "./ancestor::header"
-    InFooter: (p_link) => { Check_HasAncestor(p_link, "footer .page__footer #ash-footer-wrapper"); }, // can find "./ancestor::footer | ./ancestor::div[@class='page__footer' or @id='ash-footer-wrapper']"
-    InNav: (p_link) => { Check_HasAncestor(p_link, "nav"); }, // can find "./ancestor::nav"
-    InList: (p_link) => { Check_HasAncestor(p_link, "ol ul") }, // can find "./ancestor::ol | .ancestor::ul"
-    IsButton:  (p_link) => { Check_HasAttribute(p_link, "class", "btn") }, // link has class ".btn" or ".button"
-    IsUnderlinedCSS: (p_link) => {return false}, // css value "text-decoration" includes "underline"
-    IsUnderlinedTag: (p_link) => {return false}, // has ancestor or child <u> tag
-    IsBoldedTag: (p_link) => {return false}, // has ancestor or child <b> tag
-    OpensNewTab: (p_link) => { return false }, // has attribute "target = '_blank'"
-    HasHREF: (p_link) => { return false }, // has attribute "href"
-    HasNewTabIcon: (p_link) => { return false }, 
-    // Not null or undefined: "return window.getComputedStyle(arguments[0], '::after').getPropertyValue('content');"
-    // OR Find ".//span[@class='external--icon' or contains(@class, 'cmp-button__icon')]"
-    // OR Find ".//img[@class='cmp-image__image']"
-    ContainsImage: (p_link) => { return false }, // has child "img"
-    ContainsText: (p_link) => { return false }, // elemet.text not null, undefined, or empty
-    IsSamePageNav: (p_link) => { return false }, // has attribute "href" which contains "#"
+    InHeader: (p_link) => { return Check_HasAncestor(p_link, "header"); }, 
+    InFooter: (p_link) => { return Check_HasAncestor(p_link, "footer .page__footer #ash-footer-wrapper"); }, 
+    InNav: (p_link) => { return Check_HasAncestor(p_link, "nav"); }, 
+    InList: (p_link) => { return Check_HasAncestor(p_link, "ol ul"); }, 
+    IsButton:  (p_link) => { return Check_HasAttributeValue(p_link, "class", "btn"); }, 
+    IsUnderlinedCSS: (p_link) => {return Check_HasAttributeValue(p_link, "text-decoration", "underline"); }, 
+    IsUnderlinedTag: (p_link) => {return (Check_HasAncestor(p_link, "u") || Check_HasChild(p_link, "u")); }, 
+    IsBoldedTag: (p_link) => {return (Check_HasAncestor(p_link, "b") || Check_HasChild(p_link, "b")); }, 
+    OpensNewTab: (p_link) => { return Check_HasAttributeValue(p_link, "target", "_blank"); }, 
+    HasHREF: (p_link) => { return Check_HasAttribute(p_link, "href"); }, 
+    HasNewTabIcon: (p_link) => { return Check_HasNewTabIcon(p_link); }, 
+    ContainsImage: (p_link) => { return Check_HasChild(p_link, "img"); }, 
+    ContainsText: (p_link) => { return Check_HasText(p_link); }, 
+    IsSamePageNav: (p_link) => { return Check_HasAttributeValue(p_link, "href", "#"); }, 
 }
 
 // #endregion
