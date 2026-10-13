@@ -39,7 +39,7 @@ function Check_HasAncestor(p_jqString_Element, p_ancestorLocator) {
 
 /** @ -- Use JQuery to check if a given element has a given attribute -- @param {string} p_jqString_Element A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @param {string} p_attValue Value of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute and that attriblute has the given value */
 function Check_HasAttribute(p_jqString_Element, p_attName, p_attValue) {
-    return _eval(`(${p_jqString_Element}.parents(${p_ancestorLocator}).length > 0)`);
+    return _eval(`${p_jqString_Element}.is([${p_attName}*='${p_attValue}'])`);
 }
 
 // --=|| GLOBAL TEST CONFIG ||=--
@@ -57,7 +57,7 @@ var linkFlags = {
     InFooter: (p_link) => { Check_HasAncestor(p_link, "footer .page__footer #ash-footer-wrapper"); }, // can find "./ancestor::footer | ./ancestor::div[@class='page__footer' or @id='ash-footer-wrapper']"
     InNav: (p_link) => { Check_HasAncestor(p_link, "nav"); }, // can find "./ancestor::nav"
     InList: (p_link) => { Check_HasAncestor(p_link, "ol ul") }, // can find "./ancestor::ol | .ancestor::ul"
-    IsButton:  (p_link) => { return false }, // link has class ".btn" or ".button"
+    IsButton:  (p_link) => { Check_HasAttribute(p_link, "class", "btn") }, // link has class ".btn" or ".button"
     IsUnderlinedCSS: (p_link) => {return false}, // css value "text-decoration" includes "underline"
     IsUnderlinedTag: (p_link) => {return false}, // has ancestor or child <u> tag
     IsBoldedTag: (p_link) => {return false}, // has ancestor or child <b> tag
