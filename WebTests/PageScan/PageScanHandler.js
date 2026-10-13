@@ -11,27 +11,22 @@ class Report {
 }
 
 include("{ds}/../../ReusableFunctions/PageNavigation.js");
-
+// region --=|| Included Page Navigation Functions ||=--
 /** @ -- Uses JQuery to check if an element can be interacted with -- @param p_jqElementStr {string} JQuery string to find element @returns {boolean} True/False if the element can be interacted with */
 var PageNav_CheckIsInteractable = (p_jqElementStr) => CheckIsInteractable(p_jqElementStr);
-
 /** @ -- Uses JQuery to wait and see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
 var PageNav_WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS);
-
 /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
 var PageNav_NavigateToPage = (p_url) => NavigateToPage(p_url);
-
 /** @ -- Gets the URL of the current page -- @returns String formatted as URL */
 var PageNav_GetCurrentURL = () => GetCurrentURL();
-
 /** @ -- Gets which site the URL goes to -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {SITE_ID} SITE_ID ( HPF, HBE, WA_PATH, EXTERNAL ) */
 var PageNav_GetSite = (p_url = PageNav_GetCurrentURL()) => GetSite(p_url);
-
 /** @ -- Gets which environment the URL goes to. -- @param {string} p_url String formatted as valid URL (default value gets URL of the current page) @returns {ENV_ID} ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) */
 var PageNav_GetEnv = (p_url = PageNav_GetCurrentURL()) => GetEnv(p_url);
-
 /** @ -- Changes the input URL to the given Environment -- @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
 var PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
+// endregion
 
 function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
