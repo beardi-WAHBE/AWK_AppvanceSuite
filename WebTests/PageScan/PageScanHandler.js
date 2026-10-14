@@ -236,6 +236,14 @@ function UnitTest_GetLinks(p_url) {
         text: ${link.text}\n
         href: ${_eval("link.attr('href')")}\n`);
     }
+
+    var logStr = _eval(`
+    var logStr = '';
+    ds$('div#main-content').find('a').each(() => {
+        logStr += $(this).text() + '\n';
+    });
+    logStr;`);
+    _log(logStr);
 }
 
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
