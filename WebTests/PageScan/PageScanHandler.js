@@ -228,7 +228,7 @@ function UnitTest_LinkFlags(p_url, p_link) {
 function UnitTest_GetLinks(p_url) {
     PageNav_NavigateToPage(p_url);
 
-    var links = _eval("ds$('div#main-content').find('a');");
+    var links = _eval("$('div#main-content').find('a');");
 
     for(var link of links) {
         jqString = link.name.replace(';', '');
