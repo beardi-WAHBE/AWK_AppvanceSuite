@@ -10,7 +10,7 @@ class Report {
     GenerateFailureLog = (p_failCategory, p_failDesc, p_endTest = false) => Report_GenerateFailureLog(p_failCategory, p_failDesc, p_endTest);
 }
 
-include("{ds}/../../ReusableFunctions/PageNavigation.js");
+include("{ds}/../../CustomScripts/ReusableFunctions/PageNavigation.js");
 // region --=|| Included Page Navigation Functions ||=--
 /** @ -- Uses JQuery to check if an element can be interacted with -- @param p_jqElementStr {string} JQuery string to find element @returns {boolean} True/False if the element can be interacted with */
 var PageNav_CheckIsInteractable = (p_jqElementStr) => CheckIsInteractable(p_jqElementStr);
