@@ -118,8 +118,12 @@ var config_PageScan = {
 
 // --=|| LINK FUNCTIONS ||=--
 
+function Link_GetHref(p_link) {
+    return _eval(`${p_link}.attr("href")`);
+}
+
 function Link_GetLinkType(p_link) {
-    var href = (linkFlags.HasHREF(p_link)) ? _eval(`${p_link}.attr("href")`) : "NO HREF FOUND";
+    var href = (linkFlags.HasHREF(p_link)) ? Link_GetHref(p_link) : "NO HREF FOUND";
 
     if (href.contains("mailto:")) return LINK_TYPE.MAILTO;
     else if (href.contains("tel:")) return LINK_TYPE.PHONE;
@@ -180,16 +184,34 @@ function Link_CheckCSSRules(p_link) {
     }
 }
 
+function Link_TestHTTP(p_link) {
+    var responseHead = head(Link_GetHref(p_link));
+    _log(responseHead.status);
+}
+
 class Link {
     constructor(p_jqString) {
         this.jqString = p_jqString;
     }
 
-    TestLink_HTTP() {
-        //var failMessage = "";
+    toString() {
+        var logStr = `\n -- LINK: ${p_jqString} -- \n\n`
+        for (flag in Object.keys(linkFlags)) {
+            logStr += `${flag}: ${linkFlags[flag]}\n`;
+        }
 
-        //Report.GenerateFailureLog("", "");
-
-        
+        return logStr;
     }
 }
+
+function ScanPage(p_url) {
+    PageNav_NavigateToPage(p_url);
+}
+
+function UnitTest_LinkFlags(p_url, p_link) {
+    PageNav_NavigateToPage(p_url);
+    var testLink = new Link(p_link);
+    _log(testLink);
+}
+
+UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
