@@ -196,7 +196,7 @@ class Link {
 
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`
-        for (flag in Object.keys(linkFlags)) {
+        for (const flag in Object.keys(linkFlags)) {
             logStr += `${flag}: ${linkFlags[flag](this.jqString)}\n`;
         }
 
