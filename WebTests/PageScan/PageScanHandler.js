@@ -232,11 +232,9 @@ function UnitTest_GetLinks(p_url) {
 
     for(var link of links) {
         jqString = link.name.replace(';', '');
-        var text = _eval(`$(${link.name.replace(';', '')}).text();`);
-
-        _log(`\n -- LINK --- \n
-        object: ${Object.keys(link)}\n
-        text: ${text}\n`);
+        var text = _eval(`$(${jqString}).text().trim();`);
+        var linkObj = new Link(`$(${jqString})`);
+        _log(linkObj.toString());
     }
 
 }
