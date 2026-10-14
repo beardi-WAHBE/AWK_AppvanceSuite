@@ -232,7 +232,7 @@ function UnitTest_GetLinks(p_url) {
 
     for(var link of links) {
         _log(`\n -- LINK --- \n
-        object: ${link}\n
+        object: ${Object.keys(link)}\n
         text: ${link.text}\n
         href: ${link.href}\n`);
     }
