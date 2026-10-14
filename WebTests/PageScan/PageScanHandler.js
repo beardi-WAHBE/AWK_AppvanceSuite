@@ -230,10 +230,10 @@ function UnitTest_GetLinks(p_url) {
 
 
 
-    var logStr = _eval(`var logStr = ''` 
+    var logStr = _eval(`var logStr = ''; ` 
     + `$('div#main-content').find('a').each(() => {`
-    + `    logStr += $(this).text() + '\n';`
-    + `});`
+    + `    logStr += $(this).text() + '\n'; `
+    + `}); `
     + `logStr;`);
     _log(logStr);
 }
