@@ -233,8 +233,8 @@ function UnitTest_GetLinks(p_url) {
     for(var link of links) {
         _log(`\n -- LINK --- \n
         object: ${Object.keys(link)}\n
-        id: ${link.id}\n
-        name: ${link.name}\n
+        text: ${link.name.text()}\n
+        href: ${link.name.attr('href')}\n
         value: ${link.value}\n`);
     }
 
