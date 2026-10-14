@@ -119,7 +119,7 @@ var config_PageScan = {
 // --=|| LINK FUNCTIONS ||=--
 
 function Link_GetLinkType(p_link) {
-    var href = (linkFlags.HasHREF(p_link)) ? "get href" : "NO HREF FOUND";
+    var href = (linkFlags.HasHREF(p_link)) ? _eval(`${p_link}.attr("href")`) : "NO HREF FOUND";
 
     if (href.contains("mailto:")) return LINK_TYPE.MAILTO;
     else if (href.contains("tel:")) return LINK_TYPE.PHONE;
@@ -172,6 +172,12 @@ function Link_CheckCSSRules(p_link) {
         || linkType == LINK_TYPE.DOWNLOAD_FILE
         || (linkType == LINK_TYPE.APP && PageNav_GetSite() != SITE_ID.HPF)
     );
+    if (flag_shouldHaveIcon && !linkFlags.HasNewTabIcon(p_link)) {
+        // Failed - Link that should have a new tab icon did not
+    }
+    else if (!flag_shouldHaveIcon && linkFlags.HasNewTabIcon(p_link)) {
+        // Failed - Link that should not have a new tab icon has one
+    }
 }
 
 class Link {
@@ -180,9 +186,9 @@ class Link {
     }
 
     TestLink_HTTP() {
-        var failMessage = "";
+        //var failMessage = "";
 
-        Report.GenerateFailureLog("", "");
+        //Report.GenerateFailureLog("", "");
 
         
     }
