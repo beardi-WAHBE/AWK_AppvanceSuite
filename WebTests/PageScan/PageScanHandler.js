@@ -231,7 +231,7 @@ function UnitTest_GetLinks(p_url) {
 
 
     var logStr = _eval(`var logStr = ''` 
-    + `ds$('div#main-content').find('a').each(() => {`
+    + `$('div#main-content').find('a').each(() => {`
     + `    logStr += $(this).text() + '\n';`
     + `});`
     + `logStr;`);
