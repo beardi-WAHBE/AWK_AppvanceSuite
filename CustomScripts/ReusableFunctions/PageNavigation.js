@@ -45,7 +45,7 @@ function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
 function NavigateToPage(p_url) {
         _log(`Navigate to ${p_url}`);
 		_eval(`window.location.href = '${p_url}'`);
-		return PageNav_WaitForElement("ds$('body')");
+		return WaitForElement("ds$('body')");
 }
 
 /** @ -- Gets the URL of the current page -- @returns String formatted as URL */
