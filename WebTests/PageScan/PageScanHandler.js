@@ -48,7 +48,7 @@ function Check_HasAttribute(p_jqString, p_attName) {
 
 /** @ -- Use JQuery to check if a given element has a given attribute with a given value -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @param {string} p_attValue Value of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute and that attriblute has the given value */
 function Check_HasAttributeValue(p_jqString, p_attName, p_attValue) {
-    return _eval(`${p_jqString}.is([${p_attName}*='${p_attValue}'])`);
+    return _eval(`${p_jqString}.is("[${p_attName}*='${p_attValue}']")`);
 }
 
 function Check_HasText(p_jqString) {
