@@ -218,4 +218,5 @@ function UnitTest_LinkFlags(p_url, p_link) {
     _log(testLink.toString());
 }
 
-UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
+//UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
+UnitTest_LinkFlags("https://qa.wahpf.org/us/en/health-coverage/who-can-sign-up/tribal-members.html", "Seattle Indian Health Board");
