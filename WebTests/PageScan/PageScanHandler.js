@@ -62,7 +62,7 @@ function Check_HasText(p_jqString) {
 /** @ -- Use JQuery to check if a link has a New Tab Icon -- @param {string} p_jqString jQuery string it identify the link @returns {boolean} True/False if the link has a new tab icon  */
 function Check_HasNewTabIcon(p_jqString) {
     var hasAfterElement = false;
-    var hasSpan = Check_HasChild(p_jqString, "span.external--icon span.cmp-button__icon");
+    var hasSpan = Check_HasChild(p_jqString, "span.external--icon, span.cmp-button__icon");
     var hasImg = Check_HasChild(p_jqString, "img.cmp-image__image");
 
     _log(`Has Icon = ${hasAfterElement} || ${hasSpan} || ${hasImg}`);
@@ -82,7 +82,7 @@ const viewableFileTypes = [".jpeg", ".jpg", ".png", ".gif", ".svg", ".pdf", ".mp
 
 var linkFlags = {
     InHeader: (p_link) => { return Check_HasAncestor(p_link, "header"); }, 
-    InFooter: (p_link) => { return Check_HasAncestor(p_link, "footer .page__footer #ash-footer-wrapper"); }, 
+    InFooter: (p_link) => { return Check_HasAncestor(p_link, "footer, .page__footer, #ash-footer-wrapper"); }, 
     InNav: (p_link) => { return Check_HasAncestor(p_link, "nav"); }, 
     InList: (p_link) => { return Check_HasAncestor(p_link, "ol ul"); }, 
     IsButton:  (p_link) => { return Check_HasAttributeValue(p_link, "class", "btn"); }, 
