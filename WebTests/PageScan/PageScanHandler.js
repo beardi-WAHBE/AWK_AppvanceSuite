@@ -65,6 +65,8 @@ function Check_HasNewTabIcon(p_jqString) {
     var hasSpan = Check_HasChild(p_jqString, "span.external--icon span.cmp-button__icon");
     var hasImg = Check_HasChild(p_jqString, "img.cmp-image__image");
 
+    _log(`Has Icon = ${hasAfterElement} || ${hasSpan} || ${hasImg}`);
+
     return Boolean(hasAfterElement || hasSpan || hasImg);
 }
 
