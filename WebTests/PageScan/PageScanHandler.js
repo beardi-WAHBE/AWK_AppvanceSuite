@@ -234,7 +234,7 @@ function UnitTest_GetLinks(p_url) {
         _log(`\n -- LINK --- \n
         object: ${link}\n
         text: ${link.text}\n
-        href: ${link.attr('href')}\n`);
+        href: ${_eval("link.attr('href')")}\n`);
     }
 }
 
