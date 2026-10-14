@@ -228,14 +228,15 @@ function UnitTest_LinkFlags(p_url, p_link) {
 function UnitTest_GetLinks(p_url) {
     PageNav_NavigateToPage(p_url);
 
+    var links = _eval("ds$('div#main-content').find('a');");
 
+    for(var link of links) {
+        _log(`\n -- LINK --- \n
+        object: ${link}\n
+        text: ${link.text}\n
+        href: ${link.href}\n`);
+    }
 
-    var logStr = _eval(`var logStr = ''; ` 
-    + `$('div#main-content').find('a').each(() => {`
-    + `    logStr += $(this).text() + '\n'; `
-    + `}); `
-    + `logStr;`);
-    _log(logStr);
 }
 
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
