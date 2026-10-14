@@ -231,9 +231,9 @@ function UnitTest_GetLinks(p_url) {
     var links = _eval("ds$('div#main-content').find('a');");
 
     for(var link of links) {
-        jqString = _eval(`${link.name.replace(';', '')}`);
+        jqString = link.name.replace(';', '');
         var text = _eval(`${jqString}.text()`);
-        
+
         _log(`\n -- LINK --- \n
         object: ${Object.keys(link)}\n
         text: ${text}\n`);
