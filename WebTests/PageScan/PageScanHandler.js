@@ -231,7 +231,9 @@ function UnitTest_GetLinks(p_url) {
     var links = _eval("ds$('div#main-content').find('a');");
 
     for(var link of links) {
-        _log(link);
+        _log(`\n -- LINK --- \n
+        text: ${link.text}\n
+        href: ${link.href}\n`);
     }
 }
 
