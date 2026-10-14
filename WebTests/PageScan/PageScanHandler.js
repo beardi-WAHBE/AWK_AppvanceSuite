@@ -231,11 +231,11 @@ function UnitTest_GetLinks(p_url) {
     var links = _eval("ds$('div#main-content').find('a');");
 
     for(var link of links) {
+        _eval(`var linkProps = '';`);
+        var text = _eval(`ds(${link.name}).text()`)
         _log(`\n -- LINK --- \n
         object: ${Object.keys(link)}\n
-        text: ${link.name.text()}\n
-        href: ${link.name.attr('href')}\n
-        value: ${link.value}\n`);
+        text: ${text}\n`);
     }
 
 }
