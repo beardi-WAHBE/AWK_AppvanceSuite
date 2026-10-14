@@ -61,7 +61,7 @@ function Check_HasText(p_jqString) {
 
 /** @ -- Use JQuery to check if a link has a New Tab Icon -- @param {string} p_jqString jQuery string it identify the link @returns {boolean} True/False if the link has a new tab icon  */
 function Check_HasNewTabIcon(p_jqString) {
-    //var hasAfterElement = _eval(``);
+    var hasAfterElement = false;
     var hasSpan = Check_HasChild(p_jqString, "span.external--icon span.cmp-button__icon");
     var hasImg = Check_HasChild(p_jqString, "img.cmp-image__image");
 
