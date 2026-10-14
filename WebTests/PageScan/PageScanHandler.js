@@ -225,5 +225,17 @@ function UnitTest_LinkFlags(p_url, p_link) {
     _log(testLink.toString());
 }
 
+function UnitTest_GetLinks(p_url) {
+    PageNav_NavigateToPage(p_url);
+
+    var links = _eval("ds$('div#main-content').find('a');");
+
+    for(var link of links) {
+        _log(link);
+    }
+}
+
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
-UnitTest_LinkFlags("https://qa.wahpf.org/us/en/health-coverage/who-can-sign-up/tribal-members.html", "ds$(\"a:contains('Glossary')\")");
+//UnitTest_LinkFlags("https://qa.wahpf.org/us/en/health-coverage/who-can-sign-up/tribal-members.html", "ds$(\"a:contains('Glossary')\")");
+
+UnitTest_GetLinks("https://qa.wahpf.org/us/en/home-page.html");
