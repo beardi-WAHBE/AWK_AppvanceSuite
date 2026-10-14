@@ -42,6 +42,7 @@ function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
 /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
 // include() alias: /** @ -- Uses JQuery to navigate to the specified URL -- @param {string} p_url String formatted as URL @returns {boolean} True/False if the body of the page loaded */
 function NavigateToPage(p_url) {
+        _log(`Navigate to ${p_url}`);
 		_eval(`window.location.href = '${p_url}'`);
 		return PageNav_WaitForElement("ds$('body')");
 }
