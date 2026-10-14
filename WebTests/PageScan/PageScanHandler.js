@@ -34,11 +34,11 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
 
 /** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
 function Check_HasAncestor(p_jqString, p_ancestorLocator) {
-    return _eval(`(${p_jqString}.parents(${p_ancestorLocator}).length > 0)`);
+    return _eval(`(${p_jqString}.parents("${p_ancestorLocator}").length > 0)`);
 }
 
 function Check_HasChild(p_jqString, p_ancestorLocator) {
-    return _eval(`(${p_jqString}.find(${p_ancestorLocator}).length > 0)`);
+    return _eval(`(${p_jqString}.find("${p_ancestorLocator}").length > 0)`);
 }
 
 /** @ -- Use JQuery to check if a given element has a given attribute -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_attName Name of the attribute being checked for @returns {boolean} True/False if the given element has the specified attribute */
