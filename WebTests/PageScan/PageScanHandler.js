@@ -3,7 +3,7 @@
  * This script requires AIQ Web Designer
 */
 
-include("{ds}/../../ReusableFunctions/ReportResults.js");
+include("{ds}/../../CustomScripts/ReusableFunctions/ReportResults.js");
 /** Aliases for ReportResults.js functions */
 class Report {
     /** @ -- Generate a log string for a failed test -- @param {string} p_failCategory A few words broadly describing the kind of failure that occured @param {string} p_failDesc A detailed description of why the test failed @param {boolean} p_endTest Flag whether or not the failure prevents the test from continuing (false by default) @returns {string} Formatted string that will appear in the test log */
