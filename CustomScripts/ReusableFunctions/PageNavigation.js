@@ -35,6 +35,7 @@ function CheckIsInteractable(p_jqElementStr) {
 /** @ -- Uses JQuery to wait and see if an element loaded within a set amount of time -- @param {string} p_jqElementStr JQuery string to locate element @param p_waitTimeMS {number} Number of miliseconds to wait for the element (default is 5000ms) @returns {boolean} True/False if element was found within the timeframe */
 // include() alias: const PageNav_WaitForElement = (p_jqElementStr, p_waitTimeMS = 5000) => PageNav_WaitForElement(p_jqElementStr, p_waitTimeMS);
 function WaitForElement(p_jqElementStr, p_waitTimeMS = 5000) {
+    _log(`Waiting for "${p_jqElementStr}"`);
 	wait(p_waitTimeMS, () => CheckIsInteractable(p_jqElementStr));
 	return elementFound = CheckIsInteractable(p_jqElementStr);
 }
