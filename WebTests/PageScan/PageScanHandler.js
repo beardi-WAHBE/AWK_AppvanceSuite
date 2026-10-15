@@ -197,6 +197,33 @@ function Link_TestHTTP(p_link) {
 }
 
 class Link {
+    static GenerateJQString(p_linkName) {
+            var linkHref = _eval(`${p_linkName}.attr('href')`);
+            var linkClass = _eval(`${p_linkName}.attr('class')`);
+            var linkID = _eval(`${p_linkName}.attr('id')`);
+            var linkText = _eval(`${p_linkName}.text().trim()`);
+
+            var linkSelector = "";
+            linkSelector += (linkID) ? `#${linkID}` : "";
+            linkSelector += (linkClass) ? `.${linkClass}` : "";
+            linkSelector += (linkHref) ? `[href*='${linkHref}']` : "";
+            var quoteMark = (linkText.contains('"')) ? "'" : '"';
+            linkSelector += (linkText) ? `:contains(${quoteMark}${linkText}${quoteMark})` : "";
+
+            return `ds$(\`a${linkSelector}\`)`;
+    }
+    static GetAllLinksInContainer(p_container) {
+        var foundLinks = _eval(`${p_container}.find('a');`);
+        var links = [];
+        for (var link of foundLinks) {
+            var linkName = `$(${link.name.replace(';', '')})`;
+            var linkJQString = Link.GenerateJQString(linkName);
+            links.push(new Link(linkJQString));
+        }
+
+        return links;
+    }
+
     constructor(p_jqString) {
         this.jqString = p_jqString;
         this.flags = {
@@ -219,9 +246,9 @@ class Link {
 
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`
-        for (const flag of Object.keys(linkFlags)) {
+        for (const flag of Object.keys(this.flags)) {
             _log(flag);
-            logStr += `${flag}: ${linkFlags[flag](this.jqString)}\n`;
+            logStr += `${flag}: ${this.flags[flag]}\n`;
         }
 
         return logStr;
@@ -244,13 +271,10 @@ function UnitTest_LinkFlags(p_url, p_link) {
 function UnitTest_GetLinks(p_url) {
     PageNav_NavigateToPage(p_url);
 
-    var links = _eval("ds$('div#main-content').find('a');");
+    var links = Link.GetAllLinksInContainer("ds$('div#main-content')");
 
-    for(var link of links) {
-        jqString = link.name.replace(';', '');
-        var text = _eval(`$(${jqString}).text().trim();`);
-        var linkObj = new Link(`$(${jqString})`);
-        _log(linkObj.toString());
+    for (var link of links) {
+        _log(link.toString());
     }
 
 }
