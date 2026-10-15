@@ -226,22 +226,22 @@ class Link {
 
     constructor(p_jqString) {
         this.jqString = p_jqString;
-        this.text = _eval(`${p_jqString}.text().trim()`);
+        this.text = _eval(`${this.jqString}.text().trim()`);
         this.flags = {
-            InHeader: Check_HasAncestor(p_jqString, "header"), 
-            InFooter: Check_HasAncestor(p_jqString, "footer, .page__footer, #ash-footer-wrapper"), 
-            InNav: Check_HasAncestor(p_jqString, "nav"), 
-            InList: Check_HasAncestor(p_jqString, "ol, ul"), 
-            IsButton:  Check_HasAttributeValue(p_jqString, "class", "btn"), 
-            IsUnderlinedCSS: Check_CSSValue(p_jqString, "text-decoration", "underline"), 
-            IsUnderlinedTag: (Check_HasAncestor(p_jqString, "u") || Check_HasChild(p_jqString, "u")), 
-            IsBoldedTag: (Check_HasAncestor(p_jqString, "b") || Check_HasChild(p_jqString, "b")), 
-            OpensNewTab: Check_HasAttributeValue(p_jqString, "target", "_blank"), 
-            HasHREF: Check_HasAttribute(p_jqString, "href"), 
-            HasNewTabIcon: Check_HasNewTabIcon(p_jqString), 
-            ContainsImage: Check_HasChild(p_jqString, "img"), 
-            ContainsText: Check_HasText(p_jqString), 
-            IsSamePageNav: Check_HasAttributeValue(p_jqString, "href", "#"), 
+            InHeader: Check_HasAncestor(this.jqString, "header"), 
+            InFooter: Check_HasAncestor(this.jqString, "footer, .page__footer, #ash-footer-wrapper"), 
+            InNav: Check_HasAncestor(this.jqString, "nav"), 
+            InList: Check_HasAncestor(this.jqString, "ol, ul"), 
+            IsButton:  Check_HasAttributeValue(this.jqString, "class", "btn"), 
+            IsUnderlinedCSS: Check_CSSValue(this.jqString, "text-decoration", "underline"), 
+            IsUnderlinedTag: (Check_HasAncestor(this.jqString, "u") || Check_HasChild(this.jqString, "u")), 
+            IsBoldedTag: (Check_HasAncestor(this.jqString, "b") || Check_HasChild(this.jqString, "b")), 
+            OpensNewTab: Check_HasAttributeValue(this.jqString, "target", "_blank"), 
+            HasHREF: Check_HasAttribute(this.jqString, "href"), 
+            HasNewTabIcon: Check_HasNewTabIcon(this.jqString), 
+            ContainsImage: Check_HasChild(this.jqString, "img"), 
+            ContainsText: Check_HasText(this.jqString), 
+            IsSamePageNav: Check_HasAttributeValue(this.jqString, "href", "#"), 
         }
     }
 
