@@ -275,9 +275,12 @@ function UnitTest_GetLinks(p_url) {
 
     var links = Link.GetAllLinksInContainer("ds$('div#main-content')");
 
+    var logStr = "\n";
     for (var link of links) {
-        _log(link.toString());
+        logStr += link.toString();
     }
+
+    _log(logStr);
 
 }
 
