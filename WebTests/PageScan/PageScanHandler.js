@@ -199,7 +199,7 @@ function Link_TestHTTP(p_link) {
 class Link {
     static GenerateJQString(p_linkName) {
             var linkHref = _eval(`${p_linkName}.attr('href')`);
-            var linkClass = _eval(`${p_linkName}.attr('class')`);
+            var linkClass = _eval(`${p_linkName}.attr('class')`).replace(" ", ".");
             var linkID = _eval(`${p_linkName}.attr('id')`);
             var linkText = _eval(`${p_linkName}.text().trim()`);
 
