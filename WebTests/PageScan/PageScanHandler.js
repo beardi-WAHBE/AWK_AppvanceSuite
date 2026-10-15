@@ -226,6 +226,7 @@ class Link {
 
     constructor(p_jqString) {
         this.jqString = p_jqString;
+        this.text = _eval(`${p_jqString}.text().trim()`);
         this.flags = {
             InHeader: Check_HasAncestor(p_jqString, "header"), 
             InFooter: Check_HasAncestor(p_jqString, "footer, .page__footer, #ash-footer-wrapper"), 
@@ -245,7 +246,8 @@ class Link {
     }
 
     toString() {
-        var logStr = `\n -- LINK: ${this.jqString} -- \n\n`
+        var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
+        logStr += `Text: ${this.text}\n`
         for (const flag of Object.keys(this.flags)) {
             _log(flag);
             logStr += `${flag}: ${this.flags[flag]}\n`;
