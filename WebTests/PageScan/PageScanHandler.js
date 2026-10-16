@@ -348,6 +348,8 @@ class Link {
 
         var request = createHead(this.href);
         _log(Object.keys(request));
+
+        var response = process(request);
         //this.httpRes = process(request).status;
 
         return failStr;
@@ -358,7 +360,7 @@ class Link {
         logStr += `Type: ${Link.TypeToString(this.type)}\n`;
         logStr += `Text: ${this.text}\n`;
         for (const flag of Object.keys(this.flags)) {
-            _log(flag);
+            //_log(flag);
             logStr += `${flag}: ${this.flags[flag]}\n`;
         }
         logStr += `HTTP Res: ${this.httpRes}\n`;
