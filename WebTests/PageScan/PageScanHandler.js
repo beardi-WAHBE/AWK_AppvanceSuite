@@ -308,7 +308,7 @@ class Link {
     }
 
     toString() {
-        var logStr = `\n |-- LINK: ${this.jqString} -- \n | \n`;
+        var logStr = `\n | -- LINK: ${this.jqString} -- \n | \n`;
         logStr += ` | Type: ${Link.TypeToString(this.type)}\n`;
         logStr += ` | Text: ${this.text}\n`;
         logStr += ` | Href: ${this.href}\n | \n`;
