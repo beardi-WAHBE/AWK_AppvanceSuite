@@ -252,7 +252,7 @@ class Link {
         else if (downloadableFileTypes.some((p_fileType) => p_href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
         else if (p_href.contains("youtube.com") && p_text == "") return LINK_TYPE.EMB_VIDEO;
         else if (p_href.contains("HBEWeb/")) return LINK_TYPE.APP;
-        else if (PageNav_GetSite(p_href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
+        else if (PageNav_GetSite(p_href) == PageNav_GetSite() || p_href.contains("/content/wahpf/")) return LINK_TYPE.INTERNAL;
         else return LINK_TYPE.EXTERNAL;
     }
     static TypeToString(p_typeVal) {
