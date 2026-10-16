@@ -286,7 +286,7 @@ class Link {
         }
     }
 
-    Link_CheckCSSRules(p_link) {
+    Test_CSSRules() {
         var failCategory = "STYLING ISSUE";
         var failStr = "";
 
