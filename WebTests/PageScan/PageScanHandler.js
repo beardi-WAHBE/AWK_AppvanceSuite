@@ -223,10 +223,24 @@ class Link {
 
         return links;
     }
+    static GetLinkType(p_link) {
+        var href = (Check_HasAttribute(p_link, "href")) ? _eval(`${p_link}.attr('href')`) : "NO HREF FOUND";
+
+        if (href.contains("mailto:")) return LINK_TYPE.MAILTO;
+        else if (href.contains("tel:")) return LINK_TYPE.PHONE;
+        else if (viewableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.VIEW_FILE;
+        else if (downloadableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
+        else if (href.contains("youtube.com") && !linkFlags.ContainsText(p_link)) return LINK_TYPE.EMB_VIDEO;
+        else if (href.contains("HBEWeb/")) return LINK_TYPE.APP;
+        else if (PageNav_GetSite(href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
+        else return LINK_TYPE.EXTERNAL;
+    }
 
     constructor(p_jqString) {
         this.jqString = p_jqString;
-        this.text = _eval(`${this.jqString}.text().trim()`);
+        this.text = (Check_HasText(this.jqString)) ? _eval(`${this.jqString}.text().trim()`) : "NO TEXT FOUND";
+        this.href = (Check_HasAttribute(this.jqString, "href")) ? _eval(`${this.jqString}.attr('href')`) : "NO HREF FOUND";
+        this.type = Link.GetLinkType(p_jqString);
         this.flags = {
             InHeader: Check_HasAncestor(this.jqString, "header"), 
             InFooter: Check_HasAncestor(this.jqString, "footer, .page__footer, #ash-footer-wrapper"), 
@@ -237,11 +251,11 @@ class Link {
             IsUnderlinedTag: (Check_HasAncestor(this.jqString, "u") || Check_HasChild(this.jqString, "u")), 
             IsBoldedTag: (Check_HasAncestor(this.jqString, "b") || Check_HasChild(this.jqString, "b")), 
             OpensNewTab: Check_HasAttributeValue(this.jqString, "target", "_blank"), 
-            HasHREF: Check_HasAttribute(this.jqString, "href"), 
+            HasHREF: (this.href != "NO HREF FOUND"), 
             HasNewTabIcon: Check_HasNewTabIcon(this.jqString), 
             ContainsImage: Check_HasChild(this.jqString, "img"), 
-            ContainsText: Check_HasText(this.jqString), 
-            IsSamePageNav: Check_HasAttributeValue(this.jqString, "href", "#"), 
+            ContainsText: (this.text != "NO TEXT FOUND"), 
+            IsSamePageNav: (this.href.contains("#")), 
         }
     }
 
