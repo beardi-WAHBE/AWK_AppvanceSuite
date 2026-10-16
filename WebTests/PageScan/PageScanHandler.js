@@ -414,7 +414,7 @@ function UnitTest_HTTPResponse() {
     PageNav_NavigateToPage("https://qa.wahpf.org/us/en/home-page.html");
     var response = get("https://qa.wahpf.org/us/en/home-page.html");
     _log("Got Response");
-    _log(response.html);
+    _log(response.toStringContent);
 }
 
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
