@@ -349,7 +349,7 @@ class Link {
         var request = createHead(this.href);
         _log(Object.keys(request));
 
-        var response = incognito(request);
+        var response = get(this.href);
         //this.httpRes = process(request).status;
 
         return failStr;
