@@ -339,6 +339,15 @@ class Link {
         return failStr;        
     }
 
+    Test_HTTPResponse() {
+        if (!(this.type == LINK_TYPE.EXTERNAL || this.type == LINK_TYPE.INTERNAL || this.type == LINK_TYPE.APP)) {
+            return "";
+        }
+        var failStr = "";
+
+        return failStr;
+    }
+
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
         logStr += `Type: ${Link.TypeToString(this.type)}\n`;
