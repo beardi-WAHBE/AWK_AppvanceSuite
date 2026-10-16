@@ -411,6 +411,7 @@ function UnitTest_GetLinks(p_url) {
 }
 
 function UnitTest_HTTPResponse() {
+    PageNav_NavigateToPage("https://qa.wahpf.org/us/en/home-page.html");
     var response = get("https://qa.wahpf.org/us/en/home-page.html");
     _log("Got Response");
     _log(response.html);
