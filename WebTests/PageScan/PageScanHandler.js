@@ -348,11 +348,11 @@ class Link {
         var failStr = "";
 
         var response = get(this.href);
-        var html = extractHTML(response);
-        var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
+        //var html = extractHTML(response);
+        //var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
 
         this.httpRes = `\n - Status: ${response.status} - ${response.statusText}
-                        \n - Page Heading: ${pageHeading} 
+                        \n - Page Heading: placeholder
                         \n`
 
         /*
