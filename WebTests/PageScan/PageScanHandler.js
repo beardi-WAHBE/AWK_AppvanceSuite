@@ -349,10 +349,10 @@ class Link {
 
         var response = get(this.href);
         //var html = extractHTML(response);
-        //var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
+        var pageHeading = response.html.page.getByXPath("//h1").getTextContent().trim();
 
         this.httpRes = `\n | - Status: ${response.status} - ${response.statusText}
-                        \n | - Page Heading: placeholder
+                        \n | - Page Heading: ${pageHeading}
                         \n`
 
         /*
