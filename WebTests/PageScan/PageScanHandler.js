@@ -32,6 +32,14 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
     return p_checklist.some((listItem) => p_string.includes(listItem));
 }
 
+function Util_ExtractTextFromHTML(p_htmlString, p_tag) {
+    var startIndex = p_htmlString.indexOf(`<${p_tag}>`);
+    if (startIndex == -1) return `No <${p_tag}> on page`;
+    startIndex += p_tag.length;
+    var endIndex = p_htmlString.indexOf(`</${p_tag}>`);
+    return p_htmlString.slice(startIndex, endIndex);
+}
+
 /** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
 function Check_HasAncestor(p_jqString, p_ancestorLocator) {
     return _eval(`(${p_jqString}.parents("${p_ancestorLocator}").length > 0)`);
@@ -124,77 +132,6 @@ var config_PageScan = {
 }
 
 // --=|| LINK FUNCTIONS ||=--
-
-function Link_GetHref(p_link) {
-    return _eval(`${p_link}.attr("href")`);
-}
-
-function Link_GetLinkType(p_link) {
-    var href = (linkFlags.HasHREF(p_link)) ? Link_GetHref(p_link) : "NO HREF FOUND";
-
-    if (href.contains("mailto:")) return LINK_TYPE.MAILTO;
-    else if (href.contains("tel:")) return LINK_TYPE.PHONE;
-    else if (viewableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.VIEW_FILE;
-    else if (downloadableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
-    else if (href.contains("youtube.com") && !linkFlags.ContainsText(p_link)) return LINK_TYPE.EMB_VIDEO;
-    else if (href.contains("HBEWeb/")) return LINK_TYPE.APP;
-    else if (PageNav_GetSite(href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
-    else return LINK_TYPE.EXTERNAL;
-}
-
-function Link_GetAllLinksInCOntainer(p_container) {
-
-}
-
-function Link_CheckCSSRules(p_link) {
-    var failCategory = "STYLING ISSUE";
-
-    // --=|| Underlines ||=--
-    var flag_shouldBeUnderlined = !(
-           linkFlags.InNav(p_link)
-        || linkFlags.InHeader(p_link)
-        || linkFlags.InFooter(p_link)
-        || linkFlags.ContainsImage(p_link)
-        || linkFlags.IsButton(p_link)
-        || linkFlags.InList(p_link)
-        || !linkFlags.ContainsText(p_link)
-    );
-
-    if (flag_shouldBeUnderlined && ! linkFlags.IsUnderlinedCSS(p_link)) {
-        // Failed - link that should be underlined is not underlined with CSS
-    }
-    else if (!flag_shouldBeUnderlined && (linkFlags.IsUnderlinedCSS(p_link) || linkFlags.IsUnderlinedTag(p_link))) {
-        // Failed - link that should not be underlined is underlined
-    }
-    if (linkFlags.IsUnderlinedTag(p_link)) {
-        // Failed - <u> detected
-    }
-
-    // --=|| Bold Text ||=--
-    if (linkFlags.IsBoldedTag(p_link)) {
-        // Failed - <b> detected
-    }
-
-    // --=|| New Tab Icons ||=--
-    var linkType = Link_GetLinkType(p_link);
-    var flag_shouldHaveIcon = (
-           linkType == LINK_TYPE.EXTERNAL
-        || linkType == LINK_TYPE.VIEW_FILE
-        || linkType == LINK_TYPE.DOWNLOAD_FILE
-        || (linkType == LINK_TYPE.APP && PageNav_GetSite() != SITE_ID.HPF)
-    );
-    if (flag_shouldHaveIcon && !linkFlags.HasNewTabIcon(p_link)) {
-        // Failed - Link that should have a new tab icon did not
-    }
-    else if (!flag_shouldHaveIcon && linkFlags.HasNewTabIcon(p_link)) {
-        // Failed - Link that should not have a new tab icon has one
-    }
-}
-
-function Link_TestHTTP(p_link) {
-    var responseHead = head(Link_GetHref(p_link));
-    _log(responseHead.status);
-}
 
 class Link {
     static GenerateJQString(p_linkName) {
@@ -352,7 +289,8 @@ class Link {
         var pageHeading = response.html.page.getByXPath("//h1").getTextContent().trim();
 
         this.httpRes = `\n | - Status: ${response.status} - ${response.statusText}
-                        \n | - Page Heading: ${pageHeading}
+                        \n | - Page Title: ${Util_ExtractTextFromHTML(response.toStringContent, "<title>")}
+                        \n | - Page Heading: ${Util_ExtractTextFromHTML(response.toStringContent, "<h1>")}
                         \n`
 
         /*
@@ -425,6 +363,6 @@ function UnitTest_HTTPResponse() {
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/health-coverage/who-can-sign-up/tribal-members.html", "ds$(\"a:contains('Glossary')\")");
 
-//UnitTest_GetLinks("https://qa.wahpf.org/us/en/home-page.html");
+UnitTest_GetLinks("https://qa.wahpf.org/us/en/home-page.html");
 
-UnitTest_HTTPResponse();
+//UnitTest_HTTPResponse();
