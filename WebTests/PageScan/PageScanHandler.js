@@ -36,7 +36,7 @@ function Util_ExtractTextFromHTML(p_htmlString, p_tag) {
     var startIndex = p_htmlString.indexOf(`<${p_tag}`);
     if (startIndex == -1) return `No <${p_tag}> on page`;
     var endIndex = p_htmlString.indexOf(`</${p_tag}>`);
-    return p_htmlString.slice(startIndex, endIndex).split(">")[1];
+    return p_htmlString.slice(startIndex, endIndex).split(">")[1].trim();
 }
 
 /** @ -- Use JQuery to check if a given element has a given ancestor -- @param {string} p_jqString A JQuery string to fing the element under test formatted as "ds$('[locator]')" @param {string} p_ancestorLocator A locator (#id, .class, tag, etc...) for the ancestor element @returns {boolean} True/False if the given element is a child of the given ancestor */
