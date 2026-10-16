@@ -331,9 +331,7 @@ class Link {
             failStr += `\n FAILED - ${failCategory}: Link had a New Tab Icon even though it is a ${Link.TypeToString(this.type)} link.\n`;
         }
 
-        if (failStr != "") {
-            _log(failStr);
-        }
+        return failStr;
     }
 
     toString() {
