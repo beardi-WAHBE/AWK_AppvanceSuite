@@ -411,9 +411,10 @@ function UnitTest_GetLinks(p_url) {
 }
 
 function UnitTest_HTTPResponse() {
-    PageNav_NavigateToPage("https://qa.wahpf.org/us/en/home-page.html");
-    var response = get("https://qa.wahpf.org/us/en/home-page.html");
+    PageNav_NavigateToPage("https://qa.wahpf.org/us/en/homepage.html");
+    var response = get("https://qa.wahpf.org/us/en/homepage.html");
     _log("Got Response");
+    _log(response.status);
     _log(response.toStringContent());
 }
 
