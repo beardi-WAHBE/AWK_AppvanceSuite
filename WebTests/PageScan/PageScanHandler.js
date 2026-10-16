@@ -189,7 +189,7 @@ class Link {
         else if (downloadableFileTypes.some((p_fileType) => p_href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
         else if (p_href.contains("youtube.com") && p_text == "") return LINK_TYPE.EMB_VIDEO;
         else if (p_href.contains("HBEWeb/")) return LINK_TYPE.APP;
-        else if (PageNav_GetSite(p_href) == PageNav_GetSite() || p_href.contains("/content/wahpf/")) return LINK_TYPE.INTERNAL;
+        else if (PageNav_GetSite(p_href) == PageNav_GetSite() || p_href.startsWith("/content/wa")) return LINK_TYPE.INTERNAL;
         else return LINK_TYPE.EXTERNAL;
     }
     static TypeToString(p_typeVal) {
@@ -291,7 +291,8 @@ class Link {
         var htmlStr = response.toStringContent();
         //var pageHeading = response.html.page.getByXPath("//h1").getTextContent().trim();
 
-        this.httpRes = `\n | - Status: ${response.status} - ${response.statusText}
+        this.httpRes = `\n | - URL: ${url}
+                        \n | - Status: ${response.status} - ${response.statusText}
                         \n | - Page Title: ${Util_ExtractTextFromHTML(htmlStr, "title")}
                         \n | - Page Heading: ${Util_ExtractTextFromHTML(htmlStr, "h1")}
                         \n`
