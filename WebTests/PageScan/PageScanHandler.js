@@ -370,11 +370,13 @@ class Link {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
         logStr += `Type: ${Link.TypeToString(this.type)}\n`;
         logStr += `Text: ${this.text}\n`;
+        logStr += `HTTP Res: ${this.httpRes}\n\n`;
+        logStr += `Flags: \n`
         for (const flag of Object.keys(this.flags)) {
             //_log(flag);
             logStr += `${flag}: ${this.flags[flag]}\n`;
         }
-        logStr += `HTTP Res: ${this.httpRes}\n`;
+        logStr += "\n ------------------------------- \n\n";
 
         return logStr;
     }
