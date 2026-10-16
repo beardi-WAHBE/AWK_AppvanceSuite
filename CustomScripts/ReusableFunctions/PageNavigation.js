@@ -77,6 +77,7 @@ function GetEnv(p_url = PageNav_GetCurrentURL()) {
 // include() alias: const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
 function ChangeURLToTestENV(p_url, p_env) {
     var flag_relative = p_url.startsWith("/content/wa");
+    var currentSite = (flag_relative) ? GetSite() : GetSite(p_url);
     _log(`--CHANGE URL${flag_relative ? " (relative)" : ""}: ${p_url}`);
     if (flag_relative) {
         switch (currentSite) {
@@ -94,7 +95,6 @@ function ChangeURLToTestENV(p_url, p_env) {
         }
     }
 
-    var currentSite = PageNav_GetSite(p_url);
     if (currentSite == SITE_ID.EXTERNAL || PageNav_GetEnv(p_url) == p_env) return p_url;
 
     var targetEnvStr = "www";
