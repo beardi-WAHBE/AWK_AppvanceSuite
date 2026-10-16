@@ -352,7 +352,8 @@ class Link {
         var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
 
         this.httpRes = `\n - Status: ${response.status} - ${response.statusText}
-                        \n - Page Title `
+                        \n - Page Heading: ${pageHeading} 
+                        \n`
 
         /*
         var logStr = "GET RESPONSE: \n";
