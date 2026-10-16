@@ -347,10 +347,11 @@ class Link {
         }
         var failStr = "";
 
-        var request = createHead(this.href);
-        _log(Object.keys(request));
-
         var response = get(this.href);
+        var logStr = "GET RESPONSE: \n";
+        for (var key of Object.keys(response)) {
+            logStr += ` - ${key}\n`;
+        }
         //this.httpRes = process(request).status;
 
         return failStr;
