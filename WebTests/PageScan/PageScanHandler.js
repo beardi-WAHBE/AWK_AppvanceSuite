@@ -286,6 +286,56 @@ class Link {
         }
     }
 
+    Link_CheckCSSRules(p_link) {
+        var failCategory = "STYLING ISSUE";
+        var failStr = "";
+
+        // --=|| Underlines ||=--
+        var flag_shouldBeUnderlined = !(
+            this.flags.InNav
+            || this.flags.InHeader
+            || this.flags.InFooter
+            || this.flags.ContainsImage
+            || this.flags.IsButton
+            || this.flags.InList
+            || !this.flags.ContainsText
+        );
+
+        if (flag_shouldBeUnderlined && !this.flags.IsUnderlinedCSS) {
+            failStr += `\n FAILED - ${failCategory}: Link was not underlined when it should have been.\n`;
+        }
+        else if (!flag_shouldBeUnderlined && (this.flags.IsUnderlinedCSS || this.flags.IsUnderlinedTag)) {
+            failStr += `\n FAILED - ${failCategory}: Link was underlined when it should not have been.\n`;
+        }
+        if (this.flags.IsUnderlinedTag) {
+            failStr += `\n FAILED - ${failCategory}: Link was underlined with a <u> tag instead of CSS.\n`;
+        }
+
+        // --=|| Bold Text ||=--
+        if (this.flags.IsBoldedTag) {
+            failStr += `\n FAILED - ${failCategory}: Link was bolded with a <b> tag instead of CSS.\n`;
+        }
+
+        // --=|| New Tab Icons ||=--
+        failCategory = "NEW TAB ICON ISSUE";
+        var flag_shouldHaveIcon = (
+            this.linkType == LINK_TYPE.EXTERNAL
+            || this.linkType == LINK_TYPE.VIEW_FILE
+            || this.linkType == LINK_TYPE.DOWNLOAD_FILE
+            || (this.linkType == LINK_TYPE.APP && PageNav_GetSite() != SITE_ID.HPF)
+        );
+        if (flag_shouldHaveIcon && !this.flags.HasNewTabIcon) {
+            failStr += `\n FAILED - ${failCategory}: Link did not have a New Tab Icon even though it is a ${Link.TypeToString(this.type)} link.\n`;
+        }
+        else if (!flag_shouldHaveIcon && this.flags.HasNewTabIcon) {
+            failStr += `\n FAILED - ${failCategory}: Link had a New Tab Icon even though it is a ${Link.TypeToString(this.type)} link.\n`;
+        }
+
+        if (failStr != "") {
+            _log(failStr);
+        }
+    }
+
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
         logStr += `Type: ${Link.TypeToString(this.type)}\n`;
