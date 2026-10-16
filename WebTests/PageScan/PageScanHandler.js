@@ -415,7 +415,6 @@ function UnitTest_HTTPResponse() {
     var response = get("https://qa.wahpf.org/us/en/homepage.html");
     _log("Got Response");
     _log(response.status);
-    _log(response.toStringContent());
 
     var resText = response.toStringContent();
     var startIndex = resText.indexOf("<title>") + 7;
