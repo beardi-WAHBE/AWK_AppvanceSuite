@@ -367,16 +367,16 @@ class Link {
     }
 
     toString() {
-        var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
-        logStr += `Type: ${Link.TypeToString(this.type)}\n`;
-        logStr += `Text: ${this.text}\n`;
-        logStr += `HTTP Res: ${this.httpRes}\n\n`;
-        logStr += `Flags: \n`
+        var logStr = `\n |-- LINK: ${this.jqString} -- \n | \n`;
+        logStr += ` | Type: ${Link.TypeToString(this.type)}\n`;
+        logStr += ` | Text: ${this.text}\n`;
+        logStr += ` | HTTP Res: ${this.httpRes}\n | \n`;
+        logStr += ` | Flags: \n`
         for (const flag of Object.keys(this.flags)) {
             //_log(flag);
-            logStr += `${flag}: ${this.flags[flag]}\n`;
+            logStr += ` | - ${flag}: ${this.flags[flag]}\n`;
         }
-        logStr += "\n ------------------------------- \n\n";
+        logStr += "\n ------------------------------- \n";
 
         return logStr;
     }
