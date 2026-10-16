@@ -225,16 +225,17 @@ class Link {
             var quoteMark = (linkText.contains('"')) ? "'" : '"';
 
             var linkData = {
-                id: (linkID) ? `#${linkID}` : "",
-                clss: (linkClass) ? `.${linkClass}` : "",
-                href: (linkHref) ? `[href*='${linkHref}']` : "",
-                text: (linkText) ? `:contains(${quoteMark}${linkText}${quoteMark})` : ""
+                id: (linkID) ? linkID : "",
+                clss: (linkClass) ? linkClass : "",
+                href: (linkHref) ? linkHref : "",
+                text: (linkText) ? linkText : ""
             }
 
             var linkSelector = "";
-            for (var att of Object.values(linkData)) {
-                linkSelector += att;
-            }
+            linkSelector += (linkID) ? `#${linkID}` : "";
+            linkSelector += (linkClass) ? `.${linkClass}` : "",
+            linkSelector += (linkHref) ? `[href*='${linkHref}']` : "",
+            linkSelector += (linkText) ? `:contains(${quoteMark}${linkText}${quoteMark})` : ""
 
             //var linkJQString = Link.GenerateJQString(linkName);
             var linkJQString = `ds$(\`a${linkSelector}\`)`;
