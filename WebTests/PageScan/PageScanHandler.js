@@ -289,8 +289,8 @@ class Link {
         //var pageHeading = response.html.page.getByXPath("//h1").getTextContent().trim();
 
         this.httpRes = `\n | - Status: ${response.status} - ${response.statusText}
-                        \n | - Page Title: ${Util_ExtractTextFromHTML(response.toStringContent, "<title>")}
-                        \n | - Page Heading: ${Util_ExtractTextFromHTML(response.toStringContent, "<h1>")}
+                        \n | - Page Title: ${Util_ExtractTextFromHTML(response.toStringContent(), "<title>")}
+                        \n | - Page Heading: ${Util_ExtractTextFromHTML(response.toStringContent(), "<h1>")}
                         \n`
 
         /*
