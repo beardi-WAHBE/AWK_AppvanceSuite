@@ -410,7 +410,14 @@ function UnitTest_GetLinks(p_url) {
 
 }
 
+function UnitTest_HTTPResponse() {
+    var response = get("https://qa.wahpf.org/us/en/home-page.html");
+    _log(response.html);
+}
+
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/health-coverage/who-can-sign-up/tribal-members.html", "ds$(\"a:contains('Glossary')\")");
 
-UnitTest_GetLinks("https://qa.wahpf.org/us/en/home-page.html");
+//UnitTest_GetLinks("https://qa.wahpf.org/us/en/home-page.html");
+
+UnitTest_HTTPResponse();
