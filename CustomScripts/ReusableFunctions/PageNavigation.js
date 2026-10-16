@@ -76,8 +76,8 @@ function GetEnv(p_url = PageNav_GetCurrentURL()) {
 /** @ -- Changes the input URL to the given Environment @param {string} p_url String formatted as valid URL @param {ENV_ID} p_env ENV_ID ( DEV, UAT, QA, PROD, EXTERNAL ) @returns {string} URL changed to match target environment (External links and links already in the right environemnt return unchanged) */
 // include() alias: const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
 function ChangeURLToTestENV(p_url, p_env) {
-    _log(`--CHANGE URL: ${p_url}`)
     var flag_relative = p_url.startsWith("/content/wa");
+    _log(`--CHANGE URL${flag_relative ? " (relative)" : ""}: ${p_url}`);
     if (flag_relative) {
         switch (currentSite) {
             case SITE_ID.HPF:
