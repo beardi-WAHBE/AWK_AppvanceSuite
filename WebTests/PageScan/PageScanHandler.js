@@ -316,8 +316,13 @@ class Link {
             failStr += `\n FAILED - ${failCategory}: Link was bolded with a <b> tag instead of CSS.\n`;
         }
 
-        // --=|| New Tab Icons ||=--
-        failCategory = "NEW TAB ICON ISSUE";
+        return failStr;
+    }
+
+    Test_NewTabIcon() {
+        var failCategory = "NEW TAB ICON ISSUE";
+        var failStr = "";
+
         var flag_shouldHaveIcon = (
             this.linkType == LINK_TYPE.EXTERNAL
             || this.linkType == LINK_TYPE.VIEW_FILE
@@ -331,7 +336,7 @@ class Link {
             failStr += `\n FAILED - ${failCategory}: Link had a New Tab Icon even though it is a ${Link.TypeToString(this.type)} link.\n`;
         }
 
-        return failStr;
+        return failStr;        
     }
 
     toString() {
