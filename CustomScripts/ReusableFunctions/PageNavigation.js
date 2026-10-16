@@ -77,6 +77,22 @@ function GetEnv(p_url = PageNav_GetCurrentURL()) {
 // include() alias: const PageNav_ChangeURLToTestENV = (p_url, p_env) => ChangeURLToTestENV(p_url, p_env);
 function ChangeURLToTestENV(p_url, p_env) {
     var currentSite = PageNav_GetSite(p_url);
+    var flag_relative = p_url.startsWith("/content/wa");
+    if (flag_relative) {
+        switch (currentSite) {
+            case SITE_ID.HPF:
+                p_url = p_url.replace("/content/wahpf/", "https://qa.wahpf.org/");
+                break;
+            case SITE_ID.HBE:
+                p_url = p_url.replace("/content/wahbe/", "https://uat-corp.wahpf.org/");
+                break;
+            case SITE_ID.WA_PATH:
+                p_url = p_url.replace("/content/wapathways/", "https://uat-corp.wahpf.org/");
+                break;
+            default:
+                break;
+        }
+    }
     if (currentSite == SITE_ID.EXTERNAL || PageNav_GetEnv(p_url) == p_env) return p_url;
 
     var targetEnvStr = "www";
