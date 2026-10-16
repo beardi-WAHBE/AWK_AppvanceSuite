@@ -348,12 +348,19 @@ class Link {
         var failStr = "";
 
         var response = get(this.href);
+        var html = extractHTML(response);
+        var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
+
+        this.httpRes = `\n - Status: ${response.status} - ${response.statusText}
+                        \n - Page Title `
+
+        /*
         var logStr = "GET RESPONSE: \n";
         for (var key of Object.keys(response)) {
             logStr += ` - ${key}\n`;
         }
         _log(logStr);
-        //this.httpRes = process(request).status;
+        */
 
         return failStr;
     }
