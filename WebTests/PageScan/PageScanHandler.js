@@ -268,6 +268,7 @@ class Link {
         this.text = p_linkData.text;
         this.href = p_linkData.href;
         this.type = Link.GetLinkType(this.href, this.text);
+        this.httpRes = "N/A";
         this.flags = {
             InHeader: Check_HasAncestor(this.jqString, "header"), 
             InFooter: Check_HasAncestor(this.jqString, "footer, .page__footer, #ash-footer-wrapper"), 
@@ -345,6 +346,8 @@ class Link {
         }
         var failStr = "";
 
+        this.httpRes = head(this.href).status;
+
         return failStr;
     }
 
@@ -356,6 +359,7 @@ class Link {
             _log(flag);
             logStr += `${flag}: ${this.flags[flag]}\n`;
         }
+        logStr += `HTTP Res: ${this.httpRes}\n`;
 
         return logStr;
     }
@@ -381,6 +385,7 @@ function UnitTest_GetLinks(p_url) {
 
     var logStr = "\n";
     for (var link of links) {
+        link.Test_HTTPResponse();
         logStr += link.toString();
     }
 
