@@ -35,7 +35,7 @@ function Util_ContainsOneOfMany(p_string, p_checklist) {
 function Util_ExtractTextFromHTML(p_htmlString, p_tag) {
     var startIndex = p_htmlString.indexOf(`<${p_tag}>`);
     if (startIndex == -1) return `No <${p_tag}> on page`;
-    startIndex += p_tag.length;
+    startIndex += (p_tag.length + 2);
     var endIndex = p_htmlString.indexOf(`</${p_tag}>`);
     return p_htmlString.slice(startIndex, endIndex);
 }
