@@ -254,6 +254,14 @@ class Link {
         else if (PageNav_GetSite(p_href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
         else return LINK_TYPE.EXTERNAL;
     }
+    static TypeToString(p_typeVal) {
+        for (var typeKey of Object.keys(LINK_TYPE)) {
+            if (LINK_TYPE.hasOwnProperty(typeKey) && LINK_TYPE[typeKey] == p_typeVal) {
+                return typeKey;
+            }
+        }
+        return undefined;
+    }
 
     constructor(p_jqString, p_linkData) {
         this.jqString = p_jqString;
@@ -280,7 +288,7 @@ class Link {
 
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
-        logStr += `Type: ${this.type}\n`;
+        logStr += `Type: ${Link.TypeToString(this.type)}\n`;
         logStr += `Text: ${this.text}\n`;
         for (const flag of Object.keys(this.flags)) {
             _log(flag);
