@@ -416,6 +416,11 @@ function UnitTest_HTTPResponse() {
     _log("Got Response");
     _log(response.status);
     _log(response.toStringContent());
+
+    var resText = response.toStringContent();
+    var startIndex = resText.indexOf("<title>") + 7;
+    var endIndex = resText.indexOf("</title>");
+    _log(resText.slice(startIndex, endIndex))
 }
 
 //UnitTest_LinkFlags("https://qa.wahpf.org/us/en/home-page.html", "ds$('a#button-6ccc1d1238')");
