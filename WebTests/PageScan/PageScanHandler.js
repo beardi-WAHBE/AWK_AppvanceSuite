@@ -217,30 +217,49 @@ class Link {
         var links = [];
         for (var link of foundLinks) {
             var linkName = `$(${link.name.replace(';', '')})`;
-            var linkJQString = Link.GenerateJQString(linkName);
-            links.push(new Link(linkJQString));
+
+            var linkHref = _eval(`${p_linkName}.attr('href')`);
+            var linkClass = _eval(`${p_linkName}.attr('class')`).replaceAll(" ", ".");
+            var linkID = _eval(`${p_linkName}.attr('id')`);
+            var linkText = _eval(`${p_linkName}.text().trim()`);
+            var quoteMark = (linkText.contains('"')) ? "'" : '"';
+
+            var linkData = {
+                id: (linkID) ? `#${linkID}` : "",
+                clss: (linkClass) ? `.${linkClass}` : "",
+                href: (linkHref) ? `[href*='${linkHref}']` : "",
+                text: (linkText) ? `:contains(${quoteMark}${linkText}${quoteMark})` : ""
+            }
+
+            var linkSelector = "";
+            for (var att of Object.values(linkData)) {
+                linkSelector += att;
+            }
+
+            //var linkJQString = Link.GenerateJQString(linkName);
+            var linkJQString = `ds$(\`a${linkSelector}\`)`;
+
+            links.push(new Link(linkJQString, linkData));
         }
 
         return links;
     }
-    static GetLinkType(p_link) {
-        var href = (Check_HasAttribute(p_link, "href")) ? _eval(`${p_link}.attr('href')`) : "NO HREF FOUND";
-
-        if (href.contains("mailto:")) return LINK_TYPE.MAILTO;
-        else if (href.contains("tel:")) return LINK_TYPE.PHONE;
-        else if (viewableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.VIEW_FILE;
-        else if (downloadableFileTypes.some((p_fileType) => href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
-        else if (href.contains("youtube.com") && !linkFlags.ContainsText(p_link)) return LINK_TYPE.EMB_VIDEO;
-        else if (href.contains("HBEWeb/")) return LINK_TYPE.APP;
-        else if (PageNav_GetSite(href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
+    static GetLinkType(p_href, p_text) {
+        if (p_href.contains("mailto:")) return LINK_TYPE.MAILTO;
+        else if (p_href.contains("tel:")) return LINK_TYPE.PHONE;
+        else if (viewableFileTypes.some((p_fileType) => p_href.includes(p_fileType))) return LINK_TYPE.VIEW_FILE;
+        else if (downloadableFileTypes.some((p_fileType) => p_href.includes(p_fileType))) return LINK_TYPE.DOWNLOAD_FILE;
+        else if (p_href.contains("youtube.com") && p_text == "") return LINK_TYPE.EMB_VIDEO;
+        else if (p_href.contains("HBEWeb/")) return LINK_TYPE.APP;
+        else if (PageNav_GetSite(p_href) == PageNav_GetSite()) return LINK_TYPE.INTERNAL;
         else return LINK_TYPE.EXTERNAL;
     }
 
-    constructor(p_jqString) {
+    constructor(p_jqString, p_linkData) {
         this.jqString = p_jqString;
-        this.text = (Check_HasText(this.jqString)) ? _eval(`${this.jqString}.text().trim()`) : "NO TEXT FOUND";
-        this.href = (Check_HasAttribute(this.jqString, "href")) ? _eval(`${this.jqString}.attr('href')`) : "NO HREF FOUND";
-        this.type = Link.GetLinkType(p_jqString);
+        this.text = p_linkData.text;
+        this.href = p_linkData.href;
+        this.type = Link.GetLinkType(this.href, this.text);
         this.flags = {
             InHeader: Check_HasAncestor(this.jqString, "header"), 
             InFooter: Check_HasAncestor(this.jqString, "footer, .page__footer, #ash-footer-wrapper"), 
@@ -251,17 +270,18 @@ class Link {
             IsUnderlinedTag: (Check_HasAncestor(this.jqString, "u") || Check_HasChild(this.jqString, "u")), 
             IsBoldedTag: (Check_HasAncestor(this.jqString, "b") || Check_HasChild(this.jqString, "b")), 
             OpensNewTab: Check_HasAttributeValue(this.jqString, "target", "_blank"), 
-            HasHREF: (this.href != "NO HREF FOUND"), 
+            HasHREF: (this.href != ""), 
             HasNewTabIcon: Check_HasNewTabIcon(this.jqString), 
             ContainsImage: Check_HasChild(this.jqString, "img"), 
-            ContainsText: (this.text != "NO TEXT FOUND"), 
+            ContainsText: (this.text != ""), 
             IsSamePageNav: (this.href.contains("#")), 
         }
     }
 
     toString() {
         var logStr = `\n -- LINK: ${this.jqString} -- \n\n`;
-        logStr += `Text: ${this.text}\n`
+        logStr += `Type: ${this.type}\n`;
+        logStr += `Text: ${this.text}\n`;
         for (const flag of Object.keys(this.flags)) {
             _log(flag);
             logStr += `${flag}: ${this.flags[flag]}\n`;
