@@ -218,10 +218,10 @@ class Link {
         for (var link of foundLinks) {
             var linkName = `$(${link.name.replace(';', '')})`;
 
-            var linkHref = _eval(`${p_linkName}.attr('href')`);
-            var linkClass = _eval(`${p_linkName}.attr('class')`).replaceAll(" ", ".");
-            var linkID = _eval(`${p_linkName}.attr('id')`);
-            var linkText = _eval(`${p_linkName}.text().trim()`);
+            var linkHref = _eval(`${linkName}.attr('href')`);
+            var linkClass = _eval(`${linkName}.attr('class')`).replaceAll(" ", ".");
+            var linkID = _eval(`${linkName}.attr('id')`);
+            var linkText = _eval(`${linkName}.text().trim()`);
             var quoteMark = (linkText.contains('"')) ? "'" : '"';
 
             var linkData = {
