@@ -346,7 +346,8 @@ class Link {
         }
         var failStr = "";
 
-        this.httpRes = head(this.href).status;
+        var request = createHead(this.href);
+        this.httpRes = process(request).status;
 
         return failStr;
     }
