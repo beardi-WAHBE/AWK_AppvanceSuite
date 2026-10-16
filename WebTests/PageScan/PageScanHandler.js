@@ -284,7 +284,10 @@ class Link {
         }
         var failStr = "";
 
-        var response = get(this.href);
+        var currentPage = PageNav_GetCurrentURL();
+        var url = PageNav_ChangeURLToTestENV(this.href, PageNav_GetEnv(currentPage));
+
+        var response = get(url);
         var htmlStr = response.toStringContent();
         //var pageHeading = response.html.page.getByXPath("//h1").getTextContent().trim();
 
