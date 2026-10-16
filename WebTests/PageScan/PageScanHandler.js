@@ -351,8 +351,8 @@ class Link {
         //var html = extractHTML(response);
         //var pageHeading = html.page.getByXPath("//h1").getTextContent().trim();
 
-        this.httpRes = `\n - Status: ${response.status} - ${response.statusText}
-                        \n - Page Heading: placeholder
+        this.httpRes = `\n | - Status: ${response.status} - ${response.statusText}
+                        \n | - Page Heading: placeholder
                         \n`
 
         /*
