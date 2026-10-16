@@ -347,7 +347,8 @@ class Link {
         var failStr = "";
 
         var request = createHead(this.href);
-        this.httpRes = process(request).status;
+        _log(Object.keys(request));
+        //this.httpRes = process(request).status;
 
         return failStr;
     }
