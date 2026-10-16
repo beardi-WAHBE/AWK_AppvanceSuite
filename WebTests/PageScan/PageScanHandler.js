@@ -352,6 +352,7 @@ class Link {
         for (var key of Object.keys(response)) {
             logStr += ` - ${key}\n`;
         }
+        _log(logStr);
         //this.httpRes = process(request).status;
 
         return failStr;
